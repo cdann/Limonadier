@@ -1,0 +1,93 @@
+//
+//  MainViewController.swift
+//  RxSample
+//
+//  Created by celine dann on 27/11/2019.
+//  Copyright (c) 2019 mstv. All rights reserved.
+//
+//
+
+
+import Foundation
+import UIKit
+import RxSwift
+import RxCocoa
+
+protocol MainViewIntents: class {
+	func loadIntent() -> Observable<Void>
+    func display(viewModel: MainViewModel)
+}
+
+class MainViewController: UIViewController {
+
+    var presenter: MainViewPresenter!
+    var spinner: UIView? = nil
+
+     override init(nibName nibNameOrNil: String? = "MainViewController", bundle nibBundleOrNil: Bundle? = nil) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - View LifeCycle
+    deinit {
+        print("Deinit \(self)")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        presenter.attach()
+
+    }
+    
+    func addLoader() {
+        guard let view = self.view else { return }
+        view.backgroundColor = UIColor.orange
+        let indicator = UIActivityIndicatorView(frame: view.bounds)
+        indicator.startAnimating()
+        spinner = indicator
+        
+    }
+    func removeLoader() {
+        spinner?.removeFromSuperview()
+        view.backgroundColor = UIColor.lightGray
+    }
+    
+    private func alert(_ errorMessage: String, subtitle: String? = nil) {
+        let alertCtrl = UIAlertController(title: errorMessage, message: subtitle, preferredStyle: .alert)
+        alertCtrl.addAction(UIAlertAction(title: "ok", style: .default, handler: { (action) in
+            print("ok")
+        }))
+        self.present(alertCtrl, animated: false, completion: nil)
+    }
+    
+}
+
+extension MainViewController: MainViewIntents {
+    
+    // MARK: - RxIntents
+    func loadIntent() -> Observable<Void> {
+        return Observable.just(())
+    }
+
+    // MARK: - Display
+    func display(viewModel: MainViewModel) {
+        switch viewModel {
+        case .loading:
+            addLoader()
+            break
+        case .display:
+            removeLoader()
+            break
+        case let .error(error):
+            removeLoader()
+            alert(error.localizedDescription)
+            break
+        case .success:
+            removeLoader()
+            alert("Success")
+        }
+    }
+}

@@ -24,7 +24,6 @@ class ViewController: UIViewController {
         let useCase = UseCaseFactory.instance.createUseCase(PostPlaylistUrlUseCase.self)
     
         sendButton.rx.tap.bind { [weak self] _ -> () in
-            //Domain.PostPlaylistUrlUseCase()
             guard let `self` = self else { return }
             if let urlStr = self.urlField.text, let url = URL(string: urlStr) {
                 useCase.execute(url).subscribe(onNext: nil, onError: { (error) in

@@ -1,5 +1,5 @@
 //
-//  LandingPresenter.swift
+//  MainViewPresenter.swift
 //  RxSample
 //
 //  Created by Célian MOUTAFIS on 27/11/2019.
@@ -10,23 +10,24 @@
 import Foundation
 import RxSwift
 
-enum LandingModel {
+enum MainViewModel {
     case loading
     case display
     case error(Error)
+    case success
 }
 
-class  LandingPresenter {
+class  MainViewPresenter {
     private let bag = DisposeBag()
     ///Use the scheduler for debouce, Throttle, etc. The scheduler can be set in the constructor to facilitate tests.
    // private let scheduler: SchedulerType
     
-    private let router: LandingRouterInput
-    private weak var viewController: LandingIntents?
-    private var routePublisher = PublishSubject<LandingRoute>()
+    private let router: MainViewRouterInput
+    private weak var viewController: MainViewIntents?
+    private var routePublisher = PublishSubject<MainViewRoute>()
     
-    init(router: LandingRouterInput,
-         viewController: LandingIntents) {
+    init(router: MainViewRouterInput,
+         viewController: MainViewIntents) {
         self.router = router
         self.viewController = viewController
     }
@@ -40,10 +41,10 @@ class  LandingPresenter {
         
         
         let loadIntent = viewController.loadIntent()
-            .map { LandingModel.display }
+            .map { MainViewModel.display }
             .startWith(.loading)
-            .catchError({ (error) -> Observable<LandingModel> in
-                return Observable.just(LandingModel.error(error))
+            .catchError({ (error) -> Observable<MainViewModel> in
+                return Observable.just(MainViewModel.error(error))
             })
             
         Observable.merge([loadIntent]).subscribe(onNext: { [weak self] (model) in
@@ -56,7 +57,7 @@ class  LandingPresenter {
             .disposed(by: bag)
         
         //viewController.closeErrorIntent()
-        //   .map {LandingRoute.error}
+        //   .map {MainViewRoute.error}
         //   .bind(to: routePublisher)
         //   .disposed(by: bag)
     }
