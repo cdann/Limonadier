@@ -15,6 +15,7 @@ import RxCocoa
 
 protocol MainViewIntents: class {
 	func loadIntent() -> Observable<Void>
+    func clickedButton() -> Observable<String?>
     func display(viewModel: MainViewModel)
 }
 
@@ -22,6 +23,8 @@ class MainViewController: UIViewController {
 
     var presenter: MainViewPresenter!
     var spinner: UIView? = nil
+    @IBOutlet weak var urlField: UITextField!
+    @IBOutlet weak var sendButton: UIButton!
 
      override init(nibName nibNameOrNil: String? = "MainViewController", bundle nibBundleOrNil: Bundle? = nil) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -39,7 +42,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.attach()
-
     }
     
     func addLoader() {
@@ -66,10 +68,14 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: MainViewIntents {
+    func clickedButton() -> Observable<String?> {
+        return self.sendButton.rx.tap.asObservable().map({ self.urlField.text })
+    }
     
     // MARK: - RxIntents
     func loadIntent() -> Observable<Void> {
         return Observable.just(())
+        //return self.presenter.loadThings().map({ _ in () })
     }
 
     // MARK: - Display
@@ -81,9 +87,9 @@ extension MainViewController: MainViewIntents {
         case .display:
             removeLoader()
             break
-        case let .error(error):
+        case let .error(title:title, subTitle: subTitle):
             removeLoader()
-            alert(error.localizedDescription)
+            alert(title, subtitle: subTitle)
             break
         case .success:
             removeLoader()

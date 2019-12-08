@@ -9,11 +9,12 @@
 
 import Foundation
 import RxSwift
+import Domain
 
 enum MainViewModel {
     case loading
     case display
-    case error(Error)
+    case error(title:String, subTitle: String?)
     case success
 }
 
@@ -25,6 +26,7 @@ class  MainViewPresenter {
     private let router: MainViewRouterInput
     private weak var viewController: MainViewIntents?
     private var routePublisher = PublishSubject<MainViewRoute>()
+    private let postURLUC = UseCaseFactory.instance.createUseCase(PostPlaylistUrlUseCase.self)
     
     init(router: MainViewRouterInput,
          viewController: MainViewIntents) {
@@ -44,7 +46,7 @@ class  MainViewPresenter {
             .map { MainViewModel.display }
             .startWith(.loading)
             .catchError({ (error) -> Observable<MainViewModel> in
-                return Observable.just(MainViewModel.error(error))
+                return Observable.just(MainViewModel.error(title: error.localizedDescription, subTitle: nil))
             })
             
         Observable.merge([loadIntent]).subscribe(onNext: { [weak self] (model) in
@@ -56,6 +58,22 @@ class  MainViewPresenter {
                 self?.router.go(to: route) })
             .disposed(by: bag)
         
+        viewController.clickedButton().subscribe(onNext: { [weak self] (urlString) in
+            guard let urlStr = urlString, let url = URL(string: urlStr) else {
+                self?.viewController?.display(viewModel: .error(title:"The url you tapped is not valid", subTitle: nil))
+                return
+            }
+            guard let `self` = self else { return }
+            self.postURLUC.execute(url).subscribe(onNext: { (item) in
+                print("next")
+                self.viewController?.display(viewModel: .success)
+            }, onError: { (error) in
+                print("error")
+                self.viewController?.display(viewModel: .error(title:"Url cannot be added to the Playlist", subTitle: error.localizedDescription))
+            }, onCompleted: {
+                print("completed !")
+            }).disposed(by: self.bag)
+        }).disposed(by: self.bag)
         //viewController.closeErrorIntent()
         //   .map {MainViewRoute.error}
         //   .bind(to: routePublisher)

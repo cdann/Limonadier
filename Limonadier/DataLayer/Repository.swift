@@ -45,8 +45,9 @@ public class Repository: Domain.Repository {
     func requestObject<T>(_ request: URLRequestConvertible) -> Observable<T> where T: Decodable {
         
         do {
-            let request = try request.asURLRequest()
-            return sessionManager.request(request).rx.data()
+            let UrlRequest = try request.asURLRequest()
+            let requestRx = sessionManager.request(UrlRequest).rx
+            return requestRx.data()
                 .flatMap { (data) -> Observable<T> in
                     let object = try JSONDecoder().decode(T.self, from: data)
                     return Observable.just(object)

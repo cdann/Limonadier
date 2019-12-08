@@ -18,7 +18,7 @@ enum URLRouter : DataRouterConvertible  {
 
 extension  URLRouter {
     var baseURL : String {
-        return "http://127.0.0.1:5000/"
+        return "http://localhost.charlesproxy.com:5000/"
     }
     
     var method: HTTPMethod {
@@ -33,13 +33,12 @@ extension  URLRouter {
     var path: String {
         switch self {
         case .getItems, .postURL:
-            return "/items/"
+            return "items/"
         }
     }
     
     var headers: HTTPHeaders {
-        let base : [String: String] = ["Accept": "application/json"]
-        
+        let base : [String: String] = ["Accept": "application/json", "Content-Type": "application/json"]
         switch self {
         default:
             break
@@ -56,7 +55,13 @@ extension  URLRouter {
     var params: Data? {
         switch self {
         case let .postURL(url: url):
-            return try? JSONEncoder().encode(PlaylistItemUrl(url: url))
+//            do {
+//                let itemUrl = try JSONEncoder().encode(PlaylistItemUrl(url: url))
+//            } catch (error: Error) {
+//                print(error.localizedDescription)
+//            }
+            let itemUrl = try! JSONEncoder().encode(PlaylistItemUrl(url: url))
+            return itemUrl
         default:
             return nil
         }
