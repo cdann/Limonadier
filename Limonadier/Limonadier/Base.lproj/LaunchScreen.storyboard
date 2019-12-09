@@ -1,19 +1,65 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LaradotSerif-Regular.ttf">
+            <string>LaradotSerif-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imr-gZ-8Mu">
+                                <rect key="frame" x="65" y="412" width="284" height="82"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Limonadier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ub7-5e-j72">
+                                        <rect key="frame" x="0.0" y="0.0" width="284" height="82"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="284" id="ySf-Ya-LYv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LaradotSerif-Regular" family="Lara dot Serif" pointSize="70"/>
+                                        <color key="textColor" name="TerraCotta"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="o" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ses-vk-QDY">
+                                        <rect key="frame" x="104" y="0.0" width="28" height="82"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="28" id="Cjv-2b-oto"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LaradotSerif-Regular" family="Lara dot Serif" pointSize="70"/>
+                                        <color key="textColor" name="PaleGold"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="ub7-5e-j72" firstAttribute="top" secondItem="imr-gZ-8Mu" secondAttribute="top" id="OFY-N1-cZT"/>
+                                    <constraint firstItem="ub7-5e-j72" firstAttribute="leading" secondItem="Ses-vk-QDY" secondAttribute="trailing" constant="-132" id="YIn-1v-jxq"/>
+                                    <constraint firstItem="Ses-vk-QDY" firstAttribute="bottom" secondItem="ub7-5e-j72" secondAttribute="bottom" id="an5-ZE-d0p"/>
+                                    <constraint firstAttribute="trailing" secondItem="ub7-5e-j72" secondAttribute="trailing" id="fGt-FE-NRd"/>
+                                    <constraint firstAttribute="bottom" secondItem="ub7-5e-j72" secondAttribute="bottom" id="r2N-z6-Yq4"/>
+                                    <constraint firstItem="ub7-5e-j72" firstAttribute="leading" secondItem="imr-gZ-8Mu" secondAttribute="leading" id="rmR-y1-Y8p"/>
+                                    <constraint firstItem="Ses-vk-QDY" firstAttribute="top" secondItem="ub7-5e-j72" secondAttribute="top" id="xBz-4w-pZW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="imr-gZ-8Mu" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="BDt-5S-yLo"/>
+                            <constraint firstItem="imr-gZ-8Mu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eCf-eh-Z3x"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -22,4 +68,12 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="PaleGold">
+            <color red="0.92900002002716064" green="0.72200000286102295" blue="0.54500001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TerraCotta">
+            <color red="0.88599997758865356" green="0.42699998617172241" blue="0.32899999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

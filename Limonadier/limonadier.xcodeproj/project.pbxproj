@@ -11,7 +11,6 @@
 		1E022395239CE19000EE5FB7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E022394239CE0A400EE5FB7 /* MainViewController.swift */; };
 		1E36BBBF239C0EAB00950AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BBBE239C0EAB00950AAB /* AppDelegate.swift */; };
 		1E36BBC1239C0EAB00950AAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BBC0239C0EAB00950AAB /* SceneDelegate.swift */; };
-		1E36BBC3239C0EAB00950AAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BBC2239C0EAB00950AAB /* ViewController.swift */; };
 		1E36BBC6239C0EAB00950AAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E36BBC4239C0EAB00950AAB /* Main.storyboard */; };
 		1E36BBC8239C0EAB00950AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E36BBC7239C0EAB00950AAB /* Assets.xcassets */; };
 		1E36BBCB239C0EAB00950AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E36BBC9239C0EAB00950AAB /* LaunchScreen.storyboard */; };
@@ -23,7 +22,6 @@
 		1E36BC28239C121600950AAB /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BC27239C121600950AAB /* Repository.swift */; };
 		1E36BC50239C1A3F00950AAB /* PostPlaylistUrlUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BC4F239C1A3F00950AAB /* PostPlaylistUrlUseCase.swift */; };
 		1E36BC53239C1B0900950AAB /* PlaylistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BC52239C1B0900950AAB /* PlaylistItem.swift */; };
-		1E36BC58239C283700950AAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BBC2239C0EAB00950AAB /* ViewController.swift */; };
 		1E36BC5A239C31AB00950AAB /* UseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BC59239C31AB00950AAB /* UseCaseFactory.swift */; };
 		1E36BC64239CD3A700950AAB /* DataLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E36BC62239CD3A700950AAB /* DataLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E36BC67239CD3A700950AAB /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E36BC60239CD3A700950AAB /* DataLayer.framework */; };
@@ -36,6 +34,10 @@
 		1E36BC7B239CDB6200950AAB /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BC77239CDB6200950AAB /* MainViewRouter.swift */; };
 		1E36BC7C239CDB6200950AAB /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E36BC78239CDB6200950AAB /* MainViewController.xib */; };
 		42229F318F4BF6138A9736CB /* Pods_limonadier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580B46B64C57030C401B41B1 /* Pods_limonadier.framework */; };
+		722E2398239EF3BC00D06ECB /* LaradotSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 722E2397239EF3BC00D06ECB /* LaradotSerif-Regular.ttf */; };
+		722E239C239EF84000D06ECB /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E239B239EF84000D06ECB /* UIFont.swift */; };
+		724D9234239EFD730046404A /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724D9233239EFD730046404A /* RoundedView.swift */; };
+		724D9236239F002D0046404A /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724D9235239F002D0046404A /* UIColor.swift */; };
 		99D2648BB180CE90A9E39DC8 /* Pods_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3648CE51DB47515A2A5765DA /* Pods_Domain.framework */; };
 		AAA75ED1E9DD21E2BD2B9166 /* libPods-LimonadierTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC411108CBE29F193F2C65F9 /* libPods-LimonadierTests.a */; };
 		AEEE3532DABCA57BB14E9ED6 /* Pods_Limonadier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953FE896E6480197B77491F1 /* Pods_Limonadier.framework */; };
@@ -86,7 +88,6 @@
 		1E36BBBB239C0EAB00950AAB /* limonadier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = limonadier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E36BBBE239C0EAB00950AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E36BBC0239C0EAB00950AAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1E36BBC2239C0EAB00950AAB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1E36BBC5239C0EAB00950AAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E36BBC7239C0EAB00950AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E36BBCA239C0EAB00950AAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -121,6 +122,12 @@
 		60D0138E5D0C0A11F1796B59 /* Pods-Limonadier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Limonadier.release.xcconfig"; path = "Pods/Target Support Files/Pods-Limonadier/Pods-Limonadier.release.xcconfig"; sourceTree = "<group>"; };
 		65645A9175E8CDB3B1769DF0 /* Pods-Domain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.release.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.release.xcconfig"; sourceTree = "<group>"; };
 		6626CB5631727E4266FC23C7 /* Pods-DataLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-DataLayer/Pods-DataLayer.release.xcconfig"; sourceTree = "<group>"; };
+		722E2397239EF3BC00D06ECB /* LaradotSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LaradotSerif-Regular.ttf"; sourceTree = "<group>"; };
+		722E239B239EF84000D06ECB /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		724D9230239EF9DD0046404A /* PlaylistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistViewController.xib; sourceTree = "<group>"; };
+		724D9232239EFA0C0046404A /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
+		724D9233239EFD730046404A /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		724D9235239F002D0046404A /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		759A17080112A64984137F7B /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
 		916A05F310E6DC3E31426A49 /* Pods_Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9185ADAB31D1CE3E7B1722BF /* Pods-LimonadierTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LimonadierTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LimonadierTests/Pods-LimonadierTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,7 +183,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1E022393239CE09100EE5FB7 /* MainView */ = {
+		1E022393239CE09100EE5FB7 /* MainScene */ = {
 			isa = PBXGroup;
 			children = (
 				1E36BC76239CDB6200950AAB /* MainViewPresenter.swift */,
@@ -184,7 +191,7 @@
 				1E36BC77239CDB6200950AAB /* MainViewRouter.swift */,
 				1E36BC78239CDB6200950AAB /* MainViewController.xib */,
 			);
-			path = MainView;
+			path = MainScene;
 			sourceTree = "<group>";
 		};
 		1E36BBB2239C0EAB00950AAB = {
@@ -214,12 +221,12 @@
 		1E36BBBD239C0EAB00950AAB /* Limonadier */ = {
 			isa = PBXGroup;
 			children = (
-				1E022393239CE09100EE5FB7 /* MainView */,
+				722E239A239EF68800D06ECB /* ExtensionsAndComponents */,
+				722E2399239EF67F00D06ECB /* Scenes */,
+				722E2395239EF39200D06ECB /* Ressources */,
 				1E36BBBE239C0EAB00950AAB /* AppDelegate.swift */,
 				1E36BBC0239C0EAB00950AAB /* SceneDelegate.swift */,
-				1E36BBC2239C0EAB00950AAB /* ViewController.swift */,
 				1E36BBC4239C0EAB00950AAB /* Main.storyboard */,
-				1E36BBC7239C0EAB00950AAB /* Assets.xcassets */,
 				1E36BBC9239C0EAB00950AAB /* LaunchScreen.storyboard */,
 				1E36BBCC239C0EAB00950AAB /* Info.plist */,
 				1E36BC59239C31AB00950AAB /* UseCaseFactory.swift */,
@@ -285,6 +292,51 @@
 				1E36BC71239CD5D800950AAB /* PlaylistItemUrl.swift */,
 			);
 			path = RequestObjects;
+			sourceTree = "<group>";
+		};
+		722E2395239EF39200D06ECB /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				722E2396239EF3A800D06ECB /* Font */,
+				1E36BBC7239C0EAB00950AAB /* Assets.xcassets */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
+		722E2396239EF3A800D06ECB /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				722E2397239EF3BC00D06ECB /* LaradotSerif-Regular.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		722E2399239EF67F00D06ECB /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				724D922F239EF9AA0046404A /* PlaylistScene */,
+				1E022393239CE09100EE5FB7 /* MainScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		722E239A239EF68800D06ECB /* ExtensionsAndComponents */ = {
+			isa = PBXGroup;
+			children = (
+				722E239B239EF84000D06ECB /* UIFont.swift */,
+				724D9233239EFD730046404A /* RoundedView.swift */,
+				724D9235239F002D0046404A /* UIColor.swift */,
+			);
+			path = ExtensionsAndComponents;
+			sourceTree = "<group>";
+		};
+		724D922F239EF9AA0046404A /* PlaylistScene */ = {
+			isa = PBXGroup;
+			children = (
+				724D9230239EF9DD0046404A /* PlaylistViewController.xib */,
+				724D9232239EFA0C0046404A /* PlaylistViewController.swift */,
+			);
+			path = PlaylistScene;
 			sourceTree = "<group>";
 		};
 		E4B3D63CFA38575EC38160BE /* Pods */ = {
@@ -477,6 +529,7 @@
 			files = (
 				1E36BBCB239C0EAB00950AAB /* LaunchScreen.storyboard in Resources */,
 				1E36BBC8239C0EAB00950AAB /* Assets.xcassets in Resources */,
+				722E2398239EF3BC00D06ECB /* LaradotSerif-Regular.ttf in Resources */,
 				1E36BBC6239C0EAB00950AAB /* Main.storyboard in Resources */,
 				1E36BC7C239CDB6200950AAB /* MainViewController.xib in Resources */,
 			);
@@ -634,8 +687,10 @@
 				1E022395239CE19000EE5FB7 /* MainViewController.swift in Sources */,
 				1E36BC7B239CDB6200950AAB /* MainViewRouter.swift in Sources */,
 				1E36BC5A239C31AB00950AAB /* UseCaseFactory.swift in Sources */,
-				1E36BBC3239C0EAB00950AAB /* ViewController.swift in Sources */,
+				722E239C239EF84000D06ECB /* UIFont.swift in Sources */,
+				724D9236239F002D0046404A /* UIColor.swift in Sources */,
 				1E36BBBF239C0EAB00950AAB /* AppDelegate.swift in Sources */,
+				724D9234239EFD730046404A /* RoundedView.swift in Sources */,
 				1E36BC7A239CDB6200950AAB /* MainViewPresenter.swift in Sources */,
 				1E36BBC1239C0EAB00950AAB /* SceneDelegate.swift in Sources */,
 			);
@@ -645,7 +700,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E36BC58239C283700950AAB /* ViewController.swift in Sources */,
 				1E36BBD6239C0EAC00950AAB /* LimonadierTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
