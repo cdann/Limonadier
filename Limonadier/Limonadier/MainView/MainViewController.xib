@@ -31,7 +31,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
-            <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="YhF-0H-qwV" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="6eM-xx-lYB"/>
                 <constraint firstItem="Svg-tp-bOV" firstAttribute="top" secondItem="YhF-0H-qwV" secondAttribute="bottom" constant="45.5" id="GeZ-Ir-lhY"/>

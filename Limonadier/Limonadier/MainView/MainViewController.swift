@@ -46,15 +46,20 @@ class MainViewController: UIViewController {
     
     func addLoader() {
         guard let view = self.view else { return }
-        view.backgroundColor = UIColor.orange
-        let indicator = UIActivityIndicatorView(frame: view.bounds)
-        indicator.startAnimating()
-        spinner = indicator
-        
+        if spinner == nil {
+            let indicator = UIActivityIndicatorView(frame: view.bounds)
+            indicator.startAnimating()
+            spinner = indicator
+        }
+        urlField.isHidden = true
+        sendButton.isEnabled = false
+        self.view.addSubview(spinner!)
     }
+    
     func removeLoader() {
         spinner?.removeFromSuperview()
-        view.backgroundColor = UIColor.lightGray
+        urlField.isHidden = false
+        sendButton.isEnabled = true
     }
     
     private func alert(_ errorMessage: String, subtitle: String? = nil) {
@@ -74,8 +79,8 @@ extension MainViewController: MainViewIntents {
     
     // MARK: - RxIntents
     func loadIntent() -> Observable<Void> {
-        return Observable.just(())
-        //return self.presenter.loadThings().map({ _ in () })
+        //return Observable.just(())
+        return self.presenter.loadThings().map({ _ in () })
     }
 
     // MARK: - Display

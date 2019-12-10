@@ -38,9 +38,17 @@ class  MainViewPresenter {
         print("Deinit \(self)")
     }
     
+    func loadThings()-> Observable<Int> {
+        return Observable.timer(3.0, scheduler: MainScheduler.instance).take(3)
+    }
+    
+    
+    
+    
     func attach() {
         guard let viewController = viewController else { return }
         
+        self.observeRouting(routeEvent: routePublisher.asObservable())
         
         let loadIntent = viewController.loadIntent()
             .map { MainViewModel.display }
@@ -49,21 +57,20 @@ class  MainViewPresenter {
                 return Observable.just(MainViewModel.error(title: error.localizedDescription, subTitle: nil))
             })
             
-        Observable.merge([loadIntent]).subscribe(onNext: { [weak self] (model) in
-            self?.viewController?.display(viewModel: model)
-        }).disposed(by: bag)
+        self.observeLoadIntent(loadIntent: loadIntent)
         
-        routePublisher
-            .subscribe(onNext: { [weak self] (route) in
-                self?.router.go(to: route) })
-            .disposed(by: bag)
-        
-        viewController.clickedButton().subscribe(onNext: { [weak self] (urlString) in
+        self.observeClickButton(buttonTapped: viewController.clickedButton())
+
+    }
+    
+    func observeClickButton(buttonTapped: Observable<String?>) {
+        buttonTapped.subscribe(onNext: { [weak self] (urlString) in
             guard let urlStr = urlString, let url = URL(string: urlStr) else {
                 self?.viewController?.display(viewModel: .error(title:"The url you tapped is not valid", subTitle: nil))
                 return
             }
             guard let `self` = self else { return }
+            self.viewController?.display(viewModel: .loading)
             self.postURLUC.execute(url).subscribe(onNext: { (item) in
                 print("next")
                 self.viewController?.display(viewModel: .success)
@@ -74,10 +81,19 @@ class  MainViewPresenter {
                 print("completed !")
             }).disposed(by: self.bag)
         }).disposed(by: self.bag)
-        //viewController.closeErrorIntent()
-        //   .map {MainViewRoute.error}
-        //   .bind(to: routePublisher)
-        //   .disposed(by: bag)
+    }
+    
+    func observeLoadIntent(loadIntent: Observable<MainViewModel>) {
+        loadIntent.subscribe(onNext: { [weak self] (model) in
+            self?.viewController?.display(viewModel: model)
+        }).disposed(by: bag)
+    }
+    
+    func observeRouting(routeEvent: Observable<MainViewRoute>) {
+        routeEvent
+        .subscribe(onNext: { [weak self] (route) in
+            self?.router.go(to: route) })
+        .disposed(by: bag)
     }
     
 }
