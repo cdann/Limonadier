@@ -21,20 +21,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imr-gZ-8Mu">
-                                <rect key="frame" x="65" y="412" width="284" height="82"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imr-gZ-8Mu" userLabel="Container">
+                                <rect key="frame" x="32.5" y="351.5" width="349" height="82"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Limonadier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ub7-5e-j72">
-                                        <rect key="frame" x="0.0" y="0.0" width="284" height="82"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="284" id="ySf-Ya-LYv"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Limonadier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="ub7-5e-j72">
+                                        <rect key="frame" x="0.0" y="0.0" width="349" height="82"/>
                                         <fontDescription key="fontDescription" name="LaradotSerif-Regular" family="Lara dot Serif" pointSize="70"/>
                                         <color key="textColor" name="TerraCotta"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="o" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ses-vk-QDY">
-                                        <rect key="frame" x="104" y="0.0" width="28" height="82"/>
+                                        <rect key="frame" x="131" y="0.0" width="28" height="82"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="28" id="Cjv-2b-oto"/>
                                         </constraints>
@@ -46,19 +43,20 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="ub7-5e-j72" firstAttribute="top" secondItem="imr-gZ-8Mu" secondAttribute="top" id="OFY-N1-cZT"/>
-                                    <constraint firstItem="ub7-5e-j72" firstAttribute="leading" secondItem="Ses-vk-QDY" secondAttribute="trailing" constant="-132" id="YIn-1v-jxq"/>
+                                    <constraint firstItem="ub7-5e-j72" firstAttribute="leading" secondItem="imr-gZ-8Mu" secondAttribute="leading" id="Uba-5X-l1g"/>
                                     <constraint firstItem="Ses-vk-QDY" firstAttribute="bottom" secondItem="ub7-5e-j72" secondAttribute="bottom" id="an5-ZE-d0p"/>
-                                    <constraint firstAttribute="trailing" secondItem="ub7-5e-j72" secondAttribute="trailing" id="fGt-FE-NRd"/>
+                                    <constraint firstAttribute="trailing" secondItem="ub7-5e-j72" secondAttribute="trailing" id="dAj-41-dv5"/>
                                     <constraint firstAttribute="bottom" secondItem="ub7-5e-j72" secondAttribute="bottom" id="r2N-z6-Yq4"/>
-                                    <constraint firstItem="ub7-5e-j72" firstAttribute="leading" secondItem="imr-gZ-8Mu" secondAttribute="leading" id="rmR-y1-Y8p"/>
                                     <constraint firstItem="Ses-vk-QDY" firstAttribute="top" secondItem="ub7-5e-j72" secondAttribute="top" id="xBz-4w-pZW"/>
+                                    <constraint firstItem="Ses-vk-QDY" firstAttribute="centerX" secondItem="ub7-5e-j72" secondAttribute="centerX" multiplier="0.83" id="yFr-U1-918"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="imr-gZ-8Mu" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="BDt-5S-yLo"/>
-                            <constraint firstItem="imr-gZ-8Mu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eCf-eh-Z3x"/>
+                            <constraint firstItem="imr-gZ-8Mu" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.866" id="Yel-m9-K7R"/>
+                            <constraint firstItem="ub7-5e-j72" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fMx-4u-ife"/>
+                            <constraint firstItem="ub7-5e-j72" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="gV6-PU-nkt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
