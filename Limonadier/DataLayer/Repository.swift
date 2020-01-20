@@ -21,6 +21,13 @@ public class Repository: Domain.Repository {
         }
     }
     
+    public func getPlaylist() -> Observable<Playlist> {
+        let router = URLRouter.getItems
+        return requestObject(router).map { (response: PlaylistResponse) -> Playlist in
+            return response.toObject()
+        }
+    }
+    
     public func getRessource() -> Observable<String> {
         let router = URLRouter.postURL(url: URL(fileURLWithPath: ""))
         

@@ -11,6 +11,7 @@ import RxSwift
 
 public protocol Repository {
     func getRessource() -> Observable<String>
+    func getPlaylist() -> Observable<Playlist>
     
     func postUrlItem(url: URL) -> Observable<PlaylistItem>
 }

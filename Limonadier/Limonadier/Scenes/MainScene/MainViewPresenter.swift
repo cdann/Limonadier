@@ -21,7 +21,7 @@ enum MainViewModel {
 class  MainViewPresenter {
     private let bag = DisposeBag()
     ///Use the scheduler for debouce, Throttle, etc. The scheduler can be set in the constructor to facilitate tests.
-   // private let scheduler: SchedulerType
+    // private let scheduler: SchedulerType
     
     private let router: MainViewRouterInput
     private weak var viewController: MainViewIntents?
@@ -49,6 +49,7 @@ class  MainViewPresenter {
         guard let viewController = viewController else { return }
         
         self.observeRouting(routeEvent: routePublisher.asObservable())
+        
         
         let loadIntent = viewController.loadIntent()
             .map { MainViewModel.display }

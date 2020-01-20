@@ -15,6 +15,7 @@ public struct PlaylistItemResponse: Codable {
     let title: String
     let url: String
 }
+
 extension PlaylistItemResponse {
     func toObject() -> Domain.PlaylistItem {
         let itemUrl = URL(string: url)!
