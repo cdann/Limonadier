@@ -36,7 +36,6 @@ class  PlaylistPresenter {
         print("Deinit \(self)")
     }
     
-    
     func loadPlaylist()-> Observable<Playlist> {
         return getPlaylistUC.execute(())
         //return Observable.timer(3.0, scheduler: MainScheduler.instance).take(3)
@@ -45,28 +44,36 @@ class  PlaylistPresenter {
     
     
     
-    func attach() {
+    func attach(playlistObs: Observable<Playlist>) {
         guard let viewController = viewController else { return }
+//        viewController.display(viewModel: .loading)
+        playlistObs.subscribe(onNext: { (playlist) in
+            self.viewController?.display(viewModel: .display(playlist: playlist))
+        }, onError: { (error) in
+            print("error")
+            self.viewController?.display(viewModel: .error(title: "Playlist cannot be loaded", subTitle: error.localizedDescription))
+        }, onCompleted: {
+            print("completed")
+        }).disposed(by: self.bag)
         
         //self.observeRouting(routeEvent: routePublisher.asObservable())
         
         
-        let loadIntent = viewController.loadIntent()
-            .map { playlist in PlaylistModel.display(playlist: playlist) }
-            .startWith(.loading)
-            .catchError({ (error) -> Observable<PlaylistModel> in
-                return Observable.just(PlaylistModel.error(title: error.localizedDescription, subTitle: nil))
-            })
+//        let loadIntent = viewController.loadIntent()
+//            .map { playlist in PlaylistModel.display(playlist: playlist) }
+//            .startWith(.loading)
+//            .catchError({ (error) -> Observable<PlaylistModel> in
+//                return Observable.just(PlaylistModel.error(title: error.localizedDescription, subTitle: nil))
+//            })
             
-        self.observeLoadIntent(loadIntent: loadIntent)
+//        self.observeLoadIntent(loadIntent: loadIntent)
         
 
     }
     
     func observeLoadIntent(loadIntent: Observable<PlaylistModel>) {
         loadIntent.subscribe(onNext: { [weak self] (model) in
-            self?.viewController.display(viewModel: model)
-            // self?.viewController?.display(viewModel: model)
+            self?.viewController?.display(viewModel: model)
         }).disposed(by: bag)
     }
     

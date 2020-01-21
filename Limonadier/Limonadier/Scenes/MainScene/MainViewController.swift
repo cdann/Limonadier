@@ -12,9 +12,16 @@ import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
+import Domain
+
+protocol MainScene: class {
+    func addLoader()
+    func removeLoader()
+    func alert(_ errorMessage: String, subtitle: String?)
+}
 
 protocol MainViewIntents: class {
-	func loadIntent() -> Observable<Void>
+//	func loadIntent() -> Observable<Playlist>
     func clickedButton() -> Observable<String?>
     func display(viewModel: MainViewModel)
 }
@@ -25,14 +32,19 @@ class MainViewController: UIViewController {
     var spinner: UIView? = nil
     @IBOutlet weak var urlField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var playlistContainer: UIView!
+    
+    var playlistController: PlaylistController!
 
-     override init(nibName nibNameOrNil: String? = "MainViewController", bundle nibBundleOrNil: Bundle? = nil) {
+    override init(nibName nibNameOrNil: String? = "MainViewController", bundle nibBundleOrNil: Bundle? = nil) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
+    
+    
 
     // MARK: - View LifeCycle
     deinit {
@@ -42,8 +54,17 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.attach()
+        self.attachChildrenView()
     }
     
+    public func attachChildrenView() {
+        self.addChild(playlistController)
+        playlistController.view.frame = self.playlistContainer.bounds
+        self.playlistContainer.addSubview(playlistController.view)
+    }
+}
+
+extension MainViewController: MainScene {
     func addLoader() {
         guard let view = self.view else { return }
         if spinner == nil {
@@ -62,14 +83,13 @@ class MainViewController: UIViewController {
         sendButton.isEnabled = true
     }
     
-    private func alert(_ errorMessage: String, subtitle: String? = nil) {
+    func alert(_ errorMessage: String, subtitle: String? = nil) {
         let alertCtrl = UIAlertController(title: errorMessage, message: subtitle, preferredStyle: .alert)
         alertCtrl.addAction(UIAlertAction(title: "ok", style: .default, handler: { (action) in
             print("ok")
         }))
         self.present(alertCtrl, animated: false, completion: nil)
     }
-    
 }
 
 extension MainViewController: MainViewIntents {
@@ -77,11 +97,10 @@ extension MainViewController: MainViewIntents {
         return self.sendButton.rx.tap.asObservable().map({ self.urlField.text })
     }
     
-    // MARK: - RxIntents
-    func loadIntent() -> Observable<Void> {
-        //return Observable.just(())
-        return self.presenter.loadThings().map({ _ in () })
-    }
+//    // MARK: - RxIntents
+//    func loadIntent() -> Observable<Playlist> {
+//        return presenter.loadPlaylist()
+//    }
 
     // MARK: - Display
     func display(viewModel: MainViewModel) {
@@ -100,5 +119,11 @@ extension MainViewController: MainViewIntents {
             removeLoader()
             alert("Success")
         }
+    }
+}
+
+extension MainViewController: PlaylistDelegate {
+    var playListObs: Observable<Playlist> {
+        return presenter.playlist!
     }
 }

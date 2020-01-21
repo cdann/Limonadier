@@ -20,7 +20,9 @@ enum MainViewRoute {
  */
 protocol MainViewRouterInput {
     static func instantiateController() -> MainViewController
+    
     func go(to route: MainViewRoute)
+    func addChildrenToController()
 }
 
 struct MainViewRouter:  MainViewRouterInput {
@@ -28,12 +30,12 @@ struct MainViewRouter:  MainViewRouterInput {
     private weak var controller: MainViewController?
     
     static func instantiateController() -> MainViewController {
-        let controller = MainViewController(nibName: "MainViewController", bundle: nil)
+        let controller = MainViewController()
         
         let router = MainViewRouter(controller: controller)
         let presenter = MainViewPresenter(router: router, viewController: controller)
         controller.presenter = presenter
-        
+        router.addChildrenToController()
         return controller
     }
     
@@ -41,5 +43,21 @@ struct MainViewRouter:  MainViewRouterInput {
 //        switch route {
 //
 //        }
+    }
+    
+    func addChildrenToController() {
+        guard let controller = self.controller else { return }
+        //Playlist
+        let playlist = PlaylistRouter.instantiateController(mainScene: controller, delegate: controller)
+        controller.playlistController = playlist
+        
+        // Player
+//        let playlist = PlaylistRouter.instantiateController()
+//        controller?.playlistController = playlist
+        
+        //URLField
+//        let playlist = PlaylistRouter.instantiateController()
+//        controller?.playlistController = playlist
+        
     }
 }

@@ -11,22 +11,38 @@ import RxSwift
 import RxCocoa
 import Domain
 
-private let reuseIdentifier = "Cell"
 
 protocol PlaylistIntent: class {
-    func loadIntent() -> Observable<Playlist>
+//    func loadIntent() -> Observable<Playlist>
 //    func clickedButton() -> Observable<String?>
-    func display(viewModel: PlaylistViewModel)
+//    func observePlaylist(playlist: Observable<Playlist>)
+    func display(viewModel: PlaylistModel)
+}
+
+protocol PlaylistDelegate: class {
+    var playListObs: Observable<Playlist> { get }
 }
 
 
-class PlaylistController: UICollectionViewController {
+class PlaylistController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var presenter: PlaylistPresenter!
+    weak var mainScene: MainScene!
+    weak var delegate: PlaylistDelegate!
+    @IBOutlet weak var collectionView: UICollectionView!
+    var itemCellIdentifier = ""
     
-    override init(nibName nibNameOrNil: String? = "PlaylistController", bundle nibBundleOrNil: Bundle? = nil) {
-           super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-       }
+    override private init(nibName nibNameOrNil: String? = "PlaylistController", bundle nibBundleOrNil: Bundle? = nil) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    convenience init(nibName nibNameOrNil: String? = "PlaylistController", bundle nibBundleOrNil: Bundle? = nil, mainScene: MainScene, delegate: PlaylistDelegate) {
+        self.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.mainScene = mainScene
+        self.delegate = delegate
+    }
+    
+    
        
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -39,23 +55,24 @@ class PlaylistController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        itemCellIdentifier  = PlaylistItemCollectionViewCell.attachAndGetIdentifier(self.collectionView)
+        presenter.attach(playlistObs: delegate.playListObs)
     }
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return 3
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemCellIdentifier, for: indexPath) as! PlaylistItemCollectionViewCell
     
         // Configure the cell
     
@@ -69,23 +86,24 @@ class PlaylistController: UICollectionViewController {
 
 extension PlaylistController: PlaylistIntent {
     
+    
     func loadIntent() -> Observable<Playlist> {
+        #warning("to change")
         return self.presenter.loadPlaylist()
-        // return Observable.timer(3.0, scheduler: MainScheduler.instance).take(3)
     }
     
-    func display(model: PlaylistViewModel) {
+    func display(viewModel: PlaylistModel) {
         switch viewModel {
         case .loading:
-            addLoader()
+            //addLoader()
             break
         case .display:
-            removeLoader()
+            //removeLoader()
             self.collectionView.reloadData()
             break
         case let .error(title:title, subTitle: subTitle):
-            removeLoader()
-            alert(title, subtitle: subTitle)
+            //removeLoader()
+            mainScene.alert(title, subtitle: subTitle)
             break
         }
     }

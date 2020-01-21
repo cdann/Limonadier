@@ -26,7 +26,12 @@ class  MainViewPresenter {
     private let router: MainViewRouterInput
     private weak var viewController: MainViewIntents?
     private var routePublisher = PublishSubject<MainViewRoute>()
+    
     private let postURLUC = UseCaseFactory.instance.createUseCase(PostPlaylistUrlUseCase.self)
+    private let getPlaylistUC = UseCaseFactory.instance.createUseCase(Domain.GetPlaylistUseCase.self)
+    
+    #warning("todo: playlist Observable")
+    var playlist: Observable<Playlist>? = nil
     
     init(router: MainViewRouterInput,
          viewController: MainViewIntents) {
@@ -38,8 +43,8 @@ class  MainViewPresenter {
         print("Deinit \(self)")
     }
     
-    func loadThings()-> Observable<Int> {
-        return Observable.timer(3.0, scheduler: MainScheduler.instance).take(3)
+    func loadPlaylist()-> Observable<Playlist> {
+        return getPlaylistUC.execute(())
     }
     
     
@@ -51,14 +56,13 @@ class  MainViewPresenter {
         self.observeRouting(routeEvent: routePublisher.asObservable())
         
         
-        let loadIntent = viewController.loadIntent()
-            .map { MainViewModel.display }
-            .startWith(.loading)
-            .catchError({ (error) -> Observable<MainViewModel> in
-                return Observable.just(MainViewModel.error(title: error.localizedDescription, subTitle: nil))
-            })
-            
-        self.observeLoadIntent(loadIntent: loadIntent)
+//        let loadIntent = viewController.loadIntent()
+//            .map { MainViewModel.display }
+//            .startWith(.loading)
+//            .catchError({ (error) -> Observable<MainViewModel> in
+//                return Observable.just(MainViewModel.error(title: error.localizedDescription, subTitle: nil))
+//            })
+        //self.observeLoadIntent(loadIntent: loadIntent)
         
         self.observeClickButton(buttonTapped: viewController.clickedButton())
 
@@ -84,11 +88,11 @@ class  MainViewPresenter {
         }).disposed(by: self.bag)
     }
     
-    func observeLoadIntent(loadIntent: Observable<MainViewModel>) {
-        loadIntent.subscribe(onNext: { [weak self] (model) in
-            self?.viewController?.display(viewModel: model)
-        }).disposed(by: bag)
-    }
+//    func observeLoadIntent(loadIntent: Observable<MainViewModel>) {
+//        loadIntent.subscribe(onNext: { [weak self] (model) in
+//            self?.viewController?.display(viewModel: model)
+//        }).disposed(by: bag)
+//    }
     
     func observeRouting(routeEvent: Observable<MainViewRoute>) {
         routeEvent

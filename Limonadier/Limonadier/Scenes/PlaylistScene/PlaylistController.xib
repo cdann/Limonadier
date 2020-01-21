@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaylistController" customModule="limonadier" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="i5M-Pr-FkT" id="rWP-fs-iQF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
