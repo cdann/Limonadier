@@ -87,11 +87,6 @@ class PlaylistController: UIViewController, UICollectionViewDelegate, UICollecti
 extension PlaylistController: PlaylistIntent {
     
     
-    func loadIntent() -> Observable<Playlist> {
-        #warning("to change")
-        return self.presenter.loadPlaylist()
-    }
-    
     func display(viewModel: PlaylistModel) {
         switch viewModel {
         case .loading:

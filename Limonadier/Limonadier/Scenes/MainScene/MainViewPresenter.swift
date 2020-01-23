@@ -30,13 +30,14 @@ class  MainViewPresenter {
     private let postURLUC = UseCaseFactory.instance.createUseCase(PostPlaylistUrlUseCase.self)
     private let getPlaylistUC = UseCaseFactory.instance.createUseCase(Domain.GetPlaylistUseCase.self)
     
-    #warning("todo: playlist Observable")
-    var playlist: Observable<Playlist>? = nil
+   // #warning("todo: playlist Observable")
+    let playlist: Observable<Playlist>
     
     init(router: MainViewRouterInput,
          viewController: MainViewIntents) {
         self.router = router
         self.viewController = viewController
+        playlist = getPlaylistUC.execute(())
     }
     
     deinit {

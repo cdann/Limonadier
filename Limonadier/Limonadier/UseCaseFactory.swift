@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import DataLayer
 import Domain
 
 typealias RepositoryProtocol = Domain.Repository

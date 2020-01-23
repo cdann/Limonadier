@@ -48,6 +48,7 @@ class  PlaylistPresenter {
         guard let viewController = viewController else { return }
 //        viewController.display(viewModel: .loading)
         playlistObs.subscribe(onNext: { (playlist) in
+            print("YEPP")
             self.viewController?.display(viewModel: .display(playlist: playlist))
         }, onError: { (error) in
             print("error")
