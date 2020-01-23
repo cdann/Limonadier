@@ -48,7 +48,7 @@ class  PlaylistPresenter {
         guard let viewController = viewController else { return }
 //        viewController.display(viewModel: .loading)
         playlistObs.subscribe(onNext: { (playlist) in
-            print("YEPP")
+            print("YEPP \(playlist)")
             self.viewController?.display(viewModel: .display(playlist: playlist))
         }, onError: { (error) in
             print("error")
@@ -56,20 +56,6 @@ class  PlaylistPresenter {
         }, onCompleted: {
             print("completed")
         }).disposed(by: self.bag)
-        
-        //self.observeRouting(routeEvent: routePublisher.asObservable())
-        
-        
-//        let loadIntent = viewController.loadIntent()
-//            .map { playlist in PlaylistModel.display(playlist: playlist) }
-//            .startWith(.loading)
-//            .catchError({ (error) -> Observable<PlaylistModel> in
-//                return Observable.just(PlaylistModel.error(title: error.localizedDescription, subTitle: nil))
-//            })
-            
-//        self.observeLoadIntent(loadIntent: loadIntent)
-        
-
     }
     
     func observeLoadIntent(loadIntent: Observable<PlaylistModel>) {

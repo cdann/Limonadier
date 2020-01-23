@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Domain
-
+import RxDataSources
 
 protocol PlaylistIntent: class {
 //    func loadIntent() -> Observable<Playlist>
@@ -23,6 +23,20 @@ protocol PlaylistDelegate: class {
     var playListObs: Observable<Playlist> { get }
 }
 
+struct PlaylistSection: SectionModelType {
+    typealias Item = [PlaylistItem]
+    
+    var items: [Item]
+    
+    init(items: [Item]){
+        self.items = items
+    }
+
+     init(original: PlaylistSection, items: [Item]) {
+        self = original
+        self.items = items
+    }
+}
 
 class PlaylistController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -57,7 +71,32 @@ class PlaylistController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         itemCellIdentifier  = PlaylistItemCollectionViewCell.attachAndGetIdentifier(self.collectionView)
         presenter.attach(playlistObs: delegate.playListObs)
+        
+        /*
+        let datasource = RxCollectionViewSectionedReloadDataSource<TasksSection>(
+            configureCell: { datasource, collection, index, item -> UICollectionViewCell in
+            let cell = collection.dequeueReusableCell(withReuseIdentifier: "TaskCollectionViewCell", for: index) as! TaskCollectionViewCell
+                switch item {
+                case let .task(task):
+                    cell.setup(title: task.title, dueDate: task.dueDate)
+                case .addTask, .formEditTask:
+                    cell.setupAdd()
+                }
+            return cell
+        })
+         */
     }
+    
+//    func initDatasource(){
+//        let datasource = RxCollectionViewSectionedReloadDataSource<PlaylistSection>(
+//        configureCell: { [weak self] datasource, collection, index, item -> UICollectionViewCell in
+//            let cell = collection.dequeueReusableCell(withReuseIdentifier: self?.itemCellIdentifier ?? "", for: index) as! PlaylistItemCollectionViewCell
+//            return cell
+//        })
+//        delegate.playListObs.bind(to: collectionView.rx.items(dataSource: datasource)).disposed(by: presenter.bag)
+//    }
+    
+    
     // MARK: UICollectionViewDataSource
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {

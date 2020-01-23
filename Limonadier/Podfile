@@ -6,6 +6,7 @@ target 'DataLayer' do
   use_frameworks!
   pod 'RxAlamofire'
   pod 'RxSwift'
+  pod 'RxDataSources', '~> 3.0'
   # Pods for Data
 
 end

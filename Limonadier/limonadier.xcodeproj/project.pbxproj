@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1328504F173AD65FBE1B021B /* libPods-limonadierTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D02B18CB92DA06699CBB51 /* libPods-limonadierTests.a */; };
 		1E022395239CE19000EE5FB7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E022394239CE0A400EE5FB7 /* MainViewController.swift */; };
+		1E0ED40223DA3D3100180D20 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1E0ED40123DA3D3100180D20 /* Podfile */; };
 		1E36BBBF239C0EAB00950AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BBBE239C0EAB00950AAB /* AppDelegate.swift */; };
 		1E36BBC1239C0EAB00950AAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BBC0239C0EAB00950AAB /* SceneDelegate.swift */; };
 		1E36BBC6239C0EAB00950AAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E36BBC4239C0EAB00950AAB /* Main.storyboard */; };
@@ -95,6 +96,7 @@
 
 /* Begin PBXFileReference section */
 		1E022394239CE0A400EE5FB7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		1E0ED40123DA3D3100180D20 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 		1E36BBBB239C0EAB00950AAB /* limonadier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = limonadier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E36BBBE239C0EAB00950AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E36BBC0239C0EAB00950AAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 			children = (
 				723D77D323D7247800069055 /* Cell */,
 				723F5F4B23D5D04C004D1A86 /* PlaylistController.swift */,
+				1E0ED40123DA3D3100180D20 /* Podfile */,
 				723F5F5123D5D066004D1A86 /* PlaylistPresenter.swift */,
 				723F5F5323D5D073004D1A86 /* PlaylistRouter.swift */,
 				723F5F4C23D5D04C004D1A86 /* PlaylistController.xib */,
@@ -571,6 +574,7 @@
 			files = (
 				723D77D723D724AF00069055 /* PlaylistItemCollectionViewCell.xib in Resources */,
 				723F5F5023D5D057004D1A86 /* PlaylistController.xib in Resources */,
+				1E0ED40223DA3D3100180D20 /* Podfile in Resources */,
 				1E36BBCB239C0EAB00950AAB /* LaunchScreen.storyboard in Resources */,
 				1E36BBC8239C0EAB00950AAB /* Assets.xcassets in Resources */,
 				722E2398239EF3BC00D06ECB /* LaradotSerif-Regular.ttf in Resources */,
@@ -657,20 +661,24 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-limonadier/Pods-limonadier-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic-framework/RxAtomic.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift-framework/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa-framework/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift-framework/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -936,7 +944,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A0D90F96AEB56424B40EFD10 /* Pods-limonadier.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
@@ -957,7 +965,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DEB44B66AC8820331FD3254B /* Pods-limonadier.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
@@ -978,7 +986,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BC48E522BBF6330D0BF3A572 /* Pods-limonadierTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R738Y2P3HV;
@@ -1001,7 +1009,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FC33F0FBB91BB037E5D52AB2 /* Pods-limonadierTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R738Y2P3HV;

@@ -31,7 +31,8 @@ public class LocalTestRepository: Domain.Repository {
     }
     
     func requestWithIntervall<Elem>(_ elem: Elem) -> Observable<Elem>{
-        return Observable<Int>.timer(.seconds(2), scheduler: MainScheduler.instance).map { (_) -> Elem in
+        //Observable<Int>.timer(.seconds(2), scheduler: MainScheduler.instance)
+        return Observable<Int>.timer(2.0, scheduler: MainScheduler.instance).map { (_) -> Elem in
             return elem
         }
     }
