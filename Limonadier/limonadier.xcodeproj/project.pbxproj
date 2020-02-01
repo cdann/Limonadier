@@ -37,8 +37,8 @@
 		42229F318F4BF6138A9736CB /* Pods_limonadier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580B46B64C57030C401B41B1 /* Pods_limonadier.framework */; };
 		722E2398239EF3BC00D06ECB /* LaradotSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 722E2397239EF3BC00D06ECB /* LaradotSerif-Regular.ttf */; };
 		722E239C239EF84000D06ECB /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E239B239EF84000D06ECB /* UIFont.swift */; };
-		723D77D623D724AF00069055 /* PlaylistItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723D77D423D724AF00069055 /* PlaylistItemCollectionViewCell.swift */; };
-		723D77D723D724AF00069055 /* PlaylistItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 723D77D523D724AF00069055 /* PlaylistItemCollectionViewCell.xib */; };
+		723D77D623D724AF00069055 /* PlaylistItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723D77D423D724AF00069055 /* PlaylistItemTableViewCell.swift */; };
+		723D77D723D724AF00069055 /* PlaylistItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 723D77D523D724AF00069055 /* PlaylistItemTableViewCell.xib */; };
 		723F5F4723D5CDEB004D1A86 /* PlaylistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5F4623D5CDEB004D1A86 /* PlaylistResponse.swift */; };
 		723F5F4923D5CE39004D1A86 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5F4823D5CE39004D1A86 /* Playlist.swift */; };
 		723F5F4F23D5D051004D1A86 /* PlaylistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5F4B23D5D04C004D1A86 /* PlaylistController.swift */; };
@@ -136,8 +136,8 @@
 		6626CB5631727E4266FC23C7 /* Pods-DataLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-DataLayer/Pods-DataLayer.release.xcconfig"; sourceTree = "<group>"; };
 		722E2397239EF3BC00D06ECB /* LaradotSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LaradotSerif-Regular.ttf"; sourceTree = "<group>"; };
 		722E239B239EF84000D06ECB /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
-		723D77D423D724AF00069055 /* PlaylistItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistItemCollectionViewCell.swift; sourceTree = "<group>"; };
-		723D77D523D724AF00069055 /* PlaylistItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		723D77D423D724AF00069055 /* PlaylistItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistItemTableViewCell.swift; sourceTree = "<group>"; };
+		723D77D523D724AF00069055 /* PlaylistItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistItemTableViewCell.xib; sourceTree = "<group>"; };
 		723F5F4623D5CDEB004D1A86 /* PlaylistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistResponse.swift; sourceTree = "<group>"; };
 		723F5F4823D5CE39004D1A86 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		723F5F4B23D5D04C004D1A86 /* PlaylistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistController.swift; sourceTree = "<group>"; };
@@ -356,8 +356,8 @@
 		723D77D323D7247800069055 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				723D77D423D724AF00069055 /* PlaylistItemCollectionViewCell.swift */,
-				723D77D523D724AF00069055 /* PlaylistItemCollectionViewCell.xib */,
+				723D77D423D724AF00069055 /* PlaylistItemTableViewCell.swift */,
+				723D77D523D724AF00069055 /* PlaylistItemTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -572,7 +572,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				723D77D723D724AF00069055 /* PlaylistItemCollectionViewCell.xib in Resources */,
+				723D77D723D724AF00069055 /* PlaylistItemTableViewCell.xib in Resources */,
 				723F5F5023D5D057004D1A86 /* PlaylistController.xib in Resources */,
 				1E0ED40223DA3D3100180D20 /* Podfile in Resources */,
 				1E36BBCB239C0EAB00950AAB /* LaunchScreen.storyboard in Resources */,
@@ -738,7 +738,7 @@
 			files = (
 				1E022395239CE19000EE5FB7 /* MainViewController.swift in Sources */,
 				1E36BC7B239CDB6200950AAB /* MainViewRouter.swift in Sources */,
-				723D77D623D724AF00069055 /* PlaylistItemCollectionViewCell.swift in Sources */,
+				723D77D623D724AF00069055 /* PlaylistItemTableViewCell.swift in Sources */,
 				1E36BC5A239C31AB00950AAB /* UseCaseFactory.swift in Sources */,
 				722E239C239EF84000D06ECB /* UIFont.swift in Sources */,
 				723F5F5523D5D13F004D1A86 /* PlaylistPresenter.swift in Sources */,

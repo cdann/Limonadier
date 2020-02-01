@@ -8,17 +8,18 @@
 
 import UIKit
 
-class PlaylistItemCollectionViewCell: UICollectionViewCell {
+class PlaylistItemTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
-    static func attachAndGetIdentifier(_ collectionView: UICollectionView) -> String {
-        let className = "PlaylistItemCollectionViewCell"
+    class func attachAndGetIdentifier(_ tableView: UITableView) -> String {
+        let className = String(describing: self)
+    
         let nib = UINib(nibName: className, bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: className)
+        tableView.register(nib, forCellReuseIdentifier: className)
         return className
     }
 

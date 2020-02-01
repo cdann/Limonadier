@@ -38,12 +38,12 @@ struct PlaylistSection: SectionModelType {
     }
 }
 
-class PlaylistController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class PlaylistController: UIViewController {
     
     var presenter: PlaylistPresenter!
     weak var mainScene: MainScene!
     weak var delegate: PlaylistDelegate!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var mTableView: UITableView!
     var itemCellIdentifier = ""
     
     override private init(nibName nibNameOrNil: String? = "PlaylistController", bundle nibBundleOrNil: Bundle? = nil) {
@@ -69,57 +69,9 @@ class PlaylistController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemCellIdentifier  = PlaylistItemCollectionViewCell.attachAndGetIdentifier(self.collectionView)
         presenter.attach(playlistObs: delegate.playListObs)
-        
-        /*
-        let datasource = RxCollectionViewSectionedReloadDataSource<TasksSection>(
-            configureCell: { datasource, collection, index, item -> UICollectionViewCell in
-            let cell = collection.dequeueReusableCell(withReuseIdentifier: "TaskCollectionViewCell", for: index) as! TaskCollectionViewCell
-                switch item {
-                case let .task(task):
-                    cell.setup(title: task.title, dueDate: task.dueDate)
-                case .addTask, .formEditTask:
-                    cell.setupAdd()
-                }
-            return cell
-        })
-         */
+        self.setupTableView(mTableView)
     }
-    
-//    func initDatasource(){
-//        let datasource = RxCollectionViewSectionedReloadDataSource<PlaylistSection>(
-//        configureCell: { [weak self] datasource, collection, index, item -> UICollectionViewCell in
-//            let cell = collection.dequeueReusableCell(withReuseIdentifier: self?.itemCellIdentifier ?? "", for: index) as! PlaylistItemCollectionViewCell
-//            return cell
-//        })
-//        delegate.playListObs.bind(to: collectionView.rx.items(dataSource: datasource)).disposed(by: presenter.bag)
-//    }
-    
-    
-    // MARK: UICollectionViewDataSource
-
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 3
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemCellIdentifier, for: indexPath) as! PlaylistItemCollectionViewCell
-    
-        // Configure the cell
-    
-        return cell
-    }
-
-    // MARK: UICollectionViewDelegate
-
     
 }
 
@@ -133,7 +85,7 @@ extension PlaylistController: PlaylistIntent {
             break
         case .display:
             //removeLoader()
-            self.collectionView.reloadData()
+            self.mTableView.reloadData()
             break
         case let .error(title:title, subTitle: subTitle):
             //removeLoader()
@@ -142,4 +94,31 @@ extension PlaylistController: PlaylistIntent {
         }
     }
     
+}
+
+
+extension PlaylistController: UITableViewDelegate, UITableViewDataSource {
+    
+    func setupTableView(_ tableView: UITableView) {
+        itemCellIdentifier = PlaylistItemTableViewCell.attachAndGetIdentifier(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of items
+        return 3
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: itemCellIdentifier, for: indexPath) as! PlaylistItemTableViewCell
+    
+        // Configure the cell
+    
+        return cell
+    }
 }

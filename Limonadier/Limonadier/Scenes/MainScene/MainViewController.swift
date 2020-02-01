@@ -34,7 +34,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var playlistContainer: UIView!
     
-    var playlistController: PlaylistController!
+    var playlistController: PlaylistController?
 
     override init(nibName nibNameOrNil: String? = "MainViewController", bundle nibBundleOrNil: Bundle? = nil) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -58,9 +58,15 @@ class MainViewController: UIViewController {
     }
     
     public func attachChildrenView() {
-        self.addChild(playlistController)
-        playlistController.view.frame = self.playlistContainer.bounds
-        self.playlistContainer.addSubview(playlistController.view)
+        if let controller = playlistController, let view = controller.view {
+            self.addChild(controller)
+            self.playlistContainer.addSubview(view)
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.topAnchor.constraint(equalTo: self.playlistContainer.topAnchor).isActive = true
+            view.leftAnchor.constraint(equalTo: self.playlistContainer.leftAnchor).isActive = true
+            view.bottomAnchor.constraint(equalTo: self.playlistContainer.bottomAnchor).isActive = true
+            view.rightAnchor.constraint(equalTo: self.playlistContainer.rightAnchor).isActive = true
+        }
     }
 }
 
@@ -120,6 +126,7 @@ extension MainViewController: MainViewIntents {
             alert("Success")
         }
     }
+    
 }
 
 extension MainViewController: PlaylistDelegate {
