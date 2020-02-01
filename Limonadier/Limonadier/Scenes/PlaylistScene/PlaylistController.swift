@@ -24,7 +24,7 @@ protocol PlaylistDelegate: class {
 }
 
 struct PlaylistSection: SectionModelType {
-    typealias Item = [PlaylistItem]
+    typealias Item = PlaylistItem
     
     var items: [Item]
     
@@ -40,11 +40,15 @@ struct PlaylistSection: SectionModelType {
 
 class PlaylistController: UIViewController {
     
+    
+    @IBOutlet weak var mTableView: UITableView!
+    
     var presenter: PlaylistPresenter!
     weak var mainScene: MainScene!
     weak var delegate: PlaylistDelegate!
-    @IBOutlet weak var mTableView: UITableView!
     var itemCellIdentifier = ""
+    
+    let bag = DisposeBag()
     
     override private init(nibName nibNameOrNil: String? = "PlaylistController", bundle nibBundleOrNil: Bundle? = nil) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -70,7 +74,20 @@ class PlaylistController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.attach(playlistObs: delegate.playListObs)
-        self.setupTableView(mTableView)
+        itemCellIdentifier = PlaylistItemTableViewCell.attachAndGetIdentifier(mTableView)
+        self.setupDataSource()
+    }
+    
+    func setupDataSource() {
+        let dataSource = RxTableViewSectionedReloadDataSource<PlaylistSection>(configureCell:  { [weak self] (datasource, tableview, index, item) -> UITableViewCell in
+            guard let `self` = self else { return UITableViewCell() }
+            let cell = tableview.dequeueReusableCell(withIdentifier: self.itemCellIdentifier, for: index) as! PlaylistItemTableViewCell
+            return cell
+        })
+        let test = PlaylistSection(items: [PlaylistItem(artist: "test", duration: 2, title: "testDebug", url: URL(string: "www.eee.fr")!)])
+        Observable.just([test])
+        .bind(to: mTableView.rx.items(dataSource: dataSource))
+        .disposed(by: bag)
     }
     
 }
@@ -85,7 +102,6 @@ extension PlaylistController: PlaylistIntent {
             break
         case .display:
             //removeLoader()
-            self.mTableView.reloadData()
             break
         case let .error(title:title, subTitle: subTitle):
             //removeLoader()
@@ -97,28 +113,3 @@ extension PlaylistController: PlaylistIntent {
 }
 
 
-extension PlaylistController: UITableViewDelegate, UITableViewDataSource {
-    
-    func setupTableView(_ tableView: UITableView) {
-        itemCellIdentifier = PlaylistItemTableViewCell.attachAndGetIdentifier(tableView)
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 3
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: itemCellIdentifier, for: indexPath) as! PlaylistItemTableViewCell
-    
-        // Configure the cell
-    
-        return cell
-    }
-}
