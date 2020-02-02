@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import Domain
 
 enum PlaylistRoute {
     
@@ -17,7 +19,7 @@ enum PlaylistRoute {
  * Using an interface let you stub the component for Unit Testing
  */
 protocol PlaylistRouterInput {
-    static func instantiateController(mainScene: MainScene, delegate: PlaylistDelegate) -> PlaylistController
+    static func instantiateController(mainScene: MainScene, playlistObservable: Observable<Playlist>) -> PlaylistController
     func go(to route: PlaylistRoute)
 }
 
@@ -25,11 +27,11 @@ struct PlaylistRouter:  PlaylistRouterInput {
     
     private weak var controller: PlaylistController?
     
-    static func instantiateController(mainScene: MainScene, delegate: PlaylistDelegate) -> PlaylistController {
-        let controller = PlaylistController(mainScene: mainScene, delegate: delegate)
+    static func instantiateController(mainScene: MainScene, playlistObservable: Observable<Playlist>) -> PlaylistController {
+        let controller = PlaylistController(mainScene: mainScene)
         
         let router = PlaylistRouter(controller: controller)
-        let presenter = PlaylistPresenter(router: router, viewController: controller)
+        let presenter = PlaylistPresenter(router: router, viewController: controller, playlistObservable:  playlistObservable)
         controller.presenter = presenter
         
         return controller

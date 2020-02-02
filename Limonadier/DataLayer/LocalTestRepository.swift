@@ -18,12 +18,12 @@ public class LocalTestRepository: Domain.Repository {
     }
     
     public func getPlaylist() -> Observable<Playlist> {
-        let playlist = Playlist(items:[
+        let items = [
             PlaylistItem(artist: "blabla", duration: 33, title: "blabla rosso", url: URL(string:"https://blabla.com/blabla%20rosso")!),
             PlaylistItem(artist: "le chanteur qui a un nom à rallonge genre vraiment assez long", duration: 33, title: "OhAhOhAhOh", url: URL(string:"https://blabla.com/blabla%20rosso")!),
             PlaylistItem(artist: "le chanteur", duration: 33, title: "un titre long, un titre vrqimnet long, un titre long sur plusieurs lignes", url: URL(string:"https://blabla.com/blabla%20rosso")!)
-        ])
-        return self.requestWithIntervall(playlist)
+        ]
+        return self.requestWithIntervall(Playlist(items: items, readingIndex: 1, readDuration: 20))
         
     }
     

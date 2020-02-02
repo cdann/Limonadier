@@ -121,9 +121,3 @@ extension MainViewController: MainViewIntents {
     }
     
 }
-
-extension MainViewController: PlaylistDelegate {
-    var playListObs: Observable<Playlist> {
-        return presenter.playlist
-    }
-}

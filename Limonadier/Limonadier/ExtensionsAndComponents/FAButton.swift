@@ -23,13 +23,11 @@ import FontAwesome_swift
         }
     }
     
-    
-    
     var code: FontAwesome? {
         didSet {
             self.titleLabel?.font = UIFont.fontAwesome(ofSize: self.titleLabel?.font.pointSize ?? 20, style: style)
             guard let code = code else { return }
-            self.titleLabel?.text = String.fontAwesomeIcon(name: code)
+            self.setTitle(String.fontAwesomeIcon(name: code), for: .normal)
         }
     }
 }

@@ -14,38 +14,37 @@ enum PlaylistModel {
     case loading
     case display
     case error(title:String, subTitle: String?)
-    //case success
 }
 
 class  PlaylistPresenter {
     private let bag = DisposeBag()
-    ///Use the scheduler for debouce, Throttle, etc. The scheduler can be set in the constructor to facilitate tests.
-    // private let scheduler: SchedulerType
-     
     private let router: PlaylistRouterInput
     private weak var viewController: PlaylistIntent?
     private var routePublisher = PublishSubject<PlaylistRoute>()
-    private let getPlaylistUC = UseCaseFactory.instance.createUseCase(Domain.GetPlaylistUseCase.self)
+    var playListSectionsObs: Observable<[PlaylistRow]>
     
-    init(router: PlaylistRouterInput, viewController: PlaylistIntent) {
+    init(router: PlaylistRouterInput, viewController: PlaylistIntent, playlistObservable:  Observable<Playlist>) {
         self.router = router
         self.viewController = viewController
+        playListSectionsObs = playlistObservable.map({ (playlist) -> [PlaylistRow] in
+            return playlist.items.enumerated().map {
+                (index, item) -> PlaylistRow in
+                if index == playlist.readingIndex {
+                    return .reading(item)
+                }
+                return index > playlist.readingIndex ? .toRead(item) : .past(item)
+            }
+        })
+        subscribeViewModel()
     }
     
     deinit {
         print("Deinit \(self)")
     }
     
-    func loadPlaylist()-> Observable<Playlist> {
+    func subscribeViewModel() {
         self.viewController?.display(viewModel: .loading)
-        return getPlaylistUC.execute(())
-    }
-    
-    
-    
-    
-    func attach(playlistObs: Observable<Playlist>) {
-        playlistObs.subscribe(onNext: { (playlist) in
+        playListSectionsObs.subscribe(onNext: { (playlist) in
             print("YEPP \(playlist)")
             self.viewController?.display(viewModel: .display)
         }, onError: { (error) in

@@ -9,6 +9,8 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import Domain
 
 enum MainViewRoute {
     
@@ -22,12 +24,12 @@ protocol MainViewRouterInput {
     static func instantiateController() -> MainViewController
     
     func go(to route: MainViewRoute)
-    func addChildrenToController()
+    func addChildrenToController(controller: MainViewController, playlistObs: Observable<Playlist>)
 }
 
 struct MainViewRouter:  MainViewRouterInput {
+    weak var controller: MainViewController?
     
-    private weak var controller: MainViewController?
     
     static func instantiateController() -> MainViewController {
         let controller = MainViewController()
@@ -35,7 +37,7 @@ struct MainViewRouter:  MainViewRouterInput {
         let router = MainViewRouter(controller: controller)
         let presenter = MainViewPresenter(router: router, viewController: controller)
         controller.presenter = presenter
-        router.addChildrenToController()
+        router.addChildrenToController(controller: controller, playlistObs: presenter.playlist)
         return controller
     }
     
@@ -45,11 +47,11 @@ struct MainViewRouter:  MainViewRouterInput {
 //        }
     }
     
-    func addChildrenToController() {
-        guard let controller = self.controller else { return }
+    func addChildrenToController(controller: MainViewController, playlistObs: Observable<Playlist>) {
         //Playlist
-        let playlist = PlaylistRouter.instantiateController(mainScene: controller, delegate: controller)
+        let playlist = PlaylistRouter.instantiateController(mainScene: controller, playlistObservable: playlistObs)
         controller.playlistController = playlist
+        
         
         // Player
 //        let playlist = PlaylistRouter.instantiateController()
