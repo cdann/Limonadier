@@ -9,7 +9,7 @@
 import Foundation
 
 public struct Playlist {
-    let items: [PlaylistItem]
+    public let items: [PlaylistItem]
     
     public init(items: [PlaylistItem]) {
         self.items = items

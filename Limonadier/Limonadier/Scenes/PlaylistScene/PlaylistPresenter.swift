@@ -12,7 +12,7 @@ import Domain
 
 enum PlaylistModel {
     case loading
-    case display(playlist: Playlist)
+    case display
     case error(title:String, subTitle: String?)
     //case success
 }
@@ -37,19 +37,17 @@ class  PlaylistPresenter {
     }
     
     func loadPlaylist()-> Observable<Playlist> {
+        self.viewController?.display(viewModel: .loading)
         return getPlaylistUC.execute(())
-        //return Observable.timer(3.0, scheduler: MainScheduler.instance).take(3)
     }
     
     
     
     
     func attach(playlistObs: Observable<Playlist>) {
-        guard let viewController = viewController else { return }
-//        viewController.display(viewModel: .loading)
         playlistObs.subscribe(onNext: { (playlist) in
             print("YEPP \(playlist)")
-            self.viewController?.display(viewModel: .display(playlist: playlist))
+            self.viewController?.display(viewModel: .display)
         }, onError: { (error) in
             print("error")
             self.viewController?.display(viewModel: .error(title: "Playlist cannot be loaded", subTitle: error.localizedDescription))

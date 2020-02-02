@@ -6,7 +6,6 @@ target 'DataLayer' do
   use_frameworks!
   pod 'RxAlamofire'
   pod 'RxSwift'
-  pod 'RxDataSources', '~> 3.0'
   # Pods for Data
 
 end
@@ -28,6 +27,8 @@ target 'limonadier' do
   # Pods for Limonadier
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'RxDataSources', '~> 3.0'
+  pod 'FontAwesome.swift'
 end
 
 target 'limonadierTests' do

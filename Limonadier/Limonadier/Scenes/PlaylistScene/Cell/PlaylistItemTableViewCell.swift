@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Domain
 
 class PlaylistItemTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var heartIcon: FAButton!
+    @IBOutlet weak var artistLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,5 +26,13 @@ class PlaylistItemTableViewCell: UITableViewCell {
         tableView.register(nib, forCellReuseIdentifier: className)
         return className
     }
+    
+    func setupCell(_ item: PlaylistItem) {
+        titleLabel.text = item.title
+        artistLabel.text = item.artist
+    }
 
+    @IBAction func heartTapped(_ handler: Any) {
+        heartIcon.style = heartIcon.style == .regular ? .solid : .regular
+    }
 }

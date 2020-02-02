@@ -9,10 +9,10 @@
 import Foundation
 
 public struct PlaylistItem {
-    let artist: String
-    let duration: Int
-    let title: String
-    let url: URL
+    public let artist: String
+    public let duration: Int
+    public let title: String
+    public let url: URL
     
     public init(artist: String, duration: Int, title: String, url: URL) {
         self.artist = artist

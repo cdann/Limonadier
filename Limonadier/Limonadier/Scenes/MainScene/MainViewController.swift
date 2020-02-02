@@ -15,8 +15,6 @@ import RxCocoa
 import Domain
 
 protocol MainScene: class {
-    func addLoader()
-    func removeLoader()
     func alert(_ errorMessage: String, subtitle: String?)
 }
 
@@ -103,11 +101,6 @@ extension MainViewController: MainViewIntents {
         return self.sendButton.rx.tap.asObservable().map({ self.urlField.text })
     }
     
-//    // MARK: - RxIntents
-//    func loadIntent() -> Observable<Playlist> {
-//        return presenter.loadPlaylist()
-//    }
-
     // MARK: - Display
     func display(viewModel: MainViewModel) {
         switch viewModel {

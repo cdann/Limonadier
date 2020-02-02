@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		1328504F173AD65FBE1B021B /* libPods-limonadierTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D02B18CB92DA06699CBB51 /* libPods-limonadierTests.a */; };
 		1E022395239CE19000EE5FB7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E022394239CE0A400EE5FB7 /* MainViewController.swift */; };
-		1E0ED40223DA3D3100180D20 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1E0ED40123DA3D3100180D20 /* Podfile */; };
+		1E0FC6B023E64EF400ECAEAF /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FC6AF23E64EF400ECAEAF /* FAIcon.swift */; };
+		1E0FC6B223E653FD00ECAEAF /* FAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FC6B123E653FD00ECAEAF /* FAButton.swift */; };
 		1E36BBBF239C0EAB00950AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BBBE239C0EAB00950AAB /* AppDelegate.swift */; };
 		1E36BBC1239C0EAB00950AAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BBC0239C0EAB00950AAB /* SceneDelegate.swift */; };
 		1E36BBC6239C0EAB00950AAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E36BBC4239C0EAB00950AAB /* Main.storyboard */; };
@@ -96,7 +97,8 @@
 
 /* Begin PBXFileReference section */
 		1E022394239CE0A400EE5FB7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		1E0ED40123DA3D3100180D20 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		1E0FC6AF23E64EF400ECAEAF /* FAIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
+		1E0FC6B123E653FD00ECAEAF /* FAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAButton.swift; sourceTree = "<group>"; };
 		1E36BBBB239C0EAB00950AAB /* limonadier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = limonadier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E36BBBE239C0EAB00950AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E36BBC0239C0EAB00950AAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -349,6 +351,8 @@
 				722E239B239EF84000D06ECB /* UIFont.swift */,
 				724D9233239EFD730046404A /* RoundedView.swift */,
 				724D9235239F002D0046404A /* UIColor.swift */,
+				1E0FC6AF23E64EF400ECAEAF /* FAIcon.swift */,
+				1E0FC6B123E653FD00ECAEAF /* FAButton.swift */,
 			);
 			path = ExtensionsAndComponents;
 			sourceTree = "<group>";
@@ -367,7 +371,6 @@
 			children = (
 				723D77D323D7247800069055 /* Cell */,
 				723F5F4B23D5D04C004D1A86 /* PlaylistController.swift */,
-				1E0ED40123DA3D3100180D20 /* Podfile */,
 				723F5F5123D5D066004D1A86 /* PlaylistPresenter.swift */,
 				723F5F5323D5D073004D1A86 /* PlaylistRouter.swift */,
 				723F5F4C23D5D04C004D1A86 /* PlaylistController.xib */,
@@ -574,7 +577,6 @@
 			files = (
 				723D77D723D724AF00069055 /* PlaylistItemTableViewCell.xib in Resources */,
 				723F5F5023D5D057004D1A86 /* PlaylistController.xib in Resources */,
-				1E0ED40223DA3D3100180D20 /* Podfile in Resources */,
 				1E36BBCB239C0EAB00950AAB /* LaunchScreen.storyboard in Resources */,
 				1E36BBC8239C0EAB00950AAB /* Assets.xcassets in Resources */,
 				722E2398239EF3BC00D06ECB /* LaradotSerif-Regular.ttf in Resources */,
@@ -661,24 +663,26 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-limonadier/Pods-limonadier-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic-framework/RxAtomic.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa-framework/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift-framework/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa-framework/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -744,11 +748,13 @@
 				723F5F5523D5D13F004D1A86 /* PlaylistPresenter.swift in Sources */,
 				724D9236239F002D0046404A /* UIColor.swift in Sources */,
 				1E36BBBF239C0EAB00950AAB /* AppDelegate.swift in Sources */,
+				1E0FC6B223E653FD00ECAEAF /* FAButton.swift in Sources */,
 				723F5F4F23D5D051004D1A86 /* PlaylistController.swift in Sources */,
 				724D9234239EFD730046404A /* RoundedView.swift in Sources */,
 				1E36BC7A239CDB6200950AAB /* MainViewPresenter.swift in Sources */,
 				723F5F5623D5D144004D1A86 /* PlaylistRouter.swift in Sources */,
 				1E36BBC1239C0EAB00950AAB /* SceneDelegate.swift in Sources */,
+				1E0FC6B023E64EF400ECAEAF /* FAIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

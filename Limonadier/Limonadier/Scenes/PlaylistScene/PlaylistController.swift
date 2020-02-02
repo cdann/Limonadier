@@ -41,6 +41,7 @@ struct PlaylistSection: SectionModelType {
 class PlaylistController: UIViewController {
     
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var mTableView: UITableView!
     
     var presenter: PlaylistPresenter!
@@ -75,18 +76,15 @@ class PlaylistController: UIViewController {
         super.viewDidLoad()
         presenter.attach(playlistObs: delegate.playListObs)
         itemCellIdentifier = PlaylistItemTableViewCell.attachAndGetIdentifier(mTableView)
-        self.setupDataSource()
-    }
-    
-    func setupDataSource() {
-        let dataSource = RxTableViewSectionedReloadDataSource<PlaylistSection>(configureCell:  { [weak self] (datasource, tableview, index, item) -> UITableViewCell in
-            guard let `self` = self else { return UITableViewCell() }
-            let cell = tableview.dequeueReusableCell(withIdentifier: self.itemCellIdentifier, for: index) as! PlaylistItemTableViewCell
+        
+        mTableView.tableFooterView = UIView()
+        
+        self.presenter.loadPlaylist().map { $0.items }
+        .bind(to: mTableView.rx.items) { table, index, element in
+            let cell = table.dequeueReusableCell(withIdentifier: self.itemCellIdentifier) as! PlaylistItemTableViewCell
+            cell.setupCell(element)
             return cell
-        })
-        let test = PlaylistSection(items: [PlaylistItem(artist: "test", duration: 2, title: "testDebug", url: URL(string: "www.eee.fr")!)])
-        Observable.just([test])
-        .bind(to: mTableView.rx.items(dataSource: dataSource))
+        }
         .disposed(by: bag)
     }
     
@@ -98,13 +96,16 @@ extension PlaylistController: PlaylistIntent {
     func display(viewModel: PlaylistModel) {
         switch viewModel {
         case .loading:
-            //addLoader()
+            mTableView.isHidden = true
+            spinner.startAnimating()
             break
         case .display:
-            //removeLoader()
+            mTableView.isHidden = false
+            spinner.stopAnimating()
             break
         case let .error(title:title, subTitle: subTitle):
-            //removeLoader()
+            mTableView.isHidden = false
+            spinner.stopAnimating()
             mainScene.alert(title, subtitle: subTitle)
             break
         }
