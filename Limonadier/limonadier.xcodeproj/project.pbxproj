@@ -51,8 +51,6 @@
 		724D9234239EFD730046404A /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724D9233239EFD730046404A /* RoundedView.swift */; };
 		724D9236239F002D0046404A /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724D9235239F002D0046404A /* UIColor.swift */; };
 		99D2648BB180CE90A9E39DC8 /* Pods_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3648CE51DB47515A2A5765DA /* Pods_Domain.framework */; };
-		AAA75ED1E9DD21E2BD2B9166 /* libPods-LimonadierTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC411108CBE29F193F2C65F9 /* libPods-LimonadierTests.a */; };
-		AEEE3532DABCA57BB14E9ED6 /* Pods_Limonadier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953FE896E6480197B77491F1 /* Pods_Limonadier.framework */; };
 		EA751FEEF1DA4F13603688A1 /* Pods_DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FEA46D309216E5279C152 /* Pods_DataLayer.framework */; };
 /* End PBXBuildFile section */
 
@@ -153,10 +151,8 @@
 		759A17080112A64984137F7B /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
 		916A05F310E6DC3E31426A49 /* Pods_Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9185ADAB31D1CE3E7B1722BF /* Pods-LimonadierTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LimonadierTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LimonadierTests/Pods-LimonadierTests.release.xcconfig"; sourceTree = "<group>"; };
-		953FE896E6480197B77491F1 /* Pods_Limonadier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Limonadier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D90F96AEB56424B40EFD10 /* Pods-limonadier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-limonadier.debug.xcconfig"; path = "Pods/Target Support Files/Pods-limonadier/Pods-limonadier.debug.xcconfig"; sourceTree = "<group>"; };
 		ACECFA05C367EA689A39A19C /* Pods-Limonadier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Limonadier.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Limonadier/Pods-Limonadier.debug.xcconfig"; sourceTree = "<group>"; };
-		BC411108CBE29F193F2C65F9 /* libPods-LimonadierTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LimonadierTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC48E522BBF6330D0BF3A572 /* Pods-limonadierTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-limonadierTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-limonadierTests/Pods-limonadierTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE534BFF2E9C8B5B682A53E2 /* Pods-LimonadierTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LimonadierTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LimonadierTests/Pods-LimonadierTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C50954BCAA1AC79B203AF6F7 /* Pods-Data.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Data.release.xcconfig"; path = "Pods/Target Support Files/Pods-Data/Pods-Data.release.xcconfig"; sourceTree = "<group>"; };
@@ -172,7 +168,6 @@
 			files = (
 				1E36BC05239C0FBD00950AAB /* Domain.framework in Frameworks */,
 				1E36BC67239CD3A700950AAB /* DataLayer.framework in Frameworks */,
-				AEEE3532DABCA57BB14E9ED6 /* Pods_Limonadier.framework in Frameworks */,
 				42229F318F4BF6138A9736CB /* Pods_limonadier.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,7 +176,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAA75ED1E9DD21E2BD2B9166 /* libPods-LimonadierTests.a in Frameworks */,
 				1328504F173AD65FBE1B021B /* libPods-limonadierTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,8 +407,6 @@
 			children = (
 				916A05F310E6DC3E31426A49 /* Pods_Data.framework */,
 				3648CE51DB47515A2A5765DA /* Pods_Domain.framework */,
-				953FE896E6480197B77491F1 /* Pods_Limonadier.framework */,
-				BC411108CBE29F193F2C65F9 /* libPods-LimonadierTests.a */,
 				D73FEA46D309216E5279C152 /* Pods_DataLayer.framework */,
 				580B46B64C57030C401B41B1 /* Pods_limonadier.framework */,
 				38D02B18CB92DA06699CBB51 /* libPods-limonadierTests.a */,
@@ -659,34 +651,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-limonadier/Pods-limonadier-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic-framework/RxAtomic.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift-framework/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
-				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa-framework/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-limonadier/Pods-limonadier-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-limonadier/Pods-limonadier-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-limonadier/Pods-limonadier-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-limonadier/Pods-limonadier-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B9FCF703D17A50E56456C2B3 /* [CP] Check Pods Manifest.lock */ = {
