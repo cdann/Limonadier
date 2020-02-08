@@ -11,19 +11,24 @@ import RxSwift
 import Domain
 
 public class LocalTestRepository: Domain.Repository {
+    var testItems = [
+        PlaylistItem(artist: "blabla", duration: 33, title: "blabla rosso", url: URL(string:"https://blabla.com/blabla%20rosso")!),
+        PlaylistItem(artist: "le chanteur qui a un nom à rallonge genre vraiment assez long", duration: 33, title: "OhAhOhAhOh", url: URL(string:"https://blabla.com/blabla%20rosso")!),
+        PlaylistItem(artist: "le chanteur", duration: 33, title: "un titre long, un titre vrqimnet long, un titre long sur plusieurs lignes", url: URL(string:"https://blabla.com/blabla%20rosso")!)
+    ]
+    
+    var testReadingIndex = 1
+    var testReadingDuration = 20
     
     public func postUrlItem(url: URL) -> Observable<PlaylistItem> {
-        let item = PlaylistItem(artist: "The Artist", duration: 33, title: "The title", url: URL(string:"https://TheArtist.com/title")!)
+        let item = PlaylistItem(artist: "The Artist", duration: 33, title: url.absoluteString, url: URL(string:"url")!)
+        testItems.append(item)
+        
         return self.requestWithIntervall(item)
     }
     
     public func getPlaylist() -> Observable<Playlist> {
-        let items = [
-            PlaylistItem(artist: "blabla", duration: 33, title: "blabla rosso", url: URL(string:"https://blabla.com/blabla%20rosso")!),
-            PlaylistItem(artist: "le chanteur qui a un nom à rallonge genre vraiment assez long", duration: 33, title: "OhAhOhAhOh", url: URL(string:"https://blabla.com/blabla%20rosso")!),
-            PlaylistItem(artist: "le chanteur", duration: 33, title: "un titre long, un titre vrqimnet long, un titre long sur plusieurs lignes", url: URL(string:"https://blabla.com/blabla%20rosso")!)
-        ]
-        return self.requestWithIntervall(Playlist(items: items, readingIndex: 1, readDuration: 20))
+        return self.requestWithIntervall(Playlist(items: testItems, readingIndex: testReadingIndex, readDuration: testReadingDuration))
         
     }
     
