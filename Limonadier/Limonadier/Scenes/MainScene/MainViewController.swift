@@ -19,20 +19,17 @@ protocol MainScene: class {
 }
 
 protocol MainViewIntents: class {
-//	func loadIntent() -> Observable<Playlist>
-    func clickedButton() -> Observable<String?>
     func display(viewModel: MainViewModel)
 }
 
 class MainViewController: UIViewController {
 
     var presenter: MainViewPresenter!
-    var spinner: UIView? = nil
-    @IBOutlet weak var urlField: UITextField!
-    @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var playlistContainer: UIView!
+    @IBOutlet weak var trackSenderContainer: UIView!
     
     var playlistController: PlaylistController?
+    var trackSenderController: TrackSenderViewController?
 
     override init(nibName nibNameOrNil: String? = "MainViewController", bundle nibBundleOrNil: Bundle? = nil) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -59,6 +56,9 @@ class MainViewController: UIViewController {
         if let playlistController = playlistController {
             self.addChild(playlistController, in: self.playlistContainer)
         }
+        if let trackSenderController = trackSenderController {
+            self.addChild(trackSenderController, in: self.trackSenderContainer)
+        }
     }
     
     private func addChild(_ childController: UIViewController, in containerView: UIView) {
@@ -74,23 +74,6 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: MainScene {
-    func addLoader() {
-        guard let view = self.view else { return }
-        if spinner == nil {
-            let indicator = UIActivityIndicatorView(frame: view.bounds)
-            indicator.startAnimating()
-            spinner = indicator
-        }
-        urlField.isHidden = true
-        sendButton.isEnabled = false
-        self.view.addSubview(spinner!)
-    }
-    
-    func removeLoader() {
-        spinner?.removeFromSuperview()
-        urlField.isHidden = false
-        sendButton.isEnabled = true
-    }
     
     func alert(_ errorMessage: String, subtitle: String? = nil) {
         let alertCtrl = UIAlertController(title: errorMessage, message: subtitle, preferredStyle: .alert)
@@ -102,27 +85,10 @@ extension MainViewController: MainScene {
 }
 
 extension MainViewController: MainViewIntents {
-    func clickedButton() -> Observable<String?> {
-        return self.sendButton.rx.tap.asObservable().map({ self.urlField.text })
-    }
-    
+
     // MARK: - Display
     func display(viewModel: MainViewModel) {
-        switch viewModel {
-        case .loading:
-            addLoader()
-            break
-        case .display:
-            removeLoader()
-            break
-        case let .error(title:title, subTitle: subTitle):
-            removeLoader()
-            alert(title, subtitle: subTitle)
-            break
-        case .success:
-            removeLoader()
-            alert("Success")
-        }
+        
     }
     
 }

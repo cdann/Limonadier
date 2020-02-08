@@ -58,6 +58,8 @@ struct MainViewRouter:  MainViewRouterInput {
 //        controller?.playlistController = playlist
         
         //URLField
+        let trackSender = TrackSenderRouter.instantiateController(mainScene: controller)
+        controller.trackSenderController = trackSender
 //        let playlist = PlaylistRouter.instantiateController()
 //        controller?.playlistController = playlist
         

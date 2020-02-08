@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1328504F173AD65FBE1B021B /* libPods-limonadierTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D02B18CB92DA06699CBB51 /* libPods-limonadierTests.a */; };
 		1E022395239CE19000EE5FB7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E022394239CE0A400EE5FB7 /* MainViewController.swift */; };
-		1E0C3AE323EEF28400AF4855 /* TrackSenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0C3AE123EEF28400AF4855 /* TrackSenderViewController.swift */; };
-		1E0C3AE423EEF28400AF4855 /* TrackSenderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0C3AE223EEF28400AF4855 /* TrackSenderViewController.xib */; };
 		1E0C3AE623EEF2A000AF4855 /* TrackSenderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0C3AE523EEF2A000AF4855 /* TrackSenderPresenter.swift */; };
 		1E0C3AE823EEF2B600AF4855 /* TrackSenderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0C3AE723EEF2B600AF4855 /* TrackSenderRouter.swift */; };
 		1E0FC6B023E64EF400ECAEAF /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FC6AF23E64EF400ECAEAF /* FAIcon.swift */; };
@@ -39,6 +37,8 @@
 		1E36BC7A239CDB6200950AAB /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BC76239CDB6200950AAB /* MainViewPresenter.swift */; };
 		1E36BC7B239CDB6200950AAB /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BC77239CDB6200950AAB /* MainViewRouter.swift */; };
 		1E36BC7C239CDB6200950AAB /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E36BC78239CDB6200950AAB /* MainViewController.xib */; };
+		1EE6A89023EEFCB700076C68 /* TrackSenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE6A88E23EEFCB700076C68 /* TrackSenderViewController.swift */; };
+		1EE6A89123EEFCB700076C68 /* TrackSenderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EE6A88F23EEFCB700076C68 /* TrackSenderViewController.xib */; };
 		42229F318F4BF6138A9736CB /* Pods_limonadier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580B46B64C57030C401B41B1 /* Pods_limonadier.framework */; };
 		722E2398239EF3BC00D06ECB /* LaradotSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 722E2397239EF3BC00D06ECB /* LaradotSerif-Regular.ttf */; };
 		722E239C239EF84000D06ECB /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722E239B239EF84000D06ECB /* UIFont.swift */; };
@@ -52,7 +52,6 @@
 		723F5F5623D5D144004D1A86 /* PlaylistRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5F5323D5D073004D1A86 /* PlaylistRouter.swift */; };
 		723F5F5923D5D5A0004D1A86 /* GetPlaylistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5F5823D5D5A0004D1A86 /* GetPlaylistUseCase.swift */; };
 		7240EA5323D9C87400FB9A50 /* LocalTestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7240EA5223D9C87400FB9A50 /* LocalTestRepository.swift */; };
-		724D9234239EFD730046404A /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724D9233239EFD730046404A /* RoundedView.swift */; };
 		724D9236239F002D0046404A /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724D9235239F002D0046404A /* UIColor.swift */; };
 		99D2648BB180CE90A9E39DC8 /* Pods_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3648CE51DB47515A2A5765DA /* Pods_Domain.framework */; };
 		AAA75ED1E9DD21E2BD2B9166 /* libPods-LimonadierTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC411108CBE29F193F2C65F9 /* libPods-LimonadierTests.a */; };
@@ -101,8 +100,6 @@
 
 /* Begin PBXFileReference section */
 		1E022394239CE0A400EE5FB7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		1E0C3AE123EEF28400AF4855 /* TrackSenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSenderViewController.swift; sourceTree = "<group>"; };
-		1E0C3AE223EEF28400AF4855 /* TrackSenderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackSenderViewController.xib; sourceTree = "<group>"; };
 		1E0C3AE523EEF2A000AF4855 /* TrackSenderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSenderPresenter.swift; sourceTree = "<group>"; };
 		1E0C3AE723EEF2B600AF4855 /* TrackSenderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSenderRouter.swift; sourceTree = "<group>"; };
 		1E0FC6AF23E64EF400ECAEAF /* FAIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
@@ -136,6 +133,8 @@
 		1E36BC76239CDB6200950AAB /* MainViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		1E36BC77239CDB6200950AAB /* MainViewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewRouter.swift; sourceTree = "<group>"; };
 		1E36BC78239CDB6200950AAB /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		1EE6A88E23EEFCB700076C68 /* TrackSenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSenderViewController.swift; sourceTree = "<group>"; };
+		1EE6A88F23EEFCB700076C68 /* TrackSenderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackSenderViewController.xib; sourceTree = "<group>"; };
 		2FF203552454D8A8408C14E6 /* Pods-DataLayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DataLayer/Pods-DataLayer.debug.xcconfig"; sourceTree = "<group>"; };
 		3648CE51DB47515A2A5765DA /* Pods_Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D02B18CB92DA06699CBB51 /* libPods-limonadierTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-limonadierTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,10 +226,10 @@
 		1E0C3ADE23EEF22200AF4855 /* TrackSenderScene */ = {
 			isa = PBXGroup;
 			children = (
-				1E0C3AE123EEF28400AF4855 /* TrackSenderViewController.swift */,
-				1E0C3AE223EEF28400AF4855 /* TrackSenderViewController.xib */,
 				1E0C3AE523EEF2A000AF4855 /* TrackSenderPresenter.swift */,
 				1E0C3AE723EEF2B600AF4855 /* TrackSenderRouter.swift */,
+				1EE6A88E23EEFCB700076C68 /* TrackSenderViewController.swift */,
+				1EE6A88F23EEFCB700076C68 /* TrackSenderViewController.xib */,
 			);
 			path = TrackSenderScene;
 			sourceTree = "<group>";
@@ -597,8 +596,8 @@
 			files = (
 				723D77D723D724AF00069055 /* PlaylistItemTableViewCell.xib in Resources */,
 				723F5F5023D5D057004D1A86 /* PlaylistController.xib in Resources */,
-				1E0C3AE423EEF28400AF4855 /* TrackSenderViewController.xib in Resources */,
 				1E36BBCB239C0EAB00950AAB /* LaunchScreen.storyboard in Resources */,
+				1EE6A89123EEFCB700076C68 /* TrackSenderViewController.xib in Resources */,
 				1E36BBC8239C0EAB00950AAB /* Assets.xcassets in Resources */,
 				722E2398239EF3BC00D06ECB /* LaradotSerif-Regular.ttf in Resources */,
 				1E36BBC6239C0EAB00950AAB /* Main.storyboard in Resources */,
@@ -764,16 +763,15 @@
 				1E022395239CE19000EE5FB7 /* MainViewController.swift in Sources */,
 				1E36BC7B239CDB6200950AAB /* MainViewRouter.swift in Sources */,
 				723D77D623D724AF00069055 /* PlaylistItemTableViewCell.swift in Sources */,
+				1EE6A89023EEFCB700076C68 /* TrackSenderViewController.swift in Sources */,
 				1E36BC5A239C31AB00950AAB /* UseCaseFactory.swift in Sources */,
 				722E239C239EF84000D06ECB /* UIFont.swift in Sources */,
 				723F5F5523D5D13F004D1A86 /* PlaylistPresenter.swift in Sources */,
-				1E0C3AE323EEF28400AF4855 /* TrackSenderViewController.swift in Sources */,
 				724D9236239F002D0046404A /* UIColor.swift in Sources */,
 				1E0C3AE823EEF2B600AF4855 /* TrackSenderRouter.swift in Sources */,
 				1E36BBBF239C0EAB00950AAB /* AppDelegate.swift in Sources */,
 				1E0FC6B223E653FD00ECAEAF /* FAButton.swift in Sources */,
 				723F5F4F23D5D051004D1A86 /* PlaylistController.swift in Sources */,
-				724D9234239EFD730046404A /* RoundedView.swift in Sources */,
 				1E36BC7A239CDB6200950AAB /* MainViewPresenter.swift in Sources */,
 				723F5F5623D5D144004D1A86 /* PlaylistRouter.swift in Sources */,
 				1E36BBC1239C0EAB00950AAB /* SceneDelegate.swift in Sources */,

@@ -9,62 +9,86 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Domain
-import RxDataSources
 
 protocol TrackSenderIntent: class {
     func display(viewModel: TrackSenderModel)
+    func clickedButton() -> Observable<String?>
 }
 
 class TrackSenderViewController: UIViewController {
-    
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
-    var presenter: TrackSenderPresenter!
     weak var mainScene: MainScene!
+    var presenter: TrackSenderPresenter!
     
-    // MARK: - Init
-    override private init(nibName nibNameOrNil: String? = "PlaylistController", bundle nibBundleOrNil: Bundle? = nil) {
+    @IBOutlet weak var urlField: UITextField!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var requestStatusIcon: FAIcon!
+    
+     // MARK: - Init
+    override private init(nibName nibNameOrNil: String? = "TrackSenderViewController", bundle nibBundleOrNil: Bundle? = nil) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    convenience init(nibName nibNameOrNil: String? = "PlaylistController", bundle nibBundleOrNil: Bundle? = nil, mainScene: MainScene) {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    convenience init(nibName nibNameOrNil: String? = "TrackSenderViewController", bundle nibBundleOrNil: Bundle? = nil, mainScene: MainScene) {
         self.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.mainScene = mainScene
     }
-       
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    deinit {
-        print("Deinit \(self)")
-    }
     
- // MARK: - View LifeCycle
+    // MARK: - View LifeCycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.attach()
     }
 
-
 }
 
 extension TrackSenderViewController: TrackSenderIntent {
+    func clickedButton() -> Observable<String?> {
+        return self.sendButton.rx.tap.asObservable()
+            .map({ self.urlField.text })
+    }
     
+    func requestIconOkOrNot(_ checkOrNil: Bool?) {
+        guard let check = checkOrNil else {
+            requestStatusIcon.isHidden = true
+            return
+        }
+        requestStatusIcon.isHidden = false
+        requestStatusIcon.iconName = check ? "fa-check" : "fa-times"
+    }
     
     func display(viewModel: TrackSenderModel) {
+        let timerToDisplay = { [weak self] in
+            guard let `self` = self else { return }
+            Observable<Int>.timer(1, scheduler: MainScheduler.instance).subscribe({ _ in
+                self.display(viewModel: .display)
+            }).disposed(by: self.presenter.bag)
+        }
         switch viewModel {
-        case .loading:
-            spinner.startAnimating()
-            break
         case .display:
-            spinner.stopAnimating()
-            break
-        case let .error(title:title, subTitle: subTitle):
-            spinner.stopAnimating()
-            mainScene.alert(title, subtitle: subTitle)
-            break
+            self.spinner.stopAnimating()
+            self.sendButton.isHidden = false
+            self.requestIconOkOrNot(nil)
+        case .loading:
+            self.spinner.startAnimating()
+            self.sendButton.isHidden = true
+            self.requestIconOkOrNot(nil)
+        case .success:
+            self.spinner.stopAnimating()
+            self.sendButton.isHidden = true
+            self.requestIconOkOrNot(true)
+            timerToDisplay()
+        case let .error(title: titleError, subTitle: errorMsg):
+            mainScene.alert(titleError, subtitle: errorMsg)
+            self.spinner.stopAnimating()
+            self.sendButton.isHidden = true
+            self.requestIconOkOrNot(false)
+            timerToDisplay()
         }
     }
     

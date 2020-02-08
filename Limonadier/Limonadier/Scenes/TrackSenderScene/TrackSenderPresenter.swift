@@ -11,9 +11,10 @@ import RxSwift
 import Domain
 
 enum TrackSenderModel {
-    case loading
-    case display
-    case error(title:String, subTitle: String?)
+    case loading //while sending
+    case display //waiting for an input
+    case success //input sent
+    case error(title:String, subTitle: String?) // input error
 }
 
 class TrackSenderPresenter {
@@ -21,6 +22,8 @@ class TrackSenderPresenter {
     private let router: TrackSenderRouterInput
     private weak var viewController: TrackSenderIntent?
     private var routePublisher = PublishSubject<TrackSenderRoute>()
+    
+    private let postURLUC = UseCaseFactory.instance.createUseCase(PostPlaylistUrlUseCase.self)
     
     init(router: TrackSenderRouterInput, viewController: TrackSenderIntent) {
         self.router = router
@@ -32,22 +35,34 @@ class TrackSenderPresenter {
     }
     
     func attach(){
-        subscribeViewModel()
+        guard let viewController = viewController else { return }
+        self.observeRouting(routeEvent: routePublisher.asObservable())
+        self.observeClickButton(buttonTapped: viewController.clickedButton())
     }
     
-    func loadingObservable() -> Observable<Int> {
-        return Observable.just(2)
-    }
-    
-    func subscribeViewModel() {
-        self.viewController?.display(viewModel: .loading)
-        let loading = loadingObservable()
-        loading.subscribe(onNext: { (_) in
-            self.viewController?.display(viewModel: .display)
-        }, onError: { (error) in
-            self.viewController?.display(viewModel: .error(title: "Playlist cannot be loaded", subTitle: error.localizedDescription))
-        }, onCompleted: {
+    func observeClickButton(buttonTapped: Observable<String?>) {
+        self.viewController?.display(viewModel: .display)
+        buttonTapped.subscribe(onNext: { [weak self] (urlString) in
+            guard let urlStr = urlString, let url = URL(string: urlStr) else {
+                self?.viewController?.display(viewModel: .error(title:"The url you tapped is not valid", subTitle: nil))
+                return
+            }
+            guard let `self` = self else { return }
+            self.viewController?.display(viewModel: .loading)
+            self.postURLUC.execute(url).subscribe(onNext: { (item) in
+                self.viewController?.display(viewModel: .success)
+            }, onError: { (error) in
+                self.viewController?.display(viewModel: .error(title:"Url cannot be added to the Playlist", subTitle: error.localizedDescription))
+            }, onCompleted: {
+                print("completed !")
+            }).disposed(by: self.bag)
         }).disposed(by: self.bag)
     }
     
+    func observeRouting(routeEvent: Observable<TrackSenderRoute>) {
+        routeEvent
+        .subscribe(onNext: { [weak self] (route) in
+            self?.router.go(to: route) })
+        .disposed(by: bag)
+    }
 }
