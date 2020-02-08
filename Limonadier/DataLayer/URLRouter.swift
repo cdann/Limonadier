@@ -18,7 +18,7 @@ enum URLRouter : DataRouterConvertible  {
 
 extension  URLRouter {
     var baseURL : String {
-        return "http://localhost.charlesproxy.com:5000/"
+        return "http://127.0.0.1:8000/"
     }
     
     var method: HTTPMethod {
@@ -33,7 +33,7 @@ extension  URLRouter {
     var path: String {
         switch self {
         case .getItems, .postURL:
-            return "items/"
+            return "item/"
         }
     }
     

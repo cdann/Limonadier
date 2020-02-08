@@ -32,30 +32,56 @@ class PlaylistItemTableViewCell: UITableViewCell {
         // Initialization code
     }
     
+    func setupText(color: UIColor, alpha: CGFloat) {
+        self.artistLabel.textColor = color
+        self.titleLabel.textColor = color
+        self.heartIcon.setTitleColor(color, for: .normal)
+        self.titleLabel.alpha = alpha
+        self.artistLabel.alpha = alpha
+        self.heartIcon.alpha = alpha
+    }
+    
     func setup(toRead item: PlaylistItem) {
         commonSetup(item)
-        self.heartIcon.isEnabled = true
+        changeSetupParameters(iconEnabled: true,
+                              iconCode: .heart,
+                              iconStyle: .regular,
+                              textColor: .titleColor,
+                              textAlpha: 1,
+                              backgroundColor: .white)
     }
     
     func setup(past item: PlaylistItem) {
         commonSetup(item)
-        self.heartIcon.isEnabled = false
-        self.titleLabel.alpha = 0.2
-        self.artistLabel.alpha = 0.2
-        self.heartIcon.code = FontAwesome.music
-        self.heartIcon.style = .solid
-        self.heartIcon.alpha = 0.2
+        changeSetupParameters(iconEnabled: false,
+                              iconCode: .music,
+                              iconStyle: .solid,
+                              textColor: .titleColor,
+                              textAlpha: 0.2,
+                              backgroundColor: .white)
     }
     
     func setup(reading item: PlaylistItem) {
         commonSetup(item)
-        self.heartIcon.isEnabled = false
-        self.backgroundColor = UIColor.titleColor
-        self.artistLabel.textColor = UIColor.white
-        self.titleLabel.textColor = UIColor.white
-        self.heartIcon.code = FontAwesome.play
-        self.heartIcon.style = .solid
-        self.heartIcon.setTitleColor(UIColor.white, for: .normal)
+        changeSetupParameters(iconEnabled: false,
+                              iconCode: .play,
+                              iconStyle: .solid,
+                              textColor: .white,
+                              textAlpha: 1,
+                              backgroundColor: .titleColor)
+    }
+    
+    func changeSetupParameters(iconEnabled: Bool,
+                              iconCode: FontAwesome,
+                              iconStyle: FontAwesomeStyle,
+                              textColor: UIColor,
+                              textAlpha: CGFloat,
+                              backgroundColor: UIColor) {
+        self.heartIcon.isEnabled = iconEnabled
+        self.heartIcon.code = iconCode
+        self.heartIcon.style = iconStyle
+        setupText(color: textColor, alpha: textAlpha)
+        self.backgroundColor = backgroundColor
     }
     
     private func commonSetup(_ item : PlaylistItem) {

@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        UseCaseFactory.instance = UseCaseFactory(repository: DataLayer.Repository())
-        UseCaseFactory.instance = UseCaseFactory(repository: DataLayer.LocalTestRepository())
+        UseCaseFactory.instance = UseCaseFactory(repository: DataLayer.Repository())
+//        UseCaseFactory.instance = UseCaseFactory(repository: DataLayer.LocalTestRepository())
         
         // Override point for customization after application launch.
         return true

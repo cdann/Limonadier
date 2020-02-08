@@ -90,22 +90,26 @@ class PlaylistController: UIViewController {
 }
 
 extension PlaylistController: PlaylistIntent {
-    
+    private func changeViewSetup(isTableHidden: Bool, doAnimateSpinner: Bool) {
+        mTableView.isHidden = isTableHidden
+        if doAnimateSpinner {
+            spinner.startAnimating()
+        } else {
+            spinner.stopAnimating()
+        }
+    }
     
     func display(viewModel: PlaylistModel) {
         switch viewModel {
         case .loading:
-            mTableView.isHidden = true
-            spinner.startAnimating()
+            changeViewSetup(isTableHidden: true, doAnimateSpinner: true)
             break
         case let .display(rows):
-            mTableView.isHidden = false
+            changeViewSetup(isTableHidden: false, doAnimateSpinner: false)
             rowsSubject.onNext(rows)
-            spinner.stopAnimating()
             break
         case let .error(title:title, subTitle: subTitle):
-            mTableView.isHidden = false
-            spinner.stopAnimating()
+            changeViewSetup(isTableHidden: false, doAnimateSpinner: false)
             mainScene.alert(title, subtitle: subTitle)
             break
         }

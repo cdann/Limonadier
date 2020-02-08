@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import FontAwesome_swift
 
 protocol TrackSenderIntent: class {
     func display(viewModel: TrackSenderModel)
@@ -53,13 +54,21 @@ extension TrackSenderViewController: TrackSenderIntent {
             .map({ self.urlField.text })
     }
     
-    func requestIconOkOrNot(_ checkOrNil: Bool?) {
-        guard let check = checkOrNil else {
+    private func changeViewSetup(isButtonHidden: Bool,
+                                 iconCode: FontAwesome?,
+                                 doAnimateSpinner: Bool) {
+        sendButton.isHidden = isButtonHidden
+        if let code = iconCode {
+            requestStatusIcon.isHidden = false
+            requestStatusIcon.code = code
+        } else {
             requestStatusIcon.isHidden = true
-            return
         }
-        requestStatusIcon.isHidden = false
-        requestStatusIcon.iconName = check ? "fa-check" : "fa-times"
+        if doAnimateSpinner {
+            spinner.startAnimating()
+        } else {
+            spinner.stopAnimating()
+        }
     }
     
     func display(viewModel: TrackSenderModel) {
@@ -71,23 +80,23 @@ extension TrackSenderViewController: TrackSenderIntent {
         }
         switch viewModel {
         case .display:
-            self.spinner.stopAnimating()
-            self.sendButton.isHidden = false
-            self.requestIconOkOrNot(nil)
+            self.changeViewSetup(isButtonHidden: false,
+                                 iconCode: nil,
+                                 doAnimateSpinner: false)
         case .loading:
-            self.spinner.startAnimating()
-            self.sendButton.isHidden = true
-            self.requestIconOkOrNot(nil)
+            self.changeViewSetup(isButtonHidden: true,
+                             iconCode: nil,
+                             doAnimateSpinner: true)
         case .success:
-            self.spinner.stopAnimating()
-            self.sendButton.isHidden = true
-            self.requestIconOkOrNot(true)
+            self.changeViewSetup(isButtonHidden: true,
+                             iconCode: .check,
+                             doAnimateSpinner: false)
             timerToDisplay()
         case let .error(title: titleError, subTitle: errorMsg):
+            self.changeViewSetup(isButtonHidden: true,
+                                 iconCode: .times,
+                                 doAnimateSpinner: false)
             mainScene.alert(titleError, subtitle: errorMsg)
-            self.spinner.stopAnimating()
-            self.sendButton.isHidden = true
-            self.requestIconOkOrNot(false)
             timerToDisplay()
         }
     }

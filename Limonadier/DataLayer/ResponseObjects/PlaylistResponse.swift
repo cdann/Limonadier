@@ -11,12 +11,13 @@ import Domain
 
 public struct PlaylistResponse: Codable {
     let items: [PlaylistItemResponse]
+    let idx: Int
 }
 
 
 extension PlaylistResponse {
     func toObject() -> Domain.Playlist {
         let items = self.items.map({ $0.toObject() })
-        return Domain.Playlist(items: items)
+        return Domain.Playlist(items: items, readingIndex: idx)
     }
 }
