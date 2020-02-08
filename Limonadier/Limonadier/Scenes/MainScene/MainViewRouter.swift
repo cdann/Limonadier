@@ -49,7 +49,7 @@ struct MainViewRouter:  MainViewRouterInput {
     
     func addChildrenToController(controller: MainViewController, playlistObs: Observable<Playlist>) {
         //Playlist
-        let playlist = PlaylistRouter.instantiateController(mainScene: controller, playlistObservable: playlistObs)
+        let playlist = PlaylistRouter.instantiateController(mainScene: controller, playlist: playlistObs)
         controller.playlistController = playlist
         
         
