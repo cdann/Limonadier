@@ -14,13 +14,17 @@ class PlaylistItemTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var heartIcon: FAButton!
     @IBOutlet weak var artistLabel: UILabel!
+    class var className: String {
+        return String(describing: self)
+    }
     
-    class func attachAndGetIdentifier(_ tableView: UITableView) -> String {
-        let className = String(describing: self)
-    
+    class func attach(_ tableView: UITableView){
         let nib = UINib(nibName: className, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: className)
-        return className
+    }
+    
+    class func dequeueReusableFrom(_ tableView: UITableView) -> PlaylistItemTableViewCell? {
+        return tableView.dequeueReusableCell(withIdentifier: self.className) as? PlaylistItemTableViewCell
     }
     
     override func awakeFromNib() {

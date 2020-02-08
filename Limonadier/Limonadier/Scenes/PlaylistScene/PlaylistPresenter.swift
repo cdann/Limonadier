@@ -12,21 +12,21 @@ import Domain
 
 enum PlaylistModel {
     case loading
-    case display
+    case display([PlaylistRow])
     case error(title:String, subTitle: String?)
 }
 
 class  PlaylistPresenter {
-    private let bag = DisposeBag()
+    let bag = DisposeBag()
     private let router: PlaylistRouterInput
     private weak var viewController: PlaylistIntent?
     private var routePublisher = PublishSubject<PlaylistRoute>()
-    var playListSectionsObs: Observable<[PlaylistRow]>
+    var playListRows: Observable<[PlaylistRow]>
     
-    init(router: PlaylistRouterInput, viewController: PlaylistIntent, playlistObservable:  Observable<Playlist>) {
+    init(router: PlaylistRouterInput, viewController: PlaylistIntent, playlist:  Observable<Playlist>) {
         self.router = router
         self.viewController = viewController
-        playListSectionsObs = playlistObservable.map({ (playlist) -> [PlaylistRow] in
+        playListRows = playlist.map({ (playlist) -> [PlaylistRow] in
             return playlist.items.enumerated().map {
                 (index, item) -> PlaylistRow in
                 if index == playlist.readingIndex {
@@ -35,30 +35,24 @@ class  PlaylistPresenter {
                 return index > playlist.readingIndex ? .toRead(item) : .past(item)
             }
         })
-        subscribeViewModel()
     }
     
     deinit {
         print("Deinit \(self)")
     }
     
-    func subscribeViewModel() {
-        self.viewController?.display(viewModel: .loading)
-        playListSectionsObs.subscribe(onNext: { (playlist) in
-            print("YEPP \(playlist)")
-            self.viewController?.display(viewModel: .display)
-        }, onError: { (error) in
-            print("error")
-            self.viewController?.display(viewModel: .error(title: "Playlist cannot be loaded", subTitle: error.localizedDescription))
-        }, onCompleted: {
-            print("completed")
-        }).disposed(by: self.bag)
+    func attach(){
+        subscribeViewModel()
     }
     
-    func observeLoadIntent(loadIntent: Observable<PlaylistModel>) {
-        loadIntent.subscribe(onNext: { [weak self] (model) in
-            self?.viewController?.display(viewModel: model)
-        }).disposed(by: bag)
+    func subscribeViewModel() {
+        self.viewController?.display(viewModel: .loading)
+        playListRows.debug("didChange").subscribe(onNext: { (rows) in
+            self.viewController?.display(viewModel: .display(rows))
+        }, onError: { (error) in
+            self.viewController?.display(viewModel: .error(title: "Playlist cannot be loaded", subTitle: error.localizedDescription))
+        }, onCompleted: {
+        }).disposed(by: self.bag)
     }
     
 }

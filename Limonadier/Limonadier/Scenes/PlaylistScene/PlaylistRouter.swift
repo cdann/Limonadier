@@ -19,7 +19,7 @@ enum PlaylistRoute {
  * Using an interface let you stub the component for Unit Testing
  */
 protocol PlaylistRouterInput {
-    static func instantiateController(mainScene: MainScene, playlistObservable: Observable<Playlist>) -> PlaylistController
+    static func instantiateController(mainScene: MainScene, playlist: Observable<Playlist>) -> PlaylistController
     func go(to route: PlaylistRoute)
 }
 
@@ -27,11 +27,11 @@ struct PlaylistRouter:  PlaylistRouterInput {
     
     private weak var controller: PlaylistController?
     
-    static func instantiateController(mainScene: MainScene, playlistObservable: Observable<Playlist>) -> PlaylistController {
+    static func instantiateController(mainScene: MainScene, playlist: Observable<Playlist>) -> PlaylistController {
         let controller = PlaylistController(mainScene: mainScene)
         
         let router = PlaylistRouter(controller: controller)
-        let presenter = PlaylistPresenter(router: router, viewController: controller, playlistObservable:  playlistObservable)
+        let presenter = PlaylistPresenter(router: router, viewController: controller, playlist: playlist)
         controller.presenter = presenter
         
         return controller

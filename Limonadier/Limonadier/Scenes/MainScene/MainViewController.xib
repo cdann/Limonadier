@@ -16,8 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="limonadier" customModuleProvider="target">
             <connections>
                 <outlet property="playlistContainer" destination="Nsq-WV-Dzz" id="Qnw-Cj-ltX"/>
-                <outlet property="sendButton" destination="8zZ-sB-uyM" id="8QT-IC-4SM"/>
-                <outlet property="urlField" destination="jg2-wM-R92" id="Ncd-EY-eb3"/>
+                <outlet property="trackSenderContainer" destination="0FR-X1-Zh6" id="rhO-Dn-5AZ"/>
                 <outlet property="view" destination="fDQ-Ew-uSL" id="uC3-HL-e0S"/>
             </connections>
         </placeholder>
@@ -27,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0FR-X1-Zh6">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="158"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Envie de partager une musique ? Lancez vous !" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zu6-Pk-lgt">
                             <rect key="frame" x="35" y="21" width="305" height="41"/>
@@ -58,7 +57,7 @@
                             </state>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" name="PaleGold"/>
+                    <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="8zZ-sB-uyM" firstAttribute="top" secondItem="jg2-wM-R92" secondAttribute="top" id="22W-bz-6Ia"/>
                         <constraint firstItem="zu6-Pk-lgt" firstAttribute="leading" secondItem="0FR-X1-Zh6" secondAttribute="leading" constant="35" id="3AP-Yq-ZwX"/>
@@ -73,12 +72,20 @@
                         <constraint firstItem="zu6-Pk-lgt" firstAttribute="centerX" secondItem="0FR-X1-Zh6" secondAttribute="centerX" id="yKK-hz-iec"/>
                         <constraint firstItem="8zZ-sB-uyM" firstAttribute="trailing" secondItem="zu6-Pk-lgt" secondAttribute="trailing" id="zpj-LP-PGn"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="zu6-Pk-lgt"/>
+                            <exclude reference="jg2-wM-R92"/>
+                            <exclude reference="wvX-wk-LUk"/>
+                            <exclude reference="8zZ-sB-uyM"/>
+                        </mask>
+                    </variation>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHr-Ad-P8W" customClass="RoundedView" customModule="limonadier">
-                    <rect key="frame" x="0.0" y="166" width="375" height="501"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHr-Ad-P8W">
+                    <rect key="frame" x="0.0" y="158" width="375" height="509"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsq-WV-Dzz">
-                            <rect key="frame" x="35" y="10" width="305" height="365"/>
+                            <rect key="frame" x="35" y="10" width="305" height="373"/>
                             <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                     </subviews>
@@ -89,10 +96,10 @@
                         <constraint firstItem="Nsq-WV-Dzz" firstAttribute="leading" secondItem="gHr-Ad-P8W" secondAttribute="leading" constant="35" id="7nR-vi-lJp"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFI-hA-G5f" customClass="RoundedView" customModule="limonadier">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFI-hA-G5f">
                     <rect key="frame" x="0.0" y="551" width="375" height="116"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SjB-wa-lg6" customClass="RoundedView" customModule="limonadier">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SjB-wa-lg6">
                             <rect key="frame" x="131.5" y="0.0" width="243.5" height="116"/>
                             <color key="backgroundColor" name="DarkScarlett"/>
                             <constraints>
@@ -131,9 +138,9 @@
                 <constraint firstItem="gHr-Ad-P8W" firstAttribute="bottom" secondItem="CQN-Vs-77b" secondAttribute="bottom" id="1X8-vs-hxX"/>
                 <constraint firstItem="SjB-wa-lg6" firstAttribute="top" secondItem="Nsq-WV-Dzz" secondAttribute="bottom" constant="10" id="2W1-B1-ePG"/>
                 <constraint firstItem="gHr-Ad-P8W" firstAttribute="trailing" secondItem="CQN-Vs-77b" secondAttribute="trailing" id="8iO-5u-jbG"/>
-                <constraint firstItem="gHr-Ad-P8W" firstAttribute="top" secondItem="CQN-Vs-77b" secondAttribute="top" constant="166" id="9af-0C-ATu"/>
                 <constraint firstItem="gHr-Ad-P8W" firstAttribute="leading" secondItem="CQN-Vs-77b" secondAttribute="leading" id="A9H-iA-HZu"/>
-                <constraint firstAttribute="bottom" secondItem="0FR-X1-Zh6" secondAttribute="bottom" id="E5w-jd-Un1"/>
+                <constraint firstItem="0FR-X1-Zh6" firstAttribute="height" secondItem="fDQ-Ew-uSL" secondAttribute="height" multiplier="0.236882" id="G32-U4-pqq"/>
+                <constraint firstItem="gHr-Ad-P8W" firstAttribute="top" secondItem="0FR-X1-Zh6" secondAttribute="bottom" id="JtK-c3-GZo"/>
                 <constraint firstAttribute="bottom" secondItem="MFI-hA-G5f" secondAttribute="bottom" id="M5H-FT-Me5"/>
                 <constraint firstItem="0FR-X1-Zh6" firstAttribute="trailing" secondItem="CQN-Vs-77b" secondAttribute="trailing" id="MX3-rR-f8V"/>
                 <constraint firstItem="0FR-X1-Zh6" firstAttribute="top" secondItem="CQN-Vs-77b" secondAttribute="top" id="S7f-wc-4S7"/>
