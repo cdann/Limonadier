@@ -56,15 +56,20 @@ class MainViewController: UIViewController {
     }
     
     public func attachChildrenView() {
-        if let controller = playlistController, let view = controller.view {
-            self.addChild(controller)
-            self.playlistContainer.addSubview(view)
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.topAnchor.constraint(equalTo: self.playlistContainer.topAnchor).isActive = true
-            view.leftAnchor.constraint(equalTo: self.playlistContainer.leftAnchor).isActive = true
-            view.bottomAnchor.constraint(equalTo: self.playlistContainer.bottomAnchor).isActive = true
-            view.rightAnchor.constraint(equalTo: self.playlistContainer.rightAnchor).isActive = true
+        if let playlistController = playlistController {
+            self.addChild(playlistController, in: self.playlistContainer)
         }
+    }
+    
+    private func addChild(_ childController: UIViewController, in containerView: UIView) {
+        self.addChild(childController)
+        guard let view = childController.view else { return }
+        containerView.addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        view.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        view.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
     }
 }
 
