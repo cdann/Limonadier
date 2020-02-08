@@ -43,11 +43,12 @@ class PlaylistController: UIViewController {
     
     var presenter: PlaylistPresenter!
     weak var mainScene: MainScene!
-    var itemCellIdentifier = ""
+    var rowsSubject: PublishSubject<[PlaylistRow]>
     
     let bag = DisposeBag()
     
     override private init(nibName nibNameOrNil: String? = "PlaylistController", bundle nibBundleOrNil: Bundle? = nil) {
+        rowsSubject = PublishSubject()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -57,7 +58,8 @@ class PlaylistController: UIViewController {
     }
        
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        rowsSubject = PublishSubject()
+        super.init(coder: aDecoder)
     }
 
        // MARK: - View LifeCycle
@@ -67,12 +69,11 @@ class PlaylistController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemCellIdentifier = PlaylistItemTableViewCell.attachAndGetIdentifier(mTableView)
-        
+        PlaylistItemTableViewCell.attach(mTableView)
         mTableView.tableFooterView = UIView()
-        presenter.playListSectionsObs.bind(to: mTableView.rx.items){
+        rowsSubject.bind(to: mTableView.rx.items) {
             table, index, row in
-            let cell = table.dequeueReusableCell(withIdentifier: self.itemCellIdentifier) as! PlaylistItemTableViewCell
+            let cell = PlaylistItemTableViewCell.dequeueReusableFrom(table)!
             switch row {
             case let .past(item):
                 cell.setup(past: item)
@@ -82,8 +83,8 @@ class PlaylistController: UIViewController {
                 cell.setup(toRead: item)
             }
             return cell
-        }
-        .disposed(by: bag)
+        }.disposed(by: presenter.bag)
+        presenter.attach()
     }
     
 }
@@ -97,8 +98,9 @@ extension PlaylistController: PlaylistIntent {
             mTableView.isHidden = true
             spinner.startAnimating()
             break
-        case .display:
+        case let .display(rows):
             mTableView.isHidden = false
+            rowsSubject.onNext(rows)
             spinner.stopAnimating()
             break
         case let .error(title:title, subTitle: subTitle):
