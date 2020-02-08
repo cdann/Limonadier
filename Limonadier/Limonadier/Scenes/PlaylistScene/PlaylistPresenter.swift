@@ -47,14 +47,11 @@ class  PlaylistPresenter {
     
     func subscribeViewModel() {
         self.viewController?.display(viewModel: .loading)
-        playListRows.subscribe(onNext: { (rows) in
-            print("YEPP")
+        playListRows.debug("didChange").subscribe(onNext: { (rows) in
             self.viewController?.display(viewModel: .display(rows))
         }, onError: { (error) in
-            print("error")
             self.viewController?.display(viewModel: .error(title: "Playlist cannot be loaded", subTitle: error.localizedDescription))
         }, onCompleted: {
-            print("completed")
         }).disposed(by: self.bag)
     }
     

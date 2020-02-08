@@ -24,15 +24,13 @@ class  MainViewPresenter {
     
     private let getPlaylistUC = UseCaseFactory.instance.createUseCase(Domain.GetPlaylistUseCase.self)
     
-    let playlist: Observable<Playlist>
+    let playlistChanged: PublishSubject<Playlist> = PublishSubject()
+    let needToLoadPlaylist: PublishSubject<Void> = PublishSubject()
     
     init(router: MainViewRouterInput,
          viewController: MainViewIntents) {
         self.router = router
         self.viewController = viewController
-        self.playlist = Observable<Int>.interval(5, scheduler: MainScheduler.instance).flatMap { [getPlaylistUC] (_) -> Observable<Playlist> in
-            return getPlaylistUC.execute(()).debug()
-        }
     }
     
     
@@ -43,8 +41,11 @@ class  MainViewPresenter {
     
     
     func attach() {
-        self.observeRouting(routeEvent: routePublisher.asObservable())
-
+        self.needToLoadPlaylist.flatMap({ [weak self] (_) -> Observable<Playlist> in
+            guard let `self` = self else{ return Observable.empty() }
+            return self.getPlaylistUC.execute(())
+        }).subscribe(self.playlistChanged).disposed(by: bag)
+        Observable<Int>.interval(20, scheduler: MainScheduler.instance).debug("intervall load").map({ _ in () }).bind(to: needToLoadPlaylist.asObserver()).disposed(by: bag)
     }
     func observeRouting(routeEvent: Observable<MainViewRoute>) {
         routeEvent

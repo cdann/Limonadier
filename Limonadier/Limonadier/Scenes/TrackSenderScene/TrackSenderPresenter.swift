@@ -22,13 +22,16 @@ class TrackSenderPresenter {
     private let router: TrackSenderRouterInput
     private weak var viewController: TrackSenderIntent?
     private var routePublisher = PublishSubject<TrackSenderRoute>()
+    private var onPlaylistNeedLoading: PublishSubject<Void>
     
     private let postURLUC = UseCaseFactory.instance.createUseCase(PostPlaylistUrlUseCase.self)
     
-    init(router: TrackSenderRouterInput, viewController: TrackSenderIntent) {
+    init(router: TrackSenderRouterInput, viewController: TrackSenderIntent, onPlaylistNeedLoading: PublishSubject<Void>) {
         self.router = router
         self.viewController = viewController
+        self.onPlaylistNeedLoading = onPlaylistNeedLoading
     }
+    
     
     deinit {
         print("Deinit \(self)")
@@ -51,10 +54,10 @@ class TrackSenderPresenter {
             self.viewController?.display(viewModel: .loading)
             self.postURLUC.execute(url).subscribe(onNext: { (item) in
                 self.viewController?.display(viewModel: .success)
+                self.onPlaylistNeedLoading.on(.next(()))
             }, onError: { (error) in
-                self.viewController?.display(viewModel: .error(title:"Url cannot be added to the Playlist", subTitle: error.localizedDescription))
+                self.viewController?.display(viewModel: .error(title:"The url cannot be added to the Playlist", subTitle: error.localizedDescription))
             }, onCompleted: {
-                print("completed !")
             }).disposed(by: self.bag)
         }).disposed(by: self.bag)
     }

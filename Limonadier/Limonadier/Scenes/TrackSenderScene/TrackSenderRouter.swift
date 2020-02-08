@@ -19,7 +19,7 @@ enum TrackSenderRoute {
  * Using an interface let you stub the component for Unit Testing
  */
 protocol TrackSenderRouterInput {
-    static func instantiateController(mainScene: MainScene) -> TrackSenderViewController
+    static func instantiateController(mainScene: MainScene, onPlaylistNeedLoading: PublishSubject<Void>) -> TrackSenderViewController
     func go(to route: TrackSenderRoute)
 }
 
@@ -27,11 +27,11 @@ struct TrackSenderRouter:  TrackSenderRouterInput {
     
     private weak var controller: TrackSenderViewController?
     
-    static func instantiateController(mainScene: MainScene) -> TrackSenderViewController {
+    static func instantiateController(mainScene: MainScene, onPlaylistNeedLoading: PublishSubject<Void>) -> TrackSenderViewController {
         let controller = TrackSenderViewController(mainScene: mainScene)
         
         let router = TrackSenderRouter(controller: controller)
-        let presenter = TrackSenderPresenter(router: router, viewController: controller)
+        let presenter = TrackSenderPresenter(router: router, viewController: controller, onPlaylistNeedLoading: onPlaylistNeedLoading)
         controller.presenter = presenter
         
         return controller

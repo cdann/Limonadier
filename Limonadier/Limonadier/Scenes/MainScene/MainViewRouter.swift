@@ -24,7 +24,7 @@ protocol MainViewRouterInput {
     static func instantiateController() -> MainViewController
     
     func go(to route: MainViewRoute)
-    func addChildrenToController(controller: MainViewController, playlistObs: Observable<Playlist>)
+    func addChildrenToController(controller: MainViewController, playlistDidChange:PublishSubject<Playlist>, onPlaylistNeedLoading: PublishSubject<Void>)
 }
 
 struct MainViewRouter:  MainViewRouterInput {
@@ -37,7 +37,7 @@ struct MainViewRouter:  MainViewRouterInput {
         let router = MainViewRouter(controller: controller)
         let presenter = MainViewPresenter(router: router, viewController: controller)
         controller.presenter = presenter
-        router.addChildrenToController(controller: controller, playlistObs: presenter.playlist)
+        router.addChildrenToController(controller: controller, playlistDidChange: presenter.playlistChanged, onPlaylistNeedLoading: presenter.needToLoadPlaylist)
         return controller
     }
     
@@ -47,9 +47,9 @@ struct MainViewRouter:  MainViewRouterInput {
 //        }
     }
     
-    func addChildrenToController(controller: MainViewController, playlistObs: Observable<Playlist>) {
+    func addChildrenToController(controller: MainViewController, playlistDidChange:PublishSubject<Playlist>, onPlaylistNeedLoading: PublishSubject<Void>) {
         //Playlist
-        let playlist = PlaylistRouter.instantiateController(mainScene: controller, playlist: playlistObs)
+        let playlist = PlaylistRouter.instantiateController(mainScene: controller, playlist: playlistDidChange)
         controller.playlistController = playlist
         
         
@@ -58,7 +58,7 @@ struct MainViewRouter:  MainViewRouterInput {
 //        controller?.playlistController = playlist
         
         //URLField
-        let trackSender = TrackSenderRouter.instantiateController(mainScene: controller)
+        let trackSender = TrackSenderRouter.instantiateController(mainScene: controller, onPlaylistNeedLoading: onPlaylistNeedLoading)
         controller.trackSenderController = trackSender
 //        let playlist = PlaylistRouter.instantiateController()
 //        controller?.playlistController = playlist
