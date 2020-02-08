@@ -12,6 +12,8 @@ import Domain
 
 public class LocalTestRepository: Domain.Repository {
     
+    let bonjourService: BonjourService
+    
     public func postUrlItem(url: URL) -> Observable<PlaylistItem> {
         let item = PlaylistItem(artist: "The Artist", duration: 33, title: "The title", url: URL(string:"https://TheArtist.com/title")!)
         return self.requestWithIntervall(item)
@@ -38,5 +40,9 @@ public class LocalTestRepository: Domain.Repository {
         }
     }
     
-    public init() {}
+    public init() {
+        //toRemove
+        
+        self.bonjourService = BonjourService()
+    }
 }

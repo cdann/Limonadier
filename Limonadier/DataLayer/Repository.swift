@@ -36,6 +36,7 @@ public class Repository: Domain.Repository {
     
     
     let sessionManager: SessionManager
+    let bonjourService: BonjourService
     
     public init() {
         let configuration = URLSessionConfiguration.default
@@ -43,6 +44,8 @@ public class Repository: Domain.Repository {
         // manager.adapter = RequesrAdapter()
         // manager.retrier = RequestRetrier()
         self.sessionManager = manager
+        self.bonjourService = BonjourService()
+        bonjourService.delegate = self
     }
     
     
@@ -63,4 +66,12 @@ public class Repository: Domain.Repository {
             return Observable.error(error)
         }
     }
+}
+
+extension Repository: BonjourServiceDelegate {
+    func error(msg: String?) {
+        print("error")
+    }
+    
+    
 }
