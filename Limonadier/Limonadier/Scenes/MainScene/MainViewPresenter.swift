@@ -36,14 +36,15 @@ class  MainViewPresenter {
          viewController: MainViewIntents) {
         self.router = router
         self.viewController = viewController
-        playlist = Observable<Int>.interval(10.0, scheduler: MainScheduler.instance).debug("Playlist intervall")
-        .flatMap({ [getPlaylistUC] _ in
-            return getPlaylistUC.execute(())
-            })
+        playlist = getPlaylistUC.execute(())
     }
     
     deinit {
         print("Deinit \(self)")
+    }
+    
+    func loadPlaylist()-> Observable<Playlist> {
+        return getPlaylistUC.execute(())
     }
     
     

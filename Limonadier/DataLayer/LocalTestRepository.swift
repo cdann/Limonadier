@@ -11,7 +11,6 @@ import RxSwift
 import Domain
 
 public class LocalTestRepository: Domain.Repository {
-    var getNumber = 0
     
     public func postUrlItem(url: URL) -> Observable<PlaylistItem> {
         let item = PlaylistItem(artist: "The Artist", duration: 33, title: "The title", url: URL(string:"https://TheArtist.com/title")!)
@@ -19,16 +18,11 @@ public class LocalTestRepository: Domain.Repository {
     }
     
     public func getPlaylist() -> Observable<Playlist> {
-        var items = [
+        let items = [
             PlaylistItem(artist: "blabla", duration: 33, title: "blabla rosso", url: URL(string:"https://blabla.com/blabla%20rosso")!),
             PlaylistItem(artist: "le chanteur qui a un nom à rallonge genre vraiment assez long", duration: 33, title: "OhAhOhAhOh", url: URL(string:"https://blabla.com/blabla%20rosso")!),
             PlaylistItem(artist: "le chanteur", duration: 33, title: "un titre long, un titre vrqimnet long, un titre long sur plusieurs lignes", url: URL(string:"https://blabla.com/blabla%20rosso")!)
         ]
-        if getNumber > 2 {
-            items.append(PlaylistItem(artist: "greatArtist", duration: 33, title: "new Element", url: URL(string:"https://blabla.com/blabla%20rosso")!))
-        }
-        
-        getNumber += 1
         return self.requestWithIntervall(Playlist(items: items, readingIndex: 1, readDuration: 20))
         
     }

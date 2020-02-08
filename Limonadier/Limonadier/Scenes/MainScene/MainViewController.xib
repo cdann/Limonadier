@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -23,32 +23,32 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="fDQ-Ew-uSL">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0FR-X1-Zh6">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Envie de partager une musique ? Lancez vous !" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zu6-Pk-lgt">
-                            <rect key="frame" x="35" y="63" width="344" height="41"/>
+                            <rect key="frame" x="35" y="21" width="305" height="41"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" name="DarkScarlett"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Collez votre url ici" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jg2-wM-R92">
-                            <rect key="frame" x="35" y="126" width="314" height="34"/>
+                            <rect key="frame" x="35" y="84" width="275" height="34"/>
                             <color key="textColor" name="FuzzyWuzzy"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Youtube, SoundCloud, Deezer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvX-wk-LUk">
-                            <rect key="frame" x="35" y="168" width="344" height="12"/>
+                            <rect key="frame" x="35" y="126" width="305" height="12"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <color key="textColor" name="DarkScarlett"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zZ-sB-uyM">
-                            <rect key="frame" x="349" y="126" width="30" height="34"/>
+                            <rect key="frame" x="310" y="84" width="30" height="34"/>
                             <color key="backgroundColor" name="TerraCotta"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="A6X-Xe-KY3"/>
@@ -65,6 +65,7 @@
                         <constraint firstItem="8zZ-sB-uyM" firstAttribute="leading" secondItem="jg2-wM-R92" secondAttribute="trailing" id="3Tn-yh-aaY"/>
                         <constraint firstItem="wvX-wk-LUk" firstAttribute="leading" secondItem="jg2-wM-R92" secondAttribute="leading" id="P1u-S6-Eub"/>
                         <constraint firstItem="wvX-wk-LUk" firstAttribute="trailing" secondItem="zu6-Pk-lgt" secondAttribute="trailing" id="Si5-7h-sEY"/>
+                        <constraint firstItem="zu6-Pk-lgt" firstAttribute="top" secondItem="0FR-X1-Zh6" secondAttribute="top" constant="21" id="T7f-oK-OCA"/>
                         <constraint firstItem="jg2-wM-R92" firstAttribute="leading" secondItem="zu6-Pk-lgt" secondAttribute="leading" id="jf0-eo-hNF"/>
                         <constraint firstItem="8zZ-sB-uyM" firstAttribute="bottom" secondItem="jg2-wM-R92" secondAttribute="bottom" id="mJS-rx-FUi"/>
                         <constraint firstItem="wvX-wk-LUk" firstAttribute="top" secondItem="jg2-wM-R92" secondAttribute="bottom" constant="8" id="t53-u0-0gJ"/>
@@ -74,10 +75,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHr-Ad-P8W" customClass="RoundedView" customModule="limonadier">
-                    <rect key="frame" x="0.0" y="210" width="414" height="652"/>
+                    <rect key="frame" x="0.0" y="166" width="375" height="501"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsq-WV-Dzz">
-                            <rect key="frame" x="35" y="10" width="344" height="550"/>
+                            <rect key="frame" x="35" y="10" width="305" height="365"/>
                             <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                     </subviews>
@@ -89,23 +90,23 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFI-hA-G5f" customClass="RoundedView" customModule="limonadier">
-                    <rect key="frame" x="0.0" y="780" width="414" height="116"/>
+                    <rect key="frame" x="0.0" y="551" width="375" height="116"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SjB-wa-lg6" customClass="RoundedView" customModule="limonadier">
-                            <rect key="frame" x="145" y="0.0" width="269" height="116"/>
+                            <rect key="frame" x="131.5" y="0.0" width="243.5" height="116"/>
                             <color key="backgroundColor" name="DarkScarlett"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="116" id="bXe-iD-OWy"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titre de mon contenu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQd-Pl-bPd">
-                            <rect key="frame" x="35" y="85" width="344" height="20.5"/>
+                            <rect key="frame" x="35" y="85" width="305" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" name="PaleGold"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03 42" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbC-X9-fRs">
-                            <rect key="frame" x="132" y="14" width="150.5" height="70"/>
+                            <rect key="frame" x="112.5" y="14" width="150.5" height="70"/>
                             <fontDescription key="fontDescription" name="LaradotSerif-Regular" family="Lara dot Serif" pointSize="60"/>
                             <color key="textColor" name="PaleGold"/>
                             <nil key="highlightedColor"/>
@@ -135,8 +136,7 @@
                 <constraint firstAttribute="bottom" secondItem="0FR-X1-Zh6" secondAttribute="bottom" id="E5w-jd-Un1"/>
                 <constraint firstAttribute="bottom" secondItem="MFI-hA-G5f" secondAttribute="bottom" id="M5H-FT-Me5"/>
                 <constraint firstItem="0FR-X1-Zh6" firstAttribute="trailing" secondItem="CQN-Vs-77b" secondAttribute="trailing" id="MX3-rR-f8V"/>
-                <constraint firstItem="gHr-Ad-P8W" firstAttribute="top" secondItem="wvX-wk-LUk" secondAttribute="bottom" constant="30" id="Puv-n0-Z7d"/>
-                <constraint firstItem="0FR-X1-Zh6" firstAttribute="top" secondItem="fDQ-Ew-uSL" secondAttribute="top" id="S7f-wc-4S7"/>
+                <constraint firstItem="0FR-X1-Zh6" firstAttribute="top" secondItem="CQN-Vs-77b" secondAttribute="top" id="S7f-wc-4S7"/>
                 <constraint firstItem="MFI-hA-G5f" firstAttribute="trailing" secondItem="CQN-Vs-77b" secondAttribute="trailing" id="YhF-GO-dx9"/>
                 <constraint firstItem="MFI-hA-G5f" firstAttribute="leading" secondItem="CQN-Vs-77b" secondAttribute="leading" id="jF3-pP-cDb"/>
                 <constraint firstItem="0FR-X1-Zh6" firstAttribute="leading" secondItem="CQN-Vs-77b" secondAttribute="leading" id="zxZ-8N-fAZ"/>

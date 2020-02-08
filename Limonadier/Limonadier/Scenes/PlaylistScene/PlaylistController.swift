@@ -44,7 +44,6 @@ class PlaylistController: UIViewController {
     var presenter: PlaylistPresenter!
     weak var mainScene: MainScene!
     var itemCellIdentifier = ""
-    var playlistRows: [PlaylistRow] = []
     
     let bag = DisposeBag()
     
@@ -69,9 +68,22 @@ class PlaylistController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         itemCellIdentifier = PlaylistItemTableViewCell.attachAndGetIdentifier(mTableView)
-        presenter.attach()
+        
         mTableView.tableFooterView = UIView()
-        mTableView.dataSource = self
+        presenter.playListSectionsObs.bind(to: mTableView.rx.items){
+            table, index, row in
+            let cell = table.dequeueReusableCell(withIdentifier: self.itemCellIdentifier) as! PlaylistItemTableViewCell
+            switch row {
+            case let .past(item):
+                cell.setup(past: item)
+            case let .reading(item):
+                cell.setup(reading: item)
+            case let .toRead(item):
+                cell.setup(toRead: item)
+            }
+            return cell
+        }
+        .disposed(by: bag)
     }
     
 }
@@ -85,11 +97,8 @@ extension PlaylistController: PlaylistIntent {
             mTableView.isHidden = true
             spinner.startAnimating()
             break
-        case let .display(rows:playlistRows):
-            // faire un publishSubject pour rxDatasource
+        case .display:
             mTableView.isHidden = false
-            self.playlistRows = playlistRows
-            mTableView.reloadData()
             spinner.stopAnimating()
             break
         case let .error(title:title, subTitle: subTitle):
@@ -102,26 +111,4 @@ extension PlaylistController: PlaylistIntent {
     
 }
 
-extension PlaylistController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return playlistRows.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: itemCellIdentifier, for: indexPath) as! PlaylistItemTableViewCell
-        let row = playlistRows[indexPath.row]
-        switch row {
-            case let .past(item):
-                cell.setup(past: item)
-            case let .reading(item):
-                cell.setup(reading: item)
-            case let .toRead(item):
-                cell.setup(toRead: item)
-        }
-        return cell
-    }
-}
+

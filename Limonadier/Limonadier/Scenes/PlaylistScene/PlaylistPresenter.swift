@@ -12,7 +12,7 @@ import Domain
 
 enum PlaylistModel {
     case loading
-    case display(rows: [PlaylistRow])
+    case display
     case error(title:String, subTitle: String?)
 }
 
@@ -35,17 +35,18 @@ class  PlaylistPresenter {
                 return index > playlist.readingIndex ? .toRead(item) : .past(item)
             }
         })
+        subscribeViewModel()
     }
     
     deinit {
         print("Deinit \(self)")
     }
     
-    func attach() {
+    func subscribeViewModel() {
         self.viewController?.display(viewModel: .loading)
-        playListSectionsObs.subscribe(onNext: { (rows) in
-            print("YEPP")
-            self.viewController?.display(viewModel: .display(rows: rows))
+        playListSectionsObs.subscribe(onNext: { (playlist) in
+            print("YEPP \(playlist)")
+            self.viewController?.display(viewModel: .display)
         }, onError: { (error) in
             print("error")
             self.viewController?.display(viewModel: .error(title: "Playlist cannot be loaded", subTitle: error.localizedDescription))
