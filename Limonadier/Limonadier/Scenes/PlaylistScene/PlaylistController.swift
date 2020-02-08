@@ -45,8 +45,7 @@ class PlaylistController: UIViewController {
     weak var mainScene: MainScene!
     var rowsSubject: PublishSubject<[PlaylistRow]>
     
-    let bag = DisposeBag()
-    
+    // MARK: - Init
     override private init(nibName nibNameOrNil: String? = "PlaylistController", bundle nibBundleOrNil: Bundle? = nil) {
         rowsSubject = PublishSubject()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -62,11 +61,12 @@ class PlaylistController: UIViewController {
         super.init(coder: aDecoder)
     }
 
-       // MARK: - View LifeCycle
+    
     deinit {
         print("Deinit \(self)")
     }
     
+    // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         PlaylistItemTableViewCell.attach(mTableView)

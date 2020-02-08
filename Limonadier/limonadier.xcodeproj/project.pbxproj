@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1328504F173AD65FBE1B021B /* libPods-limonadierTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D02B18CB92DA06699CBB51 /* libPods-limonadierTests.a */; };
 		1E022395239CE19000EE5FB7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E022394239CE0A400EE5FB7 /* MainViewController.swift */; };
+		1E0C3AE323EEF28400AF4855 /* TrackSenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0C3AE123EEF28400AF4855 /* TrackSenderViewController.swift */; };
+		1E0C3AE423EEF28400AF4855 /* TrackSenderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0C3AE223EEF28400AF4855 /* TrackSenderViewController.xib */; };
+		1E0C3AE623EEF2A000AF4855 /* TrackSenderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0C3AE523EEF2A000AF4855 /* TrackSenderPresenter.swift */; };
+		1E0C3AE823EEF2B600AF4855 /* TrackSenderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0C3AE723EEF2B600AF4855 /* TrackSenderRouter.swift */; };
 		1E0FC6B023E64EF400ECAEAF /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FC6AF23E64EF400ECAEAF /* FAIcon.swift */; };
 		1E0FC6B223E653FD00ECAEAF /* FAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0FC6B123E653FD00ECAEAF /* FAButton.swift */; };
 		1E36BBBF239C0EAB00950AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BBBE239C0EAB00950AAB /* AppDelegate.swift */; };
@@ -97,6 +101,10 @@
 
 /* Begin PBXFileReference section */
 		1E022394239CE0A400EE5FB7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		1E0C3AE123EEF28400AF4855 /* TrackSenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSenderViewController.swift; sourceTree = "<group>"; };
+		1E0C3AE223EEF28400AF4855 /* TrackSenderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackSenderViewController.xib; sourceTree = "<group>"; };
+		1E0C3AE523EEF2A000AF4855 /* TrackSenderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSenderPresenter.swift; sourceTree = "<group>"; };
+		1E0C3AE723EEF2B600AF4855 /* TrackSenderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSenderRouter.swift; sourceTree = "<group>"; };
 		1E0FC6AF23E64EF400ECAEAF /* FAIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
 		1E0FC6B123E653FD00ECAEAF /* FAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAButton.swift; sourceTree = "<group>"; };
 		1E36BBBB239C0EAB00950AAB /* limonadier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = limonadier.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +222,17 @@
 				1E36BC78239CDB6200950AAB /* MainViewController.xib */,
 			);
 			path = MainScene;
+			sourceTree = "<group>";
+		};
+		1E0C3ADE23EEF22200AF4855 /* TrackSenderScene */ = {
+			isa = PBXGroup;
+			children = (
+				1E0C3AE123EEF28400AF4855 /* TrackSenderViewController.swift */,
+				1E0C3AE223EEF28400AF4855 /* TrackSenderViewController.xib */,
+				1E0C3AE523EEF2A000AF4855 /* TrackSenderPresenter.swift */,
+				1E0C3AE723EEF2B600AF4855 /* TrackSenderRouter.swift */,
+			);
+			path = TrackSenderScene;
 			sourceTree = "<group>";
 		};
 		1E36BBB2239C0EAB00950AAB = {
@@ -339,6 +358,7 @@
 		722E2399239EF67F00D06ECB /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1E0C3ADE23EEF22200AF4855 /* TrackSenderScene */,
 				723F5F4A23D5CF9C004D1A86 /* PlaylistScene */,
 				1E022393239CE09100EE5FB7 /* MainScene */,
 			);
@@ -577,6 +597,7 @@
 			files = (
 				723D77D723D724AF00069055 /* PlaylistItemTableViewCell.xib in Resources */,
 				723F5F5023D5D057004D1A86 /* PlaylistController.xib in Resources */,
+				1E0C3AE423EEF28400AF4855 /* TrackSenderViewController.xib in Resources */,
 				1E36BBCB239C0EAB00950AAB /* LaunchScreen.storyboard in Resources */,
 				1E36BBC8239C0EAB00950AAB /* Assets.xcassets in Resources */,
 				722E2398239EF3BC00D06ECB /* LaradotSerif-Regular.ttf in Resources */,
@@ -746,7 +767,9 @@
 				1E36BC5A239C31AB00950AAB /* UseCaseFactory.swift in Sources */,
 				722E239C239EF84000D06ECB /* UIFont.swift in Sources */,
 				723F5F5523D5D13F004D1A86 /* PlaylistPresenter.swift in Sources */,
+				1E0C3AE323EEF28400AF4855 /* TrackSenderViewController.swift in Sources */,
 				724D9236239F002D0046404A /* UIColor.swift in Sources */,
+				1E0C3AE823EEF2B600AF4855 /* TrackSenderRouter.swift in Sources */,
 				1E36BBBF239C0EAB00950AAB /* AppDelegate.swift in Sources */,
 				1E0FC6B223E653FD00ECAEAF /* FAButton.swift in Sources */,
 				723F5F4F23D5D051004D1A86 /* PlaylistController.swift in Sources */,
@@ -755,6 +778,7 @@
 				723F5F5623D5D144004D1A86 /* PlaylistRouter.swift in Sources */,
 				1E36BBC1239C0EAB00950AAB /* SceneDelegate.swift in Sources */,
 				1E0FC6B023E64EF400ECAEAF /* FAIcon.swift in Sources */,
+				1E0C3AE623EEF2A000AF4855 /* TrackSenderPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
