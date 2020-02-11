@@ -9,15 +9,23 @@
 import Foundation
 
 public struct Playlist {
+    
+    public struct Reading {
+        public let id: String
+        public let position: Int
+        
+        public init(id: String, position: Int) {
+            self.id = id
+            self.position = position
+        }
+    }
+    
     public let items: [PlaylistItem]
+    public let reading: Reading
     
-    //temporary property
-    public let readingIndex: Int
-    public let readDuration: Int
     
-    public init(items: [PlaylistItem], readingIndex: Int = 0, readDuration: Int = 0) {
+    public init(items: [PlaylistItem], reading: Reading) {
         self.items = items
-        self.readDuration = readDuration
-        self.readingIndex = readingIndex
+        self.reading = reading
     }
 }

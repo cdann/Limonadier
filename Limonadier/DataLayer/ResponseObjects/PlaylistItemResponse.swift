@@ -10,6 +10,7 @@ import Foundation
 import Domain
 
 public struct PlaylistItemResponse: Codable {
+    let id: String
     let artist: String
     let duration: Int
     let title: String
@@ -19,6 +20,6 @@ public struct PlaylistItemResponse: Codable {
 extension PlaylistItemResponse {
     func toObject() -> Domain.PlaylistItem {
         let itemUrl = URL(string: url)!
-        return Domain.PlaylistItem(artist: artist, duration: duration, title: title, url: itemUrl)
+        return Domain.PlaylistItem(id: id, artist: artist, duration: duration, title: title, url: itemUrl)
     }
 }

@@ -9,15 +9,17 @@
 import Foundation
 
 public struct PlaylistItem {
+    public let id: String
     public let artist: String
     public let duration: Int
     public let title: String
     public let url: URL
     
-    public init(artist: String, duration: Int, title: String, url: URL) {
+    public init( id: String, artist: String, duration: Int, title: String, url: URL) {
         self.artist = artist
         self.duration = duration
         self.title = title
         self.url = url
+        self.id = id
     }
 }

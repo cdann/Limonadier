@@ -10,14 +10,25 @@ import Foundation
 import Domain
 
 public struct PlaylistResponse: Codable {
+    struct ReadingResponse: Codable {
+        let id: String
+        let position: Int
+    }
+    
     let items: [PlaylistItemResponse]
-    let idx: Int
+    let reading : ReadingResponse
 }
 
 
 extension PlaylistResponse {
     func toObject() -> Domain.Playlist {
         let items = self.items.map({ $0.toObject() })
-        return Domain.Playlist(items: items, readingIndex: idx)
+        return Domain.Playlist(items: items, reading: reading.toObject())
+    }
+}
+
+extension PlaylistResponse.ReadingResponse {
+    func toObject() -> Domain.Playlist.Reading {
+        return Domain.Playlist.Reading(id: id, position: position)
     }
 }

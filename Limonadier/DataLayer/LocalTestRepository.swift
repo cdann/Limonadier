@@ -11,24 +11,23 @@ import RxSwift
 import Domain
 
 public class LocalTestRepository: Domain.Repository {
-    var testItems = [
-        PlaylistItem(artist: "blabla", duration: 33, title: "blabla rosso", url: URL(string:"https://blabla.com/blabla%20rosso")!),
-        PlaylistItem(artist: "le chanteur qui a un nom à rallonge genre vraiment assez long", duration: 33, title: "OhAhOhAhOh", url: URL(string:"https://blabla.com/blabla%20rosso")!),
-        PlaylistItem(artist: "le chanteur", duration: 33, title: "un titre long, un titre vrqimnet long, un titre long sur plusieurs lignes", url: URL(string:"https://blabla.com/blabla%20rosso")!)
+    var testItems: [PlaylistItem] = [
+        PlaylistItem(id: "ooo", artist: "blabla", duration: 33, title: "blabla rosso", url: URL(string:"https://blabla.com/blabla%20rosso")!),
+        PlaylistItem(id: "ooo2",artist: "le chanteur qui a un nom à rallonge genre vraiment assez long", duration: 33, title: "OhAhOhAhOh", url: URL(string:"https://blabla.com/blabla%20rosso")!),
+        PlaylistItem(id: "ooo3",artist: "le chanteur", duration: 33, title: "un titre long, un titre vrqimnet long, un titre long sur plusieurs lignes", url: URL(string:"https://blabla.com/blabla%20rosso")!)
     ]
     
-    var testReadingIndex = 1
-    var testReadingDuration = 20
+    var reading: Playlist.Reading = Playlist.Reading(id:"ooo2", position: 13)
     
     public func postUrlItem(url: URL) -> Observable<PlaylistItem> {
-        let item = PlaylistItem(artist: "The Artist", duration: 33, title: url.absoluteString, url: URL(string:"url")!)
+        let item = PlaylistItem(id: "plop34\(url.absoluteString)", artist: "The Artist", duration: 33, title: url.absoluteString, url: url)
         testItems.append(item)
         
         return self.requestWithIntervall(item)
     }
     
     public func getPlaylist() -> Observable<Playlist> {
-        return self.requestWithIntervall(Playlist(items: testItems, readingIndex: testReadingIndex, readDuration: testReadingDuration))
+        return self.requestWithIntervall(Playlist(items: testItems,reading: reading))
         
     }
     
