@@ -91,6 +91,7 @@ extension TrackSenderViewController: TrackSenderIntent {
             self.changeViewSetup(isButtonHidden: true,
                              iconCode: .check,
                              doAnimateSpinner: false)
+            self.urlField.text = ""
             timerToDisplay()
         case let .error(title: titleError, subTitle: errorMsg):
             self.changeViewSetup(isButtonHidden: true,
