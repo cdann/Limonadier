@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LaradotSerif-Regular.ttf">
+            <string>LaradotSerif-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerController" customModule="limonadier" customModuleProvider="target">
+            <connections>
+                <outlet property="progressConstraint" destination="bSQ-2V-zn4" id="asO-fw-1xK"/>
+                <outlet property="remainingTimeLabel" destination="uka-1B-6tG" id="WJb-97-eRN"/>
+                <outlet property="trackTitle" destination="AjT-ON-aO7" id="Lq7-96-sDS"/>
+                <outlet property="view" destination="iN0-l3-epB" id="gEi-h7-8rz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7r-Ww-xrP">
+                    <rect key="frame" x="135" y="0.0" width="240" height="116"/>
+                    <color key="backgroundColor" name="DarkScarlett"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titre de mon contenu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjT-ON-aO7">
+                    <rect key="frame" x="105.5" y="78" width="164" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" name="PaleGold"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="03 42" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uka-1B-6tG">
+                    <rect key="frame" x="123.5" y="17" width="128" height="60"/>
+                    <fontDescription key="fontDescription" name="LaradotSerif-Regular" family="Lara dot Serif" pointSize="60"/>
+                    <color key="textColor" name="PaleGold"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" name="FuzzyWuzzy"/>
+            <constraints>
+                <constraint firstItem="e7r-Ww-xrP" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="0O5-70-hk8"/>
+                <constraint firstItem="uka-1B-6tG" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="EZg-0g-lz7"/>
+                <constraint firstItem="AjT-ON-aO7" firstAttribute="top" secondItem="uka-1B-6tG" secondAttribute="bottom" constant="1" id="JLX-yn-2aC"/>
+                <constraint firstItem="e7r-Ww-xrP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Mqn-tg-PZA"/>
+                <constraint firstItem="uka-1B-6tG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="17" id="atG-SR-dzk"/>
+                <constraint firstItem="e7r-Ww-xrP" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.64" id="bSQ-2V-zn4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="AjT-ON-aO7" secondAttribute="bottom" constant="17.5" id="cBo-w2-oC9"/>
+                <constraint firstItem="e7r-Ww-xrP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="dg9-uY-th7"/>
+                <constraint firstItem="AjT-ON-aO7" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="oMG-m0-WaX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="136.80000000000001" y="2.6986506746626691"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="DarkScarlett">
+            <color red="0.30980392156862746" green="0.050980392156862744" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="FuzzyWuzzy">
+            <color red="0.81999999284744263" green="0.41999998688697815" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PaleGold">
+            <color red="0.92900002002716064" green="0.72200000286102295" blue="0.54500001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

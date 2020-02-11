@@ -37,6 +37,10 @@
 		1E36BC7A239CDB6200950AAB /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BC76239CDB6200950AAB /* MainViewPresenter.swift */; };
 		1E36BC7B239CDB6200950AAB /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BC77239CDB6200950AAB /* MainViewRouter.swift */; };
 		1E36BC7C239CDB6200950AAB /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E36BC78239CDB6200950AAB /* MainViewController.xib */; };
+		1E541C0223F346170097D9D7 /* PlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E541BFE23F346170097D9D7 /* PlayerPresenter.swift */; };
+		1E541C0323F346170097D9D7 /* PlayerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E541BFF23F346170097D9D7 /* PlayerRouter.swift */; };
+		1E541C0423F346170097D9D7 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E541C0023F346170097D9D7 /* PlayerController.swift */; };
+		1E541C0523F346170097D9D7 /* PlayerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E541C0123F346170097D9D7 /* PlayerController.xib */; };
 		1EE6A89023EEFCB700076C68 /* TrackSenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE6A88E23EEFCB700076C68 /* TrackSenderViewController.swift */; };
 		1EE6A89123EEFCB700076C68 /* TrackSenderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EE6A88F23EEFCB700076C68 /* TrackSenderViewController.xib */; };
 		42229F318F4BF6138A9736CB /* Pods_limonadier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580B46B64C57030C401B41B1 /* Pods_limonadier.framework */; };
@@ -133,6 +137,10 @@
 		1E36BC76239CDB6200950AAB /* MainViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		1E36BC77239CDB6200950AAB /* MainViewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewRouter.swift; sourceTree = "<group>"; };
 		1E36BC78239CDB6200950AAB /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		1E541BFE23F346170097D9D7 /* PlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPresenter.swift; sourceTree = "<group>"; };
+		1E541BFF23F346170097D9D7 /* PlayerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRouter.swift; sourceTree = "<group>"; };
+		1E541C0023F346170097D9D7 /* PlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
+		1E541C0123F346170097D9D7 /* PlayerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerController.xib; sourceTree = "<group>"; };
 		1EE6A88E23EEFCB700076C68 /* TrackSenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSenderViewController.swift; sourceTree = "<group>"; };
 		1EE6A88F23EEFCB700076C68 /* TrackSenderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackSenderViewController.xib; sourceTree = "<group>"; };
 		2FF203552454D8A8408C14E6 /* Pods-DataLayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DataLayer/Pods-DataLayer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -337,6 +345,17 @@
 			path = RequestObjects;
 			sourceTree = "<group>";
 		};
+		1E541BDD23F3417B0097D9D7 /* PlayerScene */ = {
+			isa = PBXGroup;
+			children = (
+				1E541BFE23F346170097D9D7 /* PlayerPresenter.swift */,
+				1E541BFF23F346170097D9D7 /* PlayerRouter.swift */,
+				1E541C0023F346170097D9D7 /* PlayerController.swift */,
+				1E541C0123F346170097D9D7 /* PlayerController.xib */,
+			);
+			path = PlayerScene;
+			sourceTree = "<group>";
+		};
 		722E2395239EF39200D06ECB /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +376,7 @@
 		722E2399239EF67F00D06ECB /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1E541BDD23F3417B0097D9D7 /* PlayerScene */,
 				1E0C3ADE23EEF22200AF4855 /* TrackSenderScene */,
 				723F5F4A23D5CF9C004D1A86 /* PlaylistScene */,
 				1E022393239CE09100EE5FB7 /* MainScene */,
@@ -599,6 +619,7 @@
 				1E36BBCB239C0EAB00950AAB /* LaunchScreen.storyboard in Resources */,
 				1EE6A89123EEFCB700076C68 /* TrackSenderViewController.xib in Resources */,
 				1E36BBC8239C0EAB00950AAB /* Assets.xcassets in Resources */,
+				1E541C0523F346170097D9D7 /* PlayerController.xib in Resources */,
 				722E2398239EF3BC00D06ECB /* LaradotSerif-Regular.ttf in Resources */,
 				1E36BBC6239C0EAB00950AAB /* Main.storyboard in Resources */,
 				1E36BC7C239CDB6200950AAB /* MainViewController.xib in Resources */,
@@ -767,6 +788,7 @@
 				1E36BC5A239C31AB00950AAB /* UseCaseFactory.swift in Sources */,
 				722E239C239EF84000D06ECB /* UIFont.swift in Sources */,
 				723F5F5523D5D13F004D1A86 /* PlaylistPresenter.swift in Sources */,
+				1E541C0223F346170097D9D7 /* PlayerPresenter.swift in Sources */,
 				724D9236239F002D0046404A /* UIColor.swift in Sources */,
 				1E0C3AE823EEF2B600AF4855 /* TrackSenderRouter.swift in Sources */,
 				1E36BBBF239C0EAB00950AAB /* AppDelegate.swift in Sources */,
@@ -775,7 +797,9 @@
 				1E36BC7A239CDB6200950AAB /* MainViewPresenter.swift in Sources */,
 				723F5F5623D5D144004D1A86 /* PlaylistRouter.swift in Sources */,
 				1E36BBC1239C0EAB00950AAB /* SceneDelegate.swift in Sources */,
+				1E541C0323F346170097D9D7 /* PlayerRouter.swift in Sources */,
 				1E0FC6B023E64EF400ECAEAF /* FAIcon.swift in Sources */,
+				1E541C0423F346170097D9D7 /* PlayerController.swift in Sources */,
 				1E0C3AE623EEF2A000AF4855 /* TrackSenderPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
