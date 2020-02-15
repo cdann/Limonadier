@@ -13,8 +13,8 @@ import Domain
 public class LocalTestRepository: Domain.Repository {
     var testItems: [PlaylistItem] = [
         PlaylistItem(id: "ooo", artist: "blabla", duration: 33, title: "blabla rosso", url: URL(string:"https://blabla.com/blabla%20rosso")!),
-        PlaylistItem(id: "ooo2",artist: "le chanteur qui a un nom à rallonge genre vraiment assez long", duration: 33, title: "OhAhOhAhOh", url: URL(string:"https://blabla.com/blabla%20rosso")!),
-        PlaylistItem(id: "ooo3",artist: "le chanteur", duration: 33, title: "un titre long, un titre vrqimnet long, un titre long sur plusieurs lignes", url: URL(string:"https://blabla.com/blabla%20rosso")!)
+        PlaylistItem(id: "ooo2",artist: "lechanteurquiaunnomàrallongegenre vraimentassezlong", duration: 123, title: "OhAhOhAhOh", url: URL(string:"https://blabla.com/blabla%20rosso")!),
+        PlaylistItem(id: "ooo3",artist: "le chanteur", duration: 487, title: "un titre long, un titre vrqimnet long, un titre long sur plusieurs lignes", url: URL(string:"https://blabla.com/blabla%20rosso")!)
     ]
     
     var reading: Playlist.Reading = Playlist.Reading(id:"ooo2", position: 13)

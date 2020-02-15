@@ -37,6 +37,7 @@
 		1E36BC7A239CDB6200950AAB /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BC76239CDB6200950AAB /* MainViewPresenter.swift */; };
 		1E36BC7B239CDB6200950AAB /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E36BC77239CDB6200950AAB /* MainViewRouter.swift */; };
 		1E36BC7C239CDB6200950AAB /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E36BC78239CDB6200950AAB /* MainViewController.xib */; };
+		1E98B16A23F8380F00F13B96 /* DurationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E98B16923F8380F00F13B96 /* DurationLabel.swift */; };
 		1EE6A89023EEFCB700076C68 /* TrackSenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE6A88E23EEFCB700076C68 /* TrackSenderViewController.swift */; };
 		1EE6A89123EEFCB700076C68 /* TrackSenderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EE6A88F23EEFCB700076C68 /* TrackSenderViewController.xib */; };
 		42229F318F4BF6138A9736CB /* Pods_limonadier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580B46B64C57030C401B41B1 /* Pods_limonadier.framework */; };
@@ -133,6 +134,7 @@
 		1E36BC76239CDB6200950AAB /* MainViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		1E36BC77239CDB6200950AAB /* MainViewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewRouter.swift; sourceTree = "<group>"; };
 		1E36BC78239CDB6200950AAB /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		1E98B16923F8380F00F13B96 /* DurationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationLabel.swift; sourceTree = "<group>"; };
 		1EE6A88E23EEFCB700076C68 /* TrackSenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSenderViewController.swift; sourceTree = "<group>"; };
 		1EE6A88F23EEFCB700076C68 /* TrackSenderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackSenderViewController.xib; sourceTree = "<group>"; };
 		2FF203552454D8A8408C14E6 /* Pods-DataLayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DataLayer/Pods-DataLayer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,7 +157,6 @@
 		723F5F5323D5D073004D1A86 /* PlaylistRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRouter.swift; sourceTree = "<group>"; };
 		723F5F5823D5D5A0004D1A86 /* GetPlaylistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaylistUseCase.swift; sourceTree = "<group>"; };
 		7240EA5223D9C87400FB9A50 /* LocalTestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTestRepository.swift; sourceTree = "<group>"; };
-		724D9233239EFD730046404A /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		724D9235239F002D0046404A /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		759A17080112A64984137F7B /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
 		916A05F310E6DC3E31426A49 /* Pods_Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -368,10 +369,10 @@
 			isa = PBXGroup;
 			children = (
 				722E239B239EF84000D06ECB /* UIFont.swift */,
-				724D9233239EFD730046404A /* RoundedView.swift */,
 				724D9235239F002D0046404A /* UIColor.swift */,
 				1E0FC6AF23E64EF400ECAEAF /* FAIcon.swift */,
 				1E0FC6B123E653FD00ECAEAF /* FAButton.swift */,
+				1E98B16923F8380F00F13B96 /* DurationLabel.swift */,
 			);
 			path = ExtensionsAndComponents;
 			sourceTree = "<group>";
@@ -774,6 +775,7 @@
 				723F5F4F23D5D051004D1A86 /* PlaylistController.swift in Sources */,
 				1E36BC7A239CDB6200950AAB /* MainViewPresenter.swift in Sources */,
 				723F5F5623D5D144004D1A86 /* PlaylistRouter.swift in Sources */,
+				1E98B16A23F8380F00F13B96 /* DurationLabel.swift in Sources */,
 				1E36BBC1239C0EAB00950AAB /* SceneDelegate.swift in Sources */,
 				1E0FC6B023E64EF400ECAEAF /* FAIcon.swift in Sources */,
 				1E0C3AE623EEF2A000AF4855 /* TrackSenderPresenter.swift in Sources */,

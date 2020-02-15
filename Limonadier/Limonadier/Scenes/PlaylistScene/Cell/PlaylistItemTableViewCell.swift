@@ -14,6 +14,7 @@ class PlaylistItemTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var heartIcon: FAButton!
     @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var durationLabel: DurationLabel!
     class var className: String {
         return String(describing: self)
     }
@@ -39,6 +40,26 @@ class PlaylistItemTableViewCell: UITableViewCell {
         self.titleLabel.alpha = alpha
         self.artistLabel.alpha = alpha
         self.heartIcon.alpha = alpha
+    }
+    
+    private func commonSetup(_ item : PlaylistItem) {
+        titleLabel.text = item.title
+        artistLabel.text = item.artist
+        durationLabel.seconds = item.duration
+        self.selectionStyle = .none
+    }
+    
+    func changeSetupParameters(iconEnabled: Bool,
+                              iconCode: FontAwesome,
+                              iconStyle: FontAwesomeStyle,
+                              textColor: UIColor,
+                              textAlpha: CGFloat,
+                              backgroundColor: UIColor) {
+        self.heartIcon.isEnabled = iconEnabled
+        self.heartIcon.code = iconCode
+        self.heartIcon.style = iconStyle
+        setupText(color: textColor, alpha: textAlpha)
+        self.backgroundColor = backgroundColor
     }
     
     func setup(toRead item: PlaylistItem) {
@@ -71,24 +92,9 @@ class PlaylistItemTableViewCell: UITableViewCell {
                               backgroundColor: .titleColor)
     }
     
-    func changeSetupParameters(iconEnabled: Bool,
-                              iconCode: FontAwesome,
-                              iconStyle: FontAwesomeStyle,
-                              textColor: UIColor,
-                              textAlpha: CGFloat,
-                              backgroundColor: UIColor) {
-        self.heartIcon.isEnabled = iconEnabled
-        self.heartIcon.code = iconCode
-        self.heartIcon.style = iconStyle
-        setupText(color: textColor, alpha: textAlpha)
-        self.backgroundColor = backgroundColor
-    }
     
-    private func commonSetup(_ item : PlaylistItem) {
-        titleLabel.text = item.title
-        artistLabel.text = item.artist
-        self.selectionStyle = .none
-    }
+    
+    
 
     @IBAction func heartTapped(_ handler: Any) {
         heartIcon.style = heartIcon.style == .regular ? .solid : .regular

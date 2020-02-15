@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="musique" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyj-OR-pWS">
-                        <rect key="frame" x="65" y="13" width="339" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="65" y="13.5" width="301" height="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" name="DarkScarlett"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxE-nc-Bhy" customClass="FAButton" customModule="limonadier" customModuleProvider="target">
-                        <rect key="frame" x="20" y="10" width="30" height="27"/>
+                        <rect key="frame" x="20" y="10" width="30" height="28"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="vOA-9c-BCD"/>
                         </constraints>
@@ -43,21 +43,33 @@
                         <color key="textColor" name="DarkScarlett"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nna-3A-Ar3" customClass="DurationLabel" customModule="limonadier" customModuleProvider="target">
+                        <rect key="frame" x="371" y="17" width="33" height="15.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="33" id="cFY-02-Oga"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                        <color key="textColor" name="PaleGold"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="bLc-mx-XFy" firstAttribute="leading" secondItem="zyj-OR-pWS" secondAttribute="leading" id="317-2p-xSm"/>
+                    <constraint firstItem="Nna-3A-Ar3" firstAttribute="firstBaseline" secondItem="zyj-OR-pWS" secondAttribute="firstBaseline" id="36F-3o-Urx"/>
                     <constraint firstAttribute="bottom" secondItem="bLc-mx-XFy" secondAttribute="bottom" constant="14" id="8Vi-je-xiw"/>
+                    <constraint firstItem="Nna-3A-Ar3" firstAttribute="leading" secondItem="zyj-OR-pWS" secondAttribute="trailing" constant="5" id="CPl-3c-8tI"/>
                     <constraint firstItem="zxE-nc-Bhy" firstAttribute="top" secondItem="AEf-wf-u5I" secondAttribute="top" constant="10" id="GzF-li-coV"/>
-                    <constraint firstAttribute="trailing" secondItem="zyj-OR-pWS" secondAttribute="trailing" constant="10" id="L8f-sJ-cEg"/>
+                    <constraint firstItem="bLc-mx-XFy" firstAttribute="trailing" secondItem="Nna-3A-Ar3" secondAttribute="trailing" id="Idy-Bi-nMo"/>
                     <constraint firstItem="zyj-OR-pWS" firstAttribute="firstBaseline" secondItem="zxE-nc-Bhy" secondAttribute="firstBaseline" id="N5V-gk-5jQ"/>
                     <constraint firstItem="bLc-mx-XFy" firstAttribute="top" secondItem="zyj-OR-pWS" secondAttribute="bottom" constant="7.5" id="Z6X-ty-gsm"/>
                     <constraint firstItem="zxE-nc-Bhy" firstAttribute="leading" secondItem="AEf-wf-u5I" secondAttribute="leading" constant="20" id="Zza-BA-4fu"/>
                     <constraint firstItem="zyj-OR-pWS" firstAttribute="leading" secondItem="zxE-nc-Bhy" secondAttribute="trailing" constant="15" id="hiC-C7-kYH"/>
-                    <constraint firstItem="bLc-mx-XFy" firstAttribute="trailing" secondItem="zyj-OR-pWS" secondAttribute="trailing" id="ywQ-5d-bXw"/>
+                    <constraint firstAttribute="trailing" secondItem="Nna-3A-Ar3" secondAttribute="trailing" constant="10" id="nMo-s3-hJW"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="artistLabel" destination="bLc-mx-XFy" id="Sqg-UE-avm"/>
+                <outlet property="durationLabel" destination="Nna-3A-Ar3" id="6jf-4K-HUs"/>
                 <outlet property="heartIcon" destination="zxE-nc-Bhy" id="mXz-2S-y2r"/>
                 <outlet property="titleLabel" destination="zyj-OR-pWS" id="pCh-Xj-N6g"/>
             </connections>
@@ -70,6 +82,9 @@
         </namedColor>
         <namedColor name="FuzzyWuzzy">
             <color red="0.81999999284744263" green="0.41999998688697815" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PaleGold">
+            <color red="0.92900002002716064" green="0.72200000286102295" blue="0.54500001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
