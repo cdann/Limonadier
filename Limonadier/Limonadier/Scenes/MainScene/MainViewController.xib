@@ -15,6 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="limonadier" customModuleProvider="target">
             <connections>
+                <outlet property="playerContainer" destination="MFI-hA-G5f" id="pql-JZ-Nnf"/>
                 <outlet property="playlistContainer" destination="Nsq-WV-Dzz" id="Qnw-Cj-ltX"/>
                 <outlet property="trackSenderContainer" destination="0FR-X1-Zh6" id="rhO-Dn-5AZ"/>
                 <outlet property="view" destination="fDQ-Ew-uSL" id="uC3-HL-e0S"/>
@@ -119,7 +120,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" name="FuzzyWuzzy"/>
+                    <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="SjB-wa-lg6" firstAttribute="top" secondItem="MFI-hA-G5f" secondAttribute="top" id="2IC-ZG-Swz"/>
                         <constraint firstItem="SjB-wa-lg6" firstAttribute="width" secondItem="MFI-hA-G5f" secondAttribute="width" multiplier="0.65" id="8xf-dZ-JN8"/>
@@ -132,6 +133,13 @@
                         <constraint firstItem="hQd-Pl-bPd" firstAttribute="leading" secondItem="MFI-hA-G5f" secondAttribute="leading" constant="35" id="hqR-rd-eux"/>
                         <constraint firstItem="kbC-X9-fRs" firstAttribute="centerX" secondItem="MFI-hA-G5f" secondAttribute="centerX" id="oli-gv-eAW"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="SjB-wa-lg6"/>
+                            <exclude reference="hQd-Pl-bPd"/>
+                            <exclude reference="kbC-X9-fRs"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <constraints>
@@ -145,6 +153,7 @@
                 <constraint firstItem="0FR-X1-Zh6" firstAttribute="trailing" secondItem="CQN-Vs-77b" secondAttribute="trailing" id="MX3-rR-f8V"/>
                 <constraint firstItem="0FR-X1-Zh6" firstAttribute="top" secondItem="CQN-Vs-77b" secondAttribute="top" id="S7f-wc-4S7"/>
                 <constraint firstItem="MFI-hA-G5f" firstAttribute="trailing" secondItem="CQN-Vs-77b" secondAttribute="trailing" id="YhF-GO-dx9"/>
+                <constraint firstItem="MFI-hA-G5f" firstAttribute="top" secondItem="Nsq-WV-Dzz" secondAttribute="bottom" constant="10" id="bFn-4d-0VG"/>
                 <constraint firstItem="MFI-hA-G5f" firstAttribute="leading" secondItem="CQN-Vs-77b" secondAttribute="leading" id="jF3-pP-cDb"/>
                 <constraint firstItem="0FR-X1-Zh6" firstAttribute="leading" secondItem="CQN-Vs-77b" secondAttribute="leading" id="zxZ-8N-fAZ"/>
             </constraints>

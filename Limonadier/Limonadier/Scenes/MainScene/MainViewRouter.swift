@@ -54,6 +54,9 @@ struct MainViewRouter:  MainViewRouterInput {
         
         
         // Player
+        #warning("see mainscene")
+        let player = PlayerRouter.instantiateController(mainScene: controller, playlistChanged: playlistDidChange, onPlaylistNeedLoading: onPlaylistNeedLoading)
+        controller.playerController = player
 //        let playlist = PlaylistRouter.instantiateController()
 //        controller?.playlistController = playlist
         

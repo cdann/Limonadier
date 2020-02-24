@@ -8,51 +8,64 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import Domain
 
 enum PlayerModel {
     case loading
-    case display
-    case error(Error)
+    case display(readingTrack: PlaylistItem, readingPosition:Int)
+    case error(title: String, subtitle: String)
 }
 
-final class PlayerPresenter: UIView {
+class PlayerPresenter {
 
     private let bag = DisposeBag()
+    private let router: PlayerRouterInput
+    private weak var viewController: PlayerIntents?
+    private var routePublisher = PublishSubject<PlayerRoute>()
+    private let playlistReading: Observable<(readingPosition: Int, readingTrack: PlaylistItem?)>
+     private let onPlaylistNeedLoading: PublishSubject<Void>
+    
 
     init(router: PlayerRouterInput,
-         viewController: PlayerIntents) {
+         viewController: PlayerIntents, playlist: Observable<Playlist>, onPlaylistNeedLoading: PublishSubject<Void>) {
         self.router = router
         self.viewController = viewController
+        self.playlistReading = playlist.map({ (playlist) -> (readingPosition: Int, readingTrack: PlaylistItem?) in
+            let readingPosition = playlist.reading.position
+            let readingTrack = playlist.items.first { (item) -> Bool in
+                return item.id == playlist.reading.id
+                }
+            return (readingPosition: readingPosition, readingTrack: readingTrack)
+        })
+        self.onPlaylistNeedLoading = onPlaylistNeedLoading
     }
     
     deinit {
         print("Deinit \(self)")
     }
     
+    func needToReloadPlayingTrack() {
+        onPlaylistNeedLoading.onNext(())
+    }
+    
     func attach() {
         guard let viewController = viewController else { return }
         
-        
-        let loadIntent = viewController.loadIntent()
-            .map { PlayerModel.display }
-            .startWith(.loading)
-            .catchError({ (error) -> Observable<PlayerModel> in
-                return Observable.just(PlayerModel.error(error))
-            })
-            
-        Observable.merge([loadIntent]).subscribe(onNext: { [weak self] (model) in
-            self?.viewController?.display(viewModel: model)
-        }).disposed(by: bag)
+        playlistReading.debug("reading").subscribe(onNext: {
+            (readingData) in
+            guard let track = readingData.readingTrack else {
+                return
+            }
+            viewController.display(viewModel: .display(readingTrack: track, readingPosition: readingData.readingPosition))
+            }, onError: { (error) in
+                // viewController.display(viewModel: .error(error.localizedDescription))
+            }).disposed(by: bag)
         
         routePublisher
             .subscribe(onNext: { [weak self] (route) in
                 self?.router.go(to: route) })
             .disposed(by: bag)
-        
-        //viewController.closeErrorIntent()
-        //   .map {PlayerRoute.error}
-        //   .bind(to: routePublisher)
-        //   .disposed(by: bag)
     }
     
 }

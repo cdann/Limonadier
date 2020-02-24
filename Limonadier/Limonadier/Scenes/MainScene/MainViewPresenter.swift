@@ -20,7 +20,7 @@ class  MainViewPresenter {
     
     private let router: MainViewRouterInput
     private weak var viewController: MainViewIntents?
-    private var routePublisher = PublishSubject<MainViewRoute>()
+    //private var routePublisher = PublishSubject<MainViewRoute>()
     
     private let getPlaylistUC = UseCaseFactory.instance.createUseCase(Domain.GetPlaylistUseCase.self)
     

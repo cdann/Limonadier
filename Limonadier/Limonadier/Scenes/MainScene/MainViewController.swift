@@ -25,11 +25,14 @@ protocol MainViewIntents: class {
 class MainViewController: UIViewController {
 
     var presenter: MainViewPresenter!
+    
     @IBOutlet weak var playlistContainer: UIView!
     @IBOutlet weak var trackSenderContainer: UIView!
+    @IBOutlet weak var playerContainer: UIView!
     
     var playlistController: PlaylistController?
     var trackSenderController: TrackSenderViewController?
+    var playerController: PlayerController?
 
     override init(nibName nibNameOrNil: String? = "MainViewController", bundle nibBundleOrNil: Bundle? = nil) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -58,6 +61,9 @@ class MainViewController: UIViewController {
         }
         if let trackSenderController = trackSenderController {
             self.addChild(trackSenderController, in: self.trackSenderContainer)
+        }
+        if let playerController = playerController {
+            self.addChild(playerController, in: self.playerContainer)
         }
     }
     
