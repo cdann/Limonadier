@@ -23,25 +23,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Envie de partager une musique ? Lancez vous !" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xH-jf-A9z">
-                    <rect key="frame" x="35" y="74" width="305" height="41"/>
+                    <rect key="frame" x="35" y="59" width="305" height="41"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" name="DarkScarlett"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Collez votre url ici" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r58-ox-QRj">
-                    <rect key="frame" x="35" y="135" width="275" height="34"/>
+                    <rect key="frame" x="35" y="120" width="275" height="34"/>
                     <color key="textColor" name="FuzzyWuzzy"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Youtube, SoundCloud, Deezer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5O-PA-Zwe">
-                    <rect key="frame" x="35" y="179" width="145" height="12"/>
+                    <rect key="frame" x="35" y="164" width="145" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" name="DarkScarlett"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Xo-cP-UFf">
-                    <rect key="frame" x="310" y="135" width="30" height="34"/>
+                    <rect key="frame" x="310" y="120" width="30" height="34"/>
                     <color key="backgroundColor" name="TerraCotta"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="8ll-kj-9qA"/>
@@ -51,11 +51,11 @@
                     </state>
                 </button>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="L7p-Vh-ivv">
-                    <rect key="frame" x="315" y="142" width="20" height="20"/>
+                    <rect key="frame" x="315" y="127" width="20" height="20"/>
                     <color key="color" name="TerraCotta"/>
                 </activityIndicatorView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1s-ci-dQw" customClass="FAIcon" customModule="limonadier" customModuleProvider="target">
-                    <rect key="frame" x="310" y="135" width="30" height="34"/>
+                    <rect key="frame" x="310" y="120" width="30" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" name="TerraCotta"/>
                     <nil key="highlightedColor"/>
@@ -72,6 +72,7 @@
                 <constraint firstItem="L7p-Vh-ivv" firstAttribute="centerX" secondItem="5Xo-cP-UFf" secondAttribute="centerX" id="6Zu-LT-0XD"/>
                 <constraint firstItem="5Xo-cP-UFf" firstAttribute="trailing" secondItem="9xH-jf-A9z" secondAttribute="trailing" id="A5t-n6-5vo"/>
                 <constraint firstItem="9xH-jf-A9z" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="AQk-Nz-GDg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="K5O-PA-Zwe" secondAttribute="bottom" constant="10" id="Bd1-WE-Bx9"/>
                 <constraint firstItem="o1s-ci-dQw" firstAttribute="width" secondItem="5Xo-cP-UFf" secondAttribute="width" id="Dbx-Wi-UfU"/>
                 <constraint firstItem="5Xo-cP-UFf" firstAttribute="top" secondItem="r58-ox-QRj" secondAttribute="top" id="F9t-0x-Wjr"/>
                 <constraint firstItem="L7p-Vh-ivv" firstAttribute="centerY" secondItem="5Xo-cP-UFf" secondAttribute="centerY" id="HBG-5b-yKf"/>
@@ -81,9 +82,9 @@
                 <constraint firstItem="9xH-jf-A9z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="fBl-qA-8ST"/>
                 <constraint firstItem="5Xo-cP-UFf" firstAttribute="leading" secondItem="r58-ox-QRj" secondAttribute="trailing" id="fpT-Ht-IpA"/>
                 <constraint firstItem="5Xo-cP-UFf" firstAttribute="top" secondItem="o1s-ci-dQw" secondAttribute="top" id="lch-Zk-ysy"/>
-                <constraint firstItem="r58-ox-QRj" firstAttribute="top" secondItem="9xH-jf-A9z" secondAttribute="bottom" constant="20" id="qCT-gt-zAw"/>
+                <constraint firstItem="r58-ox-QRj" firstAttribute="top" secondItem="9xH-jf-A9z" secondAttribute="bottom" priority="999" constant="20" id="qCT-gt-zAw"/>
                 <constraint firstItem="r58-ox-QRj" firstAttribute="leading" secondItem="9xH-jf-A9z" secondAttribute="leading" id="ssm-Rw-RdY"/>
-                <constraint firstItem="9xH-jf-A9z" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="tT7-DK-xwJ"/>
+                <constraint firstItem="9xH-jf-A9z" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="15" id="tT7-DK-xwJ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

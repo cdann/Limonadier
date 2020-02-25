@@ -46,7 +46,7 @@ class  MainViewPresenter {
             return self.getPlaylistUC.execute(())
         }).subscribe(self.playlistChanged).disposed(by: bag)
         needToLoadPlaylist.onNext(())
-        Observable<Int>.interval(5, scheduler: MainScheduler.instance).debug("intervall load").map({ _ in () }).bind(to: needToLoadPlaylist.asObserver()).disposed(by: bag)
+        Observable<Int>.interval(5, scheduler: MainScheduler.instance).map({ _ in () }).bind(to: needToLoadPlaylist.asObserver()).disposed(by: bag)
     }
     func observeRouting(routeEvent: Observable<MainViewRoute>) {
         routeEvent

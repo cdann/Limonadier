@@ -28,59 +28,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0FR-X1-Zh6">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="158"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Envie de partager une musique ? Lancez vous !" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zu6-Pk-lgt">
-                            <rect key="frame" x="35" y="21" width="305" height="41"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" name="DarkScarlett"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Collez votre url ici" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jg2-wM-R92">
-                            <rect key="frame" x="35" y="84" width="275" height="34"/>
-                            <color key="textColor" name="FuzzyWuzzy"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Youtube, SoundCloud, Deezer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvX-wk-LUk">
-                            <rect key="frame" x="35" y="126" width="305" height="12"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                            <color key="textColor" name="DarkScarlett"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zZ-sB-uyM">
-                            <rect key="frame" x="310" y="84" width="30" height="34"/>
-                            <color key="backgroundColor" name="TerraCotta"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="30" id="A6X-Xe-KY3"/>
-                            </constraints>
-                            <state key="normal" title="+">
-                                <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            </state>
-                        </button>
-                    </subviews>
                     <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstItem="8zZ-sB-uyM" firstAttribute="top" secondItem="jg2-wM-R92" secondAttribute="top" id="22W-bz-6Ia"/>
-                        <constraint firstItem="zu6-Pk-lgt" firstAttribute="leading" secondItem="0FR-X1-Zh6" secondAttribute="leading" constant="35" id="3AP-Yq-ZwX"/>
-                        <constraint firstItem="8zZ-sB-uyM" firstAttribute="leading" secondItem="jg2-wM-R92" secondAttribute="trailing" id="3Tn-yh-aaY"/>
-                        <constraint firstItem="wvX-wk-LUk" firstAttribute="leading" secondItem="jg2-wM-R92" secondAttribute="leading" id="P1u-S6-Eub"/>
-                        <constraint firstItem="wvX-wk-LUk" firstAttribute="trailing" secondItem="zu6-Pk-lgt" secondAttribute="trailing" id="Si5-7h-sEY"/>
-                        <constraint firstItem="zu6-Pk-lgt" firstAttribute="top" secondItem="0FR-X1-Zh6" secondAttribute="top" constant="21" id="T7f-oK-OCA"/>
-                        <constraint firstItem="jg2-wM-R92" firstAttribute="leading" secondItem="zu6-Pk-lgt" secondAttribute="leading" id="jf0-eo-hNF"/>
-                        <constraint firstItem="8zZ-sB-uyM" firstAttribute="bottom" secondItem="jg2-wM-R92" secondAttribute="bottom" id="mJS-rx-FUi"/>
-                        <constraint firstItem="wvX-wk-LUk" firstAttribute="top" secondItem="jg2-wM-R92" secondAttribute="bottom" constant="8" id="t53-u0-0gJ"/>
-                        <constraint firstItem="jg2-wM-R92" firstAttribute="top" secondItem="zu6-Pk-lgt" secondAttribute="bottom" constant="22" id="xoY-Di-uj7"/>
-                        <constraint firstItem="zu6-Pk-lgt" firstAttribute="centerX" secondItem="0FR-X1-Zh6" secondAttribute="centerX" id="yKK-hz-iec"/>
-                        <constraint firstItem="8zZ-sB-uyM" firstAttribute="trailing" secondItem="zu6-Pk-lgt" secondAttribute="trailing" id="zpj-LP-PGn"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="subviews">
-                            <exclude reference="zu6-Pk-lgt"/>
-                            <exclude reference="jg2-wM-R92"/>
-                            <exclude reference="wvX-wk-LUk"/>
-                            <exclude reference="8zZ-sB-uyM"/>
-                        </mask>
-                    </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHr-Ad-P8W">
                     <rect key="frame" x="0.0" y="158" width="375" height="509"/>
@@ -142,6 +90,7 @@
                     </variation>
                 </view>
             </subviews>
+            <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="gHr-Ad-P8W" firstAttribute="bottom" secondItem="CQN-Vs-77b" secondAttribute="bottom" id="1X8-vs-hxX"/>
                 <constraint firstItem="SjB-wa-lg6" firstAttribute="top" secondItem="Nsq-WV-Dzz" secondAttribute="bottom" constant="10" id="2W1-B1-ePG"/>
@@ -151,7 +100,7 @@
                 <constraint firstItem="gHr-Ad-P8W" firstAttribute="top" secondItem="0FR-X1-Zh6" secondAttribute="bottom" id="JtK-c3-GZo"/>
                 <constraint firstAttribute="bottom" secondItem="MFI-hA-G5f" secondAttribute="bottom" id="M5H-FT-Me5"/>
                 <constraint firstItem="0FR-X1-Zh6" firstAttribute="trailing" secondItem="CQN-Vs-77b" secondAttribute="trailing" id="MX3-rR-f8V"/>
-                <constraint firstItem="0FR-X1-Zh6" firstAttribute="top" secondItem="CQN-Vs-77b" secondAttribute="top" id="S7f-wc-4S7"/>
+                <constraint firstItem="0FR-X1-Zh6" firstAttribute="top" secondItem="fDQ-Ew-uSL" secondAttribute="top" id="S7f-wc-4S7"/>
                 <constraint firstItem="MFI-hA-G5f" firstAttribute="trailing" secondItem="CQN-Vs-77b" secondAttribute="trailing" id="YhF-GO-dx9"/>
                 <constraint firstItem="MFI-hA-G5f" firstAttribute="top" secondItem="Nsq-WV-Dzz" secondAttribute="bottom" constant="10" id="bFn-4d-0VG"/>
                 <constraint firstItem="MFI-hA-G5f" firstAttribute="leading" secondItem="CQN-Vs-77b" secondAttribute="leading" id="jF3-pP-cDb"/>
@@ -165,14 +114,8 @@
         <namedColor name="DarkScarlett">
             <color red="0.30980392156862746" green="0.050980392156862744" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="FuzzyWuzzy">
-            <color red="0.81999999284744263" green="0.41999998688697815" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="PaleGold">
             <color red="0.92900002002716064" green="0.72200000286102295" blue="0.54500001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="TerraCotta">
-            <color red="0.88599997758865356" green="0.42699998617172241" blue="0.32899999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

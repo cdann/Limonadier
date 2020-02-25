@@ -45,14 +45,14 @@
             </subviews>
             <color key="backgroundColor" name="FuzzyWuzzy"/>
             <constraints>
-                <constraint firstItem="e7r-Ww-xrP" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="0O5-70-hk8"/>
+                <constraint firstItem="e7r-Ww-xrP" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="0O5-70-hk8"/>
                 <constraint firstItem="uka-1B-6tG" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="EZg-0g-lz7"/>
                 <constraint firstItem="AjT-ON-aO7" firstAttribute="top" secondItem="uka-1B-6tG" secondAttribute="bottom" constant="1" id="JLX-yn-2aC"/>
                 <constraint firstItem="e7r-Ww-xrP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Mqn-tg-PZA"/>
-                <constraint firstItem="uka-1B-6tG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="17" id="atG-SR-dzk"/>
+                <constraint firstItem="uka-1B-6tG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="17" id="atG-SR-dzk"/>
                 <constraint firstItem="e7r-Ww-xrP" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.64" id="bSQ-2V-zn4"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="AjT-ON-aO7" secondAttribute="bottom" constant="17.5" id="cBo-w2-oC9"/>
-                <constraint firstItem="e7r-Ww-xrP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="dg9-uY-th7"/>
+                <constraint firstAttribute="bottom" secondItem="AjT-ON-aO7" secondAttribute="bottom" constant="17.5" id="cBo-w2-oC9"/>
+                <constraint firstItem="e7r-Ww-xrP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dg9-uY-th7"/>
                 <constraint firstItem="AjT-ON-aO7" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="oMG-m0-WaX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

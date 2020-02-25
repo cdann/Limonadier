@@ -26,15 +26,15 @@ class  PlaylistPresenter {
     init(router: PlaylistRouterInput, viewController: PlaylistIntent, playlist:  Observable<Playlist>) {
         self.router = router
         self.viewController = viewController
-        var afterCurrent = false
         playListRows = playlist.map({ (playlist) -> [PlaylistRow] in
-            return playlist.items.map {
-                (item) -> PlaylistRow in
+            var readingIndex = -1
+            return playlist.items.enumerated().map {
+                (index, item) -> PlaylistRow in
                 if item.id == playlist.reading.id {
-                    afterCurrent = true
+                    readingIndex = index
                     return .reading(item)
                 }
-                return afterCurrent ? .toRead(item) : .past(item)
+                return readingIndex != -1 ? .toRead(item) : .past(item)
             }
         })
     }

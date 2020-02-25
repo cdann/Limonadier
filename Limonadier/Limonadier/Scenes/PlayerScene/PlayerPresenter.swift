@@ -52,7 +52,7 @@ class PlayerPresenter {
     func attach() {
         guard let viewController = viewController else { return }
         
-        playlistReading.debug("reading").subscribe(onNext: {
+        playlistReading.subscribe(onNext: {
             (readingData) in
             guard let track = readingData.readingTrack else {
                 return
