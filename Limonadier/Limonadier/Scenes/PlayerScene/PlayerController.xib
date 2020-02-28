@@ -15,7 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerController" customModule="limonadier" customModuleProvider="target">
             <connections>
-                <outlet property="progressConstraint" destination="bSQ-2V-zn4" id="asO-fw-1xK"/>
+                <outlet property="progressBar" destination="aGs-q9-UXG" id="HVg-J7-lIo"/>
                 <outlet property="remainingTimeLabel" destination="uka-1B-6tG" id="WJb-97-eRN"/>
                 <outlet property="trackTitle" destination="AjT-ON-aO7" id="Lq7-96-sDS"/>
                 <outlet property="view" destination="iN0-l3-epB" id="gEi-h7-8rz"/>
@@ -26,34 +26,57 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7r-Ww-xrP">
-                    <rect key="frame" x="135" y="0.0" width="240" height="116"/>
-                    <color key="backgroundColor" name="DarkScarlett"/>
-                </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Titre de mon contenu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjT-ON-aO7">
-                    <rect key="frame" x="105.5" y="78" width="164" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" name="PaleGold"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" ambiguous="YES" text="03 42" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uka-1B-6tG">
-                    <rect key="frame" x="112.5" y="17" width="150.5" height="60"/>
-                    <fontDescription key="fontDescription" name="LaradotSerif-Regular" family="Lara dot Serif" pointSize="60"/>
-                    <color key="textColor" name="PaleGold"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Eu3-T9-Cwg">
+                    <rect key="frame" x="10" y="10" width="355" height="96"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="03 42" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uka-1B-6tG">
+                            <rect key="frame" x="140" y="0.0" width="75.5" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="dum-nd-Hf3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="LaradotSerif-Regular" family="Lara dot Serif" pointSize="30"/>
+                            <color key="textColor" name="PaleGold"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titre de mon contenu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjT-ON-aO7">
+                            <rect key="frame" x="95.5" y="34" width="164" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20.5" id="hYC-u6-5n4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" name="PaleGold"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGs-q9-UXG" customClass="ProgressBar" customModule="limonadier" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="58.5" width="355" height="37.5"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="rly-81-9Cx"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
+                                    <color key="value" name="DarkScarlett"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="shapeColor">
+                                    <color key="value" name="PaleGold"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                    <real key="value" value="0.69999999999999996"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" name="FuzzyWuzzy"/>
             <constraints>
-                <constraint firstItem="e7r-Ww-xrP" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="0O5-70-hk8"/>
-                <constraint firstItem="uka-1B-6tG" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="EZg-0g-lz7"/>
-                <constraint firstItem="AjT-ON-aO7" firstAttribute="top" secondItem="uka-1B-6tG" secondAttribute="bottom" constant="1" id="JLX-yn-2aC"/>
-                <constraint firstItem="e7r-Ww-xrP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Mqn-tg-PZA"/>
-                <constraint firstItem="uka-1B-6tG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="17" id="atG-SR-dzk"/>
-                <constraint firstItem="e7r-Ww-xrP" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.64" id="bSQ-2V-zn4"/>
-                <constraint firstAttribute="bottom" secondItem="AjT-ON-aO7" secondAttribute="bottom" constant="17.5" id="cBo-w2-oC9"/>
-                <constraint firstItem="e7r-Ww-xrP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dg9-uY-th7"/>
-                <constraint firstItem="AjT-ON-aO7" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="oMG-m0-WaX"/>
+                <constraint firstItem="Eu3-T9-Cwg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="3E2-B9-0Eu"/>
+                <constraint firstAttribute="bottom" secondItem="Eu3-T9-Cwg" secondAttribute="bottom" constant="10" id="CZm-vM-MIJ"/>
+                <constraint firstItem="aGs-q9-UXG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="GCD-bs-yEU"/>
+                <constraint firstItem="Eu3-T9-Cwg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="KbS-64-0gk"/>
+                <constraint firstItem="Eu3-T9-Cwg" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Y0T-oq-Ys4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aGs-q9-UXG" secondAttribute="trailing" constant="10" id="dIz-bd-1Jj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Eu3-T9-Cwg" secondAttribute="trailing" constant="10" id="pZM-5A-2BP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

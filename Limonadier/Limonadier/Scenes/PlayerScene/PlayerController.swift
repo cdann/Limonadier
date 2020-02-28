@@ -21,7 +21,8 @@ class PlayerController: UIViewController {
     
     @IBOutlet weak var trackTitle: UILabel!
     @IBOutlet weak var remainingTimeLabel: UILabel!
-    @IBOutlet weak var progressConstraint: NSLayoutConstraint!
+    @IBOutlet weak var progressBar: ProgressBar!
+    
     weak var mainScene: MainScene!
     var presenter: PlayerPresenter!
     var timer: Disposable?
@@ -62,7 +63,7 @@ class PlayerController: UIViewController {
                 return;
             }
             let ratio: CGFloat = CGFloat(remainingTime) / CGFloat(trackDuration)
-            self?.progressConstraint = self?.progressConstraint.constraintWithChangedAttribute(multiplier: ratio)
+            //self?.progressBar.progress = ratio
             
         })
     }

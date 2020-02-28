@@ -57,6 +57,7 @@
 		723F5F5623D5D144004D1A86 /* PlaylistRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5F5323D5D073004D1A86 /* PlaylistRouter.swift */; };
 		723F5F5923D5D5A0004D1A86 /* GetPlaylistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5F5823D5D5A0004D1A86 /* GetPlaylistUseCase.swift */; };
 		7240EA5323D9C87400FB9A50 /* LocalTestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7240EA5223D9C87400FB9A50 /* LocalTestRepository.swift */; };
+		724604D424054F10001B7597 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724604D324054F10001B7597 /* ProgressBar.swift */; };
 		724D9236239F002D0046404A /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724D9235239F002D0046404A /* UIColor.swift */; };
 		99D2648BB180CE90A9E39DC8 /* Pods_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3648CE51DB47515A2A5765DA /* Pods_Domain.framework */; };
 		AAA75ED1E9DD21E2BD2B9166 /* libPods-LimonadierTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC411108CBE29F193F2C65F9 /* libPods-LimonadierTests.a */; };
@@ -165,6 +166,7 @@
 		723F5F5323D5D073004D1A86 /* PlaylistRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRouter.swift; sourceTree = "<group>"; };
 		723F5F5823D5D5A0004D1A86 /* GetPlaylistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaylistUseCase.swift; sourceTree = "<group>"; };
 		7240EA5223D9C87400FB9A50 /* LocalTestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTestRepository.swift; sourceTree = "<group>"; };
+		724604D324054F10001B7597 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		724D9233239EFD730046404A /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		724D9235239F002D0046404A /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		759A17080112A64984137F7B /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 				1E0FC6AF23E64EF400ECAEAF /* FAIcon.swift */,
 				1E0FC6B123E653FD00ECAEAF /* FAButton.swift */,
 				723D06BC23F4279B00EB612F /* NSLayoutConstraint.swift */,
+				724604D324054F10001B7597 /* ProgressBar.swift */,
 			);
 			path = ExtensionsAndComponents;
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 				1E0C3AE823EEF2B600AF4855 /* TrackSenderRouter.swift in Sources */,
 				723D06BD23F4279B00EB612F /* NSLayoutConstraint.swift in Sources */,
 				1E36BBBF239C0EAB00950AAB /* AppDelegate.swift in Sources */,
+				724604D424054F10001B7597 /* ProgressBar.swift in Sources */,
 				1E0FC6B223E653FD00ECAEAF /* FAButton.swift in Sources */,
 				723F5F4F23D5D051004D1A86 /* PlaylistController.swift in Sources */,
 				1E36BC7A239CDB6200950AAB /* MainViewPresenter.swift in Sources */,
